@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Jan 26, 2017 4:59:08 AM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="soft.idea.hospital.kidny2017.se.models.User" table="user" catalog="safenets_host_se" optimistic-lock="version">
+        <id name="iduser" type="java.lang.Integer">
+            <column name="iduser" />
+            <generator class="identity" />
+        </id>
+        <property name="userName" type="string">
+            <column name="user_name" length="45" />
+        </property>
+        <property name="userEmail" type="string">
+            <column name="user_email" length="45" />
+        </property>
+        <property name="userPw" type="string">
+            <column name="user_pw" length="45" />
+        </property>
+        <property name="userPhone" type="java.lang.Integer">
+            <column name="user_phone" />
+        </property>
+        <property name="userStatus" type="string">
+            <column name="user_status" length="45" />
+        </property>
+    </class>
+</hibernate-mapping>

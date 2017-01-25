@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Jan 26, 2017 4:59:08 AM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="soft.idea.hospital.kidny2017.se.models.AddressDoner" table="address_doner" catalog="safenets_host_se" optimistic-lock="version">
+        <id name="idaddressDoner" type="java.lang.Integer">
+            <column name="idaddress_doner" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="doner" class="soft.idea.hospital.kidny2017.se.models.Doner" fetch="select">
+            <column name="doner_iddoner" not-null="true" />
+        </many-to-one>
+        <property name="addressDonerNo" type="string">
+            <column name="address_doner_no" length="45" />
+        </property>
+        <property name="addressDonerStreet" type="string">
+            <column name="address_doner_street" length="45" />
+        </property>
+        <property name="addressDonerTown" type="string">
+            <column name="address_doner_town" length="45" />
+        </property>
+    </class>
+</hibernate-mapping>

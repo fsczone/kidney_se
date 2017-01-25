@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC "-//Hibernate/Hibernate Configuration DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+  <session-factory>
+    <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
+    <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
+    <property name="hibernate.connection.url">jdbc:mysql://77.104.128.75:3306/safenets_host_se?zeroDateTimeBehavior=convertToNull</property>
+    <property name="hibernate.connection.username">safenets_host_se</property>
+    <property name="hibernate.connection.password">WelComeDB1129</property>
+    <mapping resource="soft/idea/hospital/kidny2017/se/models/SubWhiteBloadPlates.hbm.xml"/>
+    <mapping resource="soft/idea/hospital/kidny2017/se/models/Institution.hbm.xml"/>
+    <mapping resource="soft/idea/hospital/kidny2017/se/models/DonerHostpital.hbm.xml"/>
+    <mapping resource="soft/idea/hospital/kidny2017/se/models/BlodGroup.hbm.xml"/>
+    <mapping resource="soft/idea/hospital/kidny2017/se/models/AddressDoner.hbm.xml"/>
+    <mapping resource="soft/idea/hospital/kidny2017/se/models/WhiteBloadPlates.hbm.xml"/>
+    <mapping resource="soft/idea/hospital/kidny2017/se/models/AddressPation.hbm.xml"/>
+    <mapping resource="soft/idea/hospital/kidny2017/se/models/RhesusFactor.hbm.xml"/>
+    <mapping resource="soft/idea/hospital/kidny2017/se/models/CadaverType.hbm.xml"/>
+    <mapping resource="soft/idea/hospital/kidny2017/se/models/User.hbm.xml"/>
+    <mapping resource="soft/idea/hospital/kidny2017/se/models/Virology.hbm.xml"/>
+    <mapping resource="soft/idea/hospital/kidny2017/se/models/Pation.hbm.xml"/>
+    <mapping resource="soft/idea/hospital/kidny2017/se/models/Doner.hbm.xml"/>
+  </session-factory>
+</hibernate-configuration>
