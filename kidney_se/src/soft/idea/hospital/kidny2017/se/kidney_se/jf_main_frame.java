@@ -23,7 +23,6 @@ public class jf_main_frame extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(61, 61, 61));
-        setMaximumSize(new java.awt.Dimension(1366, 768));
         setMinimumSize(new java.awt.Dimension(1366, 768));
         setUndecorated(true);
 
@@ -41,6 +40,8 @@ public class jf_main_frame extends javax.swing.JFrame {
         );
 
         jPanel2.setBackground(new java.awt.Color(0, 153, 153));
+        jPanel2.setMaximumSize(new java.awt.Dimension(1366, 663));
+        jPanel2.setMinimumSize(new java.awt.Dimension(1366, 663));
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
