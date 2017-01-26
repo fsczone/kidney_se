@@ -5,6 +5,7 @@
  */
 package soft.idea.hospital.kidny2017.se.kidney_se;
 
+import javax.swing.JOptionPane;
 import org.hibernate.Criteria;
 import org.hibernate.Session;
 import org.hibernate.criterion.Restrictions;
@@ -194,7 +195,22 @@ public class jp_login extends javax.swing.JPanel {
 
         Session session=HibernateUtil.getSessionFactory().openSession();
         Criteria criteria=session.createCriteria(User.class);
-        criteria.add(Restrictions.and(Restrictions.eq("userEmail", tf_user_email.getText().toLowerCase().trim()), Restrictions.eq("userPw", new String(jPasswordField1.getPassword().toString()))));
+        String password=new String(jPasswordField1.getPassword());
+        criteria.add(Restrictions.and(Restrictions.eq("userEmail", tf_user_email.getText().toLowerCase().trim()), Restrictions.eq("userPw", password)));
+        
+        User uniqueResult = (User) criteria.uniqueResult();
+        
+        if (uniqueResult != null) {
+            
+            
+            
+            
+        }else{
+        
+            JOptionPane.showMessageDialog(this, "Incorrect Username or Password!");
+            
+        }
+        System.out.println("OKKKKKKKKKKKKKKKKKKKK naha"+password);
         
     }//GEN-LAST:event_jButton1ActionPerformed
 
