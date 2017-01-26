@@ -1,5 +1,12 @@
 package soft.idea.hospital.kidny2017.se.kidney_se;
 
+import com.sun.awt.AWTUtilities;
+import java.awt.FlowLayout;
+import java.awt.LayoutManager;
+import javax.swing.UIManager;
+import javax.swing.UnsupportedLookAndFeelException;
+import sft.idea.hospital.kidny2017.se.supportive_sources.data;
+
 /**
  *
  * @author deepalsuranga
@@ -11,6 +18,34 @@ public class jf_main_frame extends javax.swing.JFrame {
      */
     public jf_main_frame() {
         initComponents();
+
+        try {
+            UIManager.setLookAndFeel("com.sun.java.swing.plaf.windows.WindowsLookAndFeel");
+            //AWTUtilities.setWindowOpaque(this, false);
+        } catch (ClassNotFoundException | InstantiationException | IllegalAccessException | UnsupportedLookAndFeelException e) {
+            e.printStackTrace();
+        }
+
+        
+         new Thread(() -> {
+            try {
+                jp_mainPanel.removeAll();
+                jp_mainPanel.setLayout(new FlowLayout());
+                jp_login login = new jp_login();
+                login.setVisible(true);
+                jp_mainPanel.add(login);
+                jp_mainPanel.updateUI();
+
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }).start();
+        
+        
+        
+//        LayoutManager lm=new LayoutManager
+//        jp_mainPanel.setLayout(LayoutManager);
+        
     }
 
     @SuppressWarnings("unchecked")
@@ -18,7 +53,7 @@ public class jf_main_frame extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        jPanel2 = new javax.swing.JPanel();
+        jp_mainPanel = new javax.swing.JPanel();
         jPanel3 = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -39,18 +74,18 @@ public class jf_main_frame extends javax.swing.JFrame {
             .addGap(0, 53, Short.MAX_VALUE)
         );
 
-        jPanel2.setBackground(new java.awt.Color(0, 153, 153));
-        jPanel2.setMaximumSize(new java.awt.Dimension(1366, 663));
-        jPanel2.setMinimumSize(new java.awt.Dimension(1366, 663));
+        jp_mainPanel.setBackground(new java.awt.Color(0, 153, 153));
+        jp_mainPanel.setMaximumSize(new java.awt.Dimension(1366, 663));
+        jp_mainPanel.setMinimumSize(new java.awt.Dimension(1366, 663));
 
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        javax.swing.GroupLayout jp_mainPanelLayout = new javax.swing.GroupLayout(jp_mainPanel);
+        jp_mainPanel.setLayout(jp_mainPanelLayout);
+        jp_mainPanelLayout.setHorizontalGroup(
+            jp_mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 1366, Short.MAX_VALUE)
         );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        jp_mainPanelLayout.setVerticalGroup(
+            jp_mainPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 663, Short.MAX_VALUE)
         );
 
@@ -75,7 +110,7 @@ public class jf_main_frame extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jp_mainPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addGap(0, 0, Short.MAX_VALUE))
         );
@@ -84,7 +119,7 @@ public class jf_main_frame extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jp_mainPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
@@ -110,7 +145,7 @@ public class jf_main_frame extends javax.swing.JFrame {
             java.util.logging.Logger.getLogger(jf_main_frame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
-        
+
         //</editor-fold>
 
         /* Create and display the form */
@@ -121,7 +156,7 @@ public class jf_main_frame extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
+    public static javax.swing.JPanel jp_mainPanel;
     // End of variables declaration//GEN-END:variables
 }
