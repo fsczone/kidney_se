@@ -7,6 +7,9 @@ package sft.idea.hospital.kidny2017.se.supportive_sources;
 
 import java.util.ArrayList;
 import javax.swing.JPanel;
+import org.hibernate.Hibernate;
+import org.hibernate.Session;
+import soft.idea.hospital.kidny2017.se.controler.HibernateUtil;
 
 /**
  *
@@ -17,7 +20,7 @@ public class data {
     public static ArrayList<String> province=new ArrayList<>();
     public static ArrayList<String> districts=new ArrayList<>();
     
-    
+    public static Session HibarnetSession=HibernateUtil.getSessionFactory().openSession();
     
     public static void md_changeview(JPanel jPanel1,JPanel jPanel2){
     
