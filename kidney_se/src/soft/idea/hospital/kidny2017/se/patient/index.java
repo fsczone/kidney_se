@@ -448,8 +448,8 @@ public class index extends javax.swing.JPanel {
             for (Institution institution : liForInstitution) {
                 v.add(institution.getInstitutionName().toString());
             }
-           DefaultComboBoxModel defaultComboBoxModel=(DefaultComboBoxModel) cb_institution.getModel();
-           defaultComboBoxModel.addElement(v);
+           DefaultComboBoxModel defaultComboBoxModel=new DefaultComboBoxModel(v);
+           cb_institution.setModel(defaultComboBoxModel);
             
         } catch (Exception e) {
             
@@ -460,6 +460,6 @@ public class index extends javax.swing.JPanel {
     }
 
     private void loadBlodGroup() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+
     }
 }

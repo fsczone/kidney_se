@@ -2,6 +2,7 @@ package soft.idea.hospital.kidny2017.se.kidney_se;
 
 import java.awt.Color;
 import java.awt.FlowLayout;
+import soft.idea.hospital.kidny2017.se.patient.index;
 
 /**
  *
@@ -55,6 +56,11 @@ public class jf_main_frame extends javax.swing.JFrame {
         jPanel3.setBackground(new java.awt.Color(65, 65, 65));
 
         jButton1.setText("jButton1");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         jButton2.setText("jButton2");
 
@@ -186,6 +192,24 @@ public class jf_main_frame extends javax.swing.JFrame {
         jPanel4.setBackground(new java.awt.Color(1,87,155));
         
     }//GEN-LAST:event_jLabel1MouseEntered
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+
+              new Thread(() -> {
+            try {
+                jp_mainPanel.removeAll();
+                jp_mainPanel.setLayout(new FlowLayout());
+                index jp_pation=new index();
+                jp_pation.setVisible(true);
+                jp_mainPanel.add(jp_pation);
+                jp_mainPanel.updateUI();
+
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }).start();
+        
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
