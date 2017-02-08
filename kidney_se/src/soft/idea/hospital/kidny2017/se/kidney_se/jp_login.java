@@ -7,8 +7,10 @@ package soft.idea.hospital.kidny2017.se.kidney_se;
 
 import java.awt.Color;
 import java.awt.FlowLayout;
+import java.awt.event.KeyEvent;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javafx.scene.input.KeyCode;
 import javax.swing.JOptionPane;
 import javax.swing.UIManager;
 import org.hibernate.Criteria;
@@ -30,6 +32,9 @@ public class jp_login extends javax.swing.JPanel {
      */
     public jp_login() {
         initComponents();
+
+        tf_user_email.grabFocus();
+
     }
 
     /**
@@ -52,7 +57,7 @@ public class jp_login extends javax.swing.JPanel {
         jLabel2 = new javax.swing.JLabel();
         bt_login = new javax.swing.JButton();
         jLabel7 = new javax.swing.JLabel();
-        jPasswordField1 = new javax.swing.JPasswordField();
+        pf_user_password = new javax.swing.JPasswordField();
         jLabel8 = new javax.swing.JLabel();
         jl_count = new javax.swing.JLabel();
 
@@ -95,6 +100,11 @@ public class jp_login extends javax.swing.JPanel {
 
         tf_user_email.setFont(new java.awt.Font("Microsoft JhengHei UI Light", 0, 18)); // NOI18N
         tf_user_email.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        tf_user_email.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                tf_user_emailKeyReleased(evt);
+            }
+        });
 
         jLabel2.setFont(new java.awt.Font("Microsoft JhengHei", 0, 14)); // NOI18N
         jLabel2.setText("Username:");
@@ -111,7 +121,12 @@ public class jp_login extends javax.swing.JPanel {
         jLabel7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/soft/idea/hospital/kidny2017/se/assets/collaborator.96px.png"))); // NOI18N
 
-        jPasswordField1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        pf_user_password.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        pf_user_password.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                pf_user_passwordKeyReleased(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -122,7 +137,7 @@ public class jp_login extends javax.swing.JPanel {
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 308, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addComponent(jPasswordField1, javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(pf_user_password, javax.swing.GroupLayout.Alignment.LEADING)
                         .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(tf_user_email, javax.swing.GroupLayout.Alignment.LEADING)
                         .addComponent(bt_login, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -141,7 +156,7 @@ public class jp_login extends javax.swing.JPanel {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPasswordField1, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(pf_user_password, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(bt_login, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
@@ -205,23 +220,63 @@ public class jp_login extends javax.swing.JPanel {
 
     private void bt_loginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bt_loginActionPerformed
 
-        new Thread(new Runnable() {
-            @Override
-            public void run() {
-                for (int i = 0; i <= 100; i++) {
-                    try {
-                        jl_count.setText(i + "%");
-                        Thread.sleep(100);
-                    } catch (InterruptedException ex) {
-                        Logger.getLogger(jp_login.class.getName()).log(Level.SEVERE, null, ex);
-                    }
+        check_login();
+
+    }//GEN-LAST:event_bt_loginActionPerformed
+
+    private void tf_user_emailKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tf_user_emailKeyReleased
+
+        if (KeyEvent.VK_ENTER == evt.getKeyCode()) {
+
+            pf_user_password.grabFocus();
+
+        }
+
+
+    }//GEN-LAST:event_tf_user_emailKeyReleased
+
+    private void pf_user_passwordKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_pf_user_passwordKeyReleased
+
+        if (KeyEvent.VK_ENTER == evt.getKeyCode()) {
+            check_login();
+        }
+
+    }//GEN-LAST:event_pf_user_passwordKeyReleased
+
+
+    // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton bt_login;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
+    private javax.swing.JLabel jl_count;
+    private javax.swing.JPasswordField pf_user_password;
+    private javax.swing.JTextField tf_user_email;
+    // End of variables declaration//GEN-END:variables
+
+    private void check_login() {
+
+        new Thread(() -> {
+            for (int i = 0; i <= 100; i++) {
+                try {
+                    jl_count.setText(i + "%");
+                    Thread.sleep(100);
+                } catch (InterruptedException ex) {
+                    Logger.getLogger(jp_login.class.getName()).log(Level.SEVERE, null, ex);
                 }
             }
         }).start();
 
         Session session = HibernateUtil.getSessionFactory().openSession();
         Criteria criteria = session.createCriteria(User.class);
-        String password = new String(jPasswordField1.getPassword());
+        String password = new String(pf_user_password.getPassword());
         criteria.add(Restrictions.and(Restrictions.eq("userEmail", tf_user_email.getText().toLowerCase().trim()), Restrictions.eq("userPw", password)));
 
         User uniqueResult = (User) criteria.uniqueResult();
@@ -239,8 +294,6 @@ public class jp_login extends javax.swing.JPanel {
                     jp_mainPanel.updateUI();
 
                     try {
-
-                     
 
                         jf_main_frame.bt_add_donor.setVisible(true);
                         jf_main_frame.bt_add_patient.setVisible(true);
@@ -261,30 +314,14 @@ public class jp_login extends javax.swing.JPanel {
                 }
             }).start();
 
+            JOptionPane.showMessageDialog(this, "Correct Username & Password! \n Welcome " + tf_user_email.getText().toUpperCase());
+
         } else {
 
             JOptionPane.showMessageDialog(this, "Incorrect Username or Password! \n Please Try Again");
 
         }
-        System.out.println("OKKKKKKKKKKKKKKKKKKKK naha" + password);
+        //System.out.println("OKKKKKKKKKKKKKKKKKKKK naha" + password);
 
-    }//GEN-LAST:event_bt_loginActionPerformed
-
-
-    // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton bt_login;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
-    private javax.swing.JPasswordField jPasswordField1;
-    private javax.swing.JLabel jl_count;
-    private javax.swing.JTextField tf_user_email;
-    // End of variables declaration//GEN-END:variables
+    }
 }

@@ -2,6 +2,8 @@ package soft.idea.hospital.kidny2017.se.kidney_se;
 
 import java.awt.Color;
 import java.awt.FlowLayout;
+import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 import javax.swing.UIManager;
 import soft.idea.hospital.kidny2017.se.patient.index;
 
@@ -259,7 +261,17 @@ public class jf_main_frame extends javax.swing.JFrame {
 
     private void jLabel1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel1MouseClicked
 
-        System.exit(0);
+        int conform=JOptionPane.showConfirmDialog(null, "Are you sure?", "Conform", JOptionPane.YES_NO_OPTION);
+        if (conform == JOptionPane.YES_OPTION) {
+        
+            System.exit(0);
+            
+        }else{
+        
+            JOptionPane.showMessageDialog(this, "Keep going", "Good work", JOptionPane.INFORMATION_MESSAGE);
+            
+        }
+        
 
     }//GEN-LAST:event_jLabel1MouseClicked
 
@@ -274,7 +286,11 @@ public class jf_main_frame extends javax.swing.JFrame {
     }//GEN-LAST:event_jLabel4MouseMoved
 
     private void jLabel4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel4MouseClicked
-        // TODO add your handling code here:
+
+
+        this.setExtendedState(JFrame.ICONIFIED);
+        
+        
     }//GEN-LAST:event_jLabel4MouseClicked
 
     private void jLabel4MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel4MouseEntered
