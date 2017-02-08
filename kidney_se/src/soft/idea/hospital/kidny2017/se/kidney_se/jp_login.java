@@ -5,12 +5,19 @@
  */
 package soft.idea.hospital.kidny2017.se.kidney_se;
 
+import java.awt.Color;
+import java.awt.FlowLayout;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
+import javax.swing.UIManager;
 import org.hibernate.Criteria;
 import org.hibernate.Session;
 import org.hibernate.criterion.Restrictions;
 import soft.idea.hospital.kidny2017.se.controler.HibernateUtil;
+import static soft.idea.hospital.kidny2017.se.kidney_se.jf_main_frame.jp_mainPanel;
 import soft.idea.hospital.kidny2017.se.models.User;
+import soft.idea.hospital.kidny2017.se.patient.index;
 
 /**
  *
@@ -43,10 +50,11 @@ public class jp_login extends javax.swing.JPanel {
         jLabel1 = new javax.swing.JLabel();
         tf_user_email = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
+        bt_login = new javax.swing.JButton();
         jLabel7 = new javax.swing.JLabel();
         jPasswordField1 = new javax.swing.JPasswordField();
         jLabel8 = new javax.swing.JLabel();
+        jl_count = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(250, 250, 250));
         setMaximumSize(new java.awt.Dimension(1366, 663));
@@ -91,17 +99,19 @@ public class jp_login extends javax.swing.JPanel {
         jLabel2.setFont(new java.awt.Font("Microsoft JhengHei", 0, 14)); // NOI18N
         jLabel2.setText("Username:");
 
-        jButton1.setBackground(new java.awt.Color(250, 250, 250));
-        jButton1.setFont(new java.awt.Font("Microsoft JhengHei", 0, 18)); // NOI18N
-        jButton1.setText("LOGIN HERE");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        bt_login.setBackground(new java.awt.Color(250, 250, 250));
+        bt_login.setFont(new java.awt.Font("Microsoft JhengHei", 0, 18)); // NOI18N
+        bt_login.setText("LOGIN HERE");
+        bt_login.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                bt_loginActionPerformed(evt);
             }
         });
 
         jLabel7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/soft/idea/hospital/kidny2017/se/assets/collaborator.96px.png"))); // NOI18N
+
+        jPasswordField1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -110,13 +120,13 @@ public class jp_login extends javax.swing.JPanel {
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jPasswordField1, javax.swing.GroupLayout.PREFERRED_SIZE, 256, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(tf_user_email)
-                        .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 308, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 308, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addComponent(jPasswordField1, javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(tf_user_email, javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(bt_login, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 300, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         jPanel2Layout.setVerticalGroup(
@@ -133,7 +143,7 @@ public class jp_login extends javax.swing.JPanel {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPasswordField1, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(bt_login, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
 
@@ -157,7 +167,8 @@ public class jp_login extends javax.swing.JPanel {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel5)
-                            .addComponent(jLabel8)))
+                            .addComponent(jLabel8)
+                            .addComponent(jl_count, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel4)
@@ -185,38 +196,83 @@ public class jp_login extends javax.swing.JPanel {
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jLabel5)))))
+                                .addComponent(jLabel5)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jl_count, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                 .addContainerGap())
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void bt_loginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bt_loginActionPerformed
 
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                for (int i = 0; i <= 100; i++) {
+                    try {
+                        jl_count.setText(i + "%");
+                        Thread.sleep(100);
+                    } catch (InterruptedException ex) {
+                        Logger.getLogger(jp_login.class.getName()).log(Level.SEVERE, null, ex);
+                    }
+                }
+            }
+        }).start();
 
-        Session session=HibernateUtil.getSessionFactory().openSession();
-        Criteria criteria=session.createCriteria(User.class);
-        String password=new String(jPasswordField1.getPassword());
+        Session session = HibernateUtil.getSessionFactory().openSession();
+        Criteria criteria = session.createCriteria(User.class);
+        String password = new String(jPasswordField1.getPassword());
         criteria.add(Restrictions.and(Restrictions.eq("userEmail", tf_user_email.getText().toLowerCase().trim()), Restrictions.eq("userPw", password)));
-        
+
         User uniqueResult = (User) criteria.uniqueResult();
-        
+
         if (uniqueResult != null) {
-            
-            
-            
-            
-        }else{
-        
-            JOptionPane.showMessageDialog(this, "Incorrect Username or Password!");
-            
+
+            new Thread(() -> {
+                try {
+
+                    jp_mainPanel.removeAll();
+                    jp_mainPanel.setLayout(new FlowLayout());
+                    soft.idea.hospital.kidny2017.se.administrator.index home = new soft.idea.hospital.kidny2017.se.administrator.index();
+                    home.setVisible(true);
+                    jp_mainPanel.add(home);
+                    jp_mainPanel.updateUI();
+
+                    try {
+
+                     
+
+                        jf_main_frame.bt_add_donor.setVisible(true);
+                        jf_main_frame.bt_add_patient.setVisible(true);
+                        jf_main_frame.bt_best_donor.setVisible(true);
+                        jf_main_frame.bt_best_patient.setVisible(true);
+                        jf_main_frame.bt_match_view.setVisible(true);
+                        jf_main_frame.bt_old_patients_and_donors.setVisible(true);
+                        jf_main_frame.bt_view_donors.setVisible(true);
+                        jf_main_frame.bt_view_patient.setVisible(true);
+                        jf_main_frame.bt_logout.setVisible(true);
+
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }).start();
+
+        } else {
+
+            JOptionPane.showMessageDialog(this, "Incorrect Username or Password! \n Please Try Again");
+
         }
-        System.out.println("OKKKKKKKKKKKKKKKKKKKK naha"+password);
-        
-    }//GEN-LAST:event_jButton1ActionPerformed
+        System.out.println("OKKKKKKKKKKKKKKKKKKKK naha" + password);
+
+    }//GEN-LAST:event_bt_loginActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
+    private javax.swing.JButton bt_login;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -228,6 +284,7 @@ public class jp_login extends javax.swing.JPanel {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPasswordField jPasswordField1;
+    private javax.swing.JLabel jl_count;
     private javax.swing.JTextField tf_user_email;
     // End of variables declaration//GEN-END:variables
 }
