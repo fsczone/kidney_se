@@ -25,12 +25,12 @@ import soft.idea.hospital.kidny2017.se.patient.index;
  *
  * @author deepalsuranga
  */
-public class jp_login extends javax.swing.JPanel {
+public class pl_user_login extends javax.swing.JPanel {
 
     /**
      * Creates new form jp_login
      */
-    public jp_login() {
+    public pl_user_login() {
         initComponents();
 
         tf_user_email.grabFocus();
@@ -269,7 +269,7 @@ public class jp_login extends javax.swing.JPanel {
                     jl_count.setText(i + "%");
                     Thread.sleep(100);
                 } catch (InterruptedException ex) {
-                    Logger.getLogger(jp_login.class.getName()).log(Level.SEVERE, null, ex);
+                    Logger.getLogger(pl_user_login.class.getName()).log(Level.SEVERE, null, ex);
                 }
             }
         }).start();

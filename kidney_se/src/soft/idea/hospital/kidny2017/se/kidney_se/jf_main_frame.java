@@ -33,7 +33,7 @@ public class jf_main_frame extends javax.swing.JFrame {
             try {
                 jp_mainPanel.removeAll();
                 jp_mainPanel.setLayout(new FlowLayout());
-                jp_login login = new jp_login();
+                pl_user_login login = new pl_user_login();
                 login.setVisible(true);
                 jp_mainPanel.add(login);
                 jp_mainPanel.updateUI();
