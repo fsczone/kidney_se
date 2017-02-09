@@ -6,10 +6,13 @@
 package soft.idea.hospital.kidny2017.se.patient;
 
 import java.util.List;
+import java.util.Locale;
 import java.util.Vector;
 import javax.swing.DefaultComboBoxModel;
 import org.hibernate.Criteria;
+import org.hibernate.criterion.Restrictions;
 import sft.idea.hospital.kidny2017.se.supportive_sources.data;
+import soft.idea.hospital.kidny2017.se.models.BlodGroup;
 import soft.idea.hospital.kidny2017.se.models.Institution;
 
 /**
@@ -25,6 +28,7 @@ public class index extends javax.swing.JPanel {
         initComponents();
         loadInstitution();
         loadBlodGroup();
+        loadCuntrys();
     }
 
     /**
@@ -439,27 +443,67 @@ public class index extends javax.swing.JPanel {
 
 
     private void loadInstitution() {
-        
+
         try {
-            
-            Criteria CForLoadInstitution=data.HibarnetSession.createCriteria(Institution.class);
-            List<Institution> liForInstitution=CForLoadInstitution.list();
-            Vector v=new Vector();
+
+            Criteria CForLoadInstitution = data.HibarnetSession.createCriteria(Institution.class);
+            List<Institution> liForInstitution = CForLoadInstitution.list();
+            Vector v = new Vector();
             for (Institution institution : liForInstitution) {
                 v.add(institution.getInstitutionName().toString());
             }
-           DefaultComboBoxModel defaultComboBoxModel=new DefaultComboBoxModel(v);
-           cb_institution.setModel(defaultComboBoxModel);
-            
+            DefaultComboBoxModel defaultComboBoxModel = new DefaultComboBoxModel(v);
+            cb_institution.setModel(defaultComboBoxModel);
+
         } catch (Exception e) {
-            
-            
-            
+
+        }
+
+    }
+
+    private void loadBlodGroup() {
+
+         try {
+
+            Criteria CForLoadBlodGroup = data.HibarnetSession.createCriteria(BlodGroup.class);
+            CForLoadBlodGroup.add(Restrictions.eq("blodGroupStatus", "1"));
+            List<BlodGroup> liForBlodGroup = CForLoadBlodGroup.list();
+            Vector v = new Vector();
+            for (BlodGroup blodGroup : liForBlodGroup) {
+                v.add(blodGroup.getBlodGroupName().toString());
+            }
+            DefaultComboBoxModel defaultComboBoxModel = new DefaultComboBoxModel(v);
+            cb_bloadgroup.setModel(defaultComboBoxModel);
+
+        } catch (Exception e) {
+
         }
         
     }
 
-    private void loadBlodGroup() {
+    private void loadCuntrys() {
+
+        try {
+
+            String[] locales = Locale.getISOCountries();
+            Vector v = new Vector();
+            v.add("Sri Lanka");
+            for (String countryCode : locales) {
+
+                Locale obj = new Locale("", countryCode);
+                v.add(obj.getDisplayCountry());
+                System.out.println("Country Code = " + obj.getCountry()
+                        + ", Country Name = " + obj.getDisplayCountry());
+
+            }
+            DefaultComboBoxModel defaultComboBoxModel = new DefaultComboBoxModel(v);
+            cb_citizenship.setModel(defaultComboBoxModel);
+
+        } catch (Exception e) {
+
+            e.printStackTrace();
+            
+        }
 
     }
 }
