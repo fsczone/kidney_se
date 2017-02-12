@@ -6,6 +6,7 @@ import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.UIManager;
 import soft.idea.hospital.kidny2017.se.patient.index;
+import soft.idea.hospital.kidny2017.se.patient.pl_show_patients;
 
 /**
  *
@@ -18,6 +19,10 @@ public class jf_main_frame extends javax.swing.JFrame {
      */
     public jf_main_frame() {
         initComponents();
+         try {
+            UIManager.setLookAndFeel("com.sun.java.swing.plaf.windows.WindowsLookAndFeel");
+        } catch (Exception ex) {
+        }
 
         bt_add_donor.setVisible(false);
         bt_add_patient.setVisible(false);
@@ -69,7 +74,6 @@ public class jf_main_frame extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(61, 61, 61));
-        setMaximumSize(new java.awt.Dimension(1366, 768));
         setMinimumSize(new java.awt.Dimension(1366, 768));
         setUndecorated(true);
 
@@ -78,8 +82,13 @@ public class jf_main_frame extends javax.swing.JFrame {
         jPanel3.setBackground(new java.awt.Color(65, 65, 65));
         jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        bt_add_donor.setBackground(new java.awt.Color(255, 255, 0));
+        bt_add_donor.setBackground(new java.awt.Color(255, 255, 255));
         bt_add_donor.setText("Add Donor");
+        bt_add_donor.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bt_add_donorActionPerformed(evt);
+            }
+        });
         jPanel3.add(bt_add_donor, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 11, 150, 40));
 
         bt_add_patient.setText("Add Patient");
@@ -102,6 +111,11 @@ public class jf_main_frame extends javax.swing.JFrame {
         jPanel3.add(bt_view_donors, new org.netbeans.lib.awtextra.AbsoluteConstraints(482, 11, 150, 40));
 
         bt_match_view.setText("Match View");
+        bt_match_view.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bt_match_viewActionPerformed(evt);
+            }
+        });
         jPanel3.add(bt_match_view, new org.netbeans.lib.awtextra.AbsoluteConstraints(638, 11, 150, 40));
 
         bt_best_donor.setText("Best Donor");
@@ -261,17 +275,17 @@ public class jf_main_frame extends javax.swing.JFrame {
 
     private void jLabel1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel1MouseClicked
 
-        int conform=JOptionPane.showConfirmDialog(null, "Are you sure?", "Conform", JOptionPane.YES_NO_OPTION);
+        int conform = JOptionPane.showConfirmDialog(null, "Are you sure?", "Conform", JOptionPane.YES_NO_OPTION);
         if (conform == JOptionPane.YES_OPTION) {
-        
+
             System.exit(0);
-            
-        }else{
-        
+
+        } else {
+
             JOptionPane.showMessageDialog(this, "Keep going", "Good work", JOptionPane.INFORMATION_MESSAGE);
-            
+
         }
-        
+
 
     }//GEN-LAST:event_jLabel1MouseClicked
 
@@ -287,10 +301,9 @@ public class jf_main_frame extends javax.swing.JFrame {
 
     private void jLabel4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel4MouseClicked
 
-
         this.setExtendedState(JFrame.ICONIFIED);
-        
-        
+
+
     }//GEN-LAST:event_jLabel4MouseClicked
 
     private void jLabel4MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel4MouseEntered
@@ -298,7 +311,22 @@ public class jf_main_frame extends javax.swing.JFrame {
     }//GEN-LAST:event_jLabel4MouseEntered
 
     private void bt_view_patientActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bt_view_patientActionPerformed
-        // TODO add your handling code here:
+
+        new Thread(() -> {
+
+            try {
+                jp_mainPanel.removeAll();
+                jp_mainPanel.setLayout(new FlowLayout());
+                soft.idea.hospital.kidny2017.se.patient.pl_show_patients show_patient = new pl_show_patients();
+                show_patient.setVisible(true);
+                jp_mainPanel.add(show_patient);
+                jp_mainPanel.updateUI();
+
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }).start();
+
     }//GEN-LAST:event_bt_view_patientActionPerformed
 
     private void bt_best_patientActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bt_best_patientActionPerformed
@@ -306,6 +334,25 @@ public class jf_main_frame extends javax.swing.JFrame {
     }//GEN-LAST:event_bt_best_patientActionPerformed
 
     private void bt_add_patientActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bt_add_patientActionPerformed
+        new Thread(() -> {
+
+            try {
+                jp_mainPanel.removeAll();
+                jp_mainPanel.setLayout(new FlowLayout());
+                soft.idea.hospital.kidny2017.se.patient.index add = new soft.idea.hospital.kidny2017.se.patient.index();
+                add.setVisible(true);
+                jp_mainPanel.add(add);
+                jp_mainPanel.updateUI();
+
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }).start();
+
+    }//GEN-LAST:event_bt_add_patientActionPerformed
+
+    private void bt_logoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bt_logoutActionPerformed
+
         new Thread(() -> {
 
             try {
@@ -321,12 +368,46 @@ public class jf_main_frame extends javax.swing.JFrame {
             }
         }).start();
 
-    }//GEN-LAST:event_bt_add_patientActionPerformed
-
-    private void bt_logoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bt_logoutActionPerformed
-
 
     }//GEN-LAST:event_bt_logoutActionPerformed
+
+    private void bt_add_donorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bt_add_donorActionPerformed
+
+        new Thread(() -> {
+
+            try {
+                jp_mainPanel.removeAll();
+                jp_mainPanel.setLayout(new FlowLayout());
+                soft.idea.hospital.kidny2017.se.donner.index donner = new soft.idea.hospital.kidny2017.se.donner.index();
+                donner.setVisible(true);
+                jp_mainPanel.add(donner);
+                jp_mainPanel.updateUI();
+
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }).start();
+
+    }//GEN-LAST:event_bt_add_donorActionPerformed
+
+    private void bt_match_viewActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bt_match_viewActionPerformed
+
+        new Thread(() -> {
+
+            try {
+                jp_mainPanel.removeAll();
+                jp_mainPanel.setLayout(new FlowLayout());
+                soft.idea.hospital.kidny2017.se.kidney_se.pl_match_donner_patient match = new pl_match_donner_patient();
+                match.setVisible(true);
+                jp_mainPanel.add(match);
+                jp_mainPanel.updateUI();
+
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }).start();
+
+    }//GEN-LAST:event_bt_match_viewActionPerformed
 
     /**
      * @param args the command line arguments
@@ -368,15 +449,11 @@ public class jf_main_frame extends javax.swing.JFrame {
     public static javax.swing.JButton bt_view_donors;
     public static javax.swing.JButton bt_view_patient;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
-    private javax.swing.JPanel jPanel5;
-    private javax.swing.JPanel jPanel6;
     private javax.swing.JPanel jPanel7;
     public static javax.swing.JPanel jp_mainPanel;
     // End of variables declaration//GEN-END:variables
