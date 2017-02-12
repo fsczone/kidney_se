@@ -132,7 +132,7 @@ public class jf_main_frame extends javax.swing.JFrame {
         bt_old_patients_and_donors.setText("Old Patients & Donors");
         jPanel3.add(bt_old_patients_and_donors, new org.netbeans.lib.awtextra.AbsoluteConstraints(1106, 11, 150, 40));
 
-        bt_logout.setText("Logout");
+        bt_logout.setText("< HOME");
         bt_logout.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 bt_logoutActionPerformed(evt);
@@ -354,18 +354,12 @@ public class jf_main_frame extends javax.swing.JFrame {
     private void bt_logoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bt_logoutActionPerformed
 
         new Thread(() -> {
-
-            try {
-                jp_mainPanel.removeAll();
-                jp_mainPanel.setLayout(new FlowLayout());
-                soft.idea.hospital.kidny2017.se.patient.index home = new soft.idea.hospital.kidny2017.se.patient.index();
-                home.setVisible(true);
-                jp_mainPanel.add(home);
-                jp_mainPanel.updateUI();
-
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
+            jp_mainPanel.removeAll();
+            jp_mainPanel.setLayout(new FlowLayout());
+            soft.idea.hospital.kidny2017.se.administrator.index home = new soft.idea.hospital.kidny2017.se.administrator.index();
+            home.setVisible(true);
+            jp_mainPanel.add(home);
+            jp_mainPanel.updateUI();
         }).start();
 
 
