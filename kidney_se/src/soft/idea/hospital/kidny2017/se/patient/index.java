@@ -14,8 +14,7 @@ import javax.swing.DefaultComboBoxModel;
 import org.hibernate.Criteria;
 import org.hibernate.criterion.Restrictions;
 import sft.idea.hospital.kidny2017.se.supportive_sources.data;
-import soft.idea.hospital.kidny2017.se.models.BlodGroup;
-import soft.idea.hospital.kidny2017.se.models.Institution;
+
 
 /**
  *
@@ -28,7 +27,6 @@ public class index extends javax.swing.JPanel {
      */
     public index() {
         initComponents();
-        loadBlodGroup();
         loadCuntrys();
     }
 
@@ -802,25 +800,7 @@ public class index extends javax.swing.JPanel {
 
  
 
-    private void loadBlodGroup() {
 
-         try {
-
-            Criteria CForLoadBlodGroup = data.HibarnetSession.createCriteria(BlodGroup.class);
-            CForLoadBlodGroup.add(Restrictions.eq("blodGroupStatus", "1"));
-            List<BlodGroup> liForBlodGroup = CForLoadBlodGroup.list();
-            Vector v = new Vector();
-            for (BlodGroup blodGroup : liForBlodGroup) {
-                v.add(blodGroup.getBlodGroupName().toString());
-            }
-            DefaultComboBoxModel defaultComboBoxModel = new DefaultComboBoxModel(v);
-            cb_bloadgroup.setModel(defaultComboBoxModel);
-
-        } catch (Exception e) {
-
-        }
-        
-    }
 
     private void loadCuntrys() {
 

@@ -3,16 +3,10 @@
 <hibernate-reverse-engineering>
   <schema-selection match-catalog="safenets_host_se"/>
   <table-filter match-name="doner"/>
+  <table-filter match-name="address_doner"/>
+  <table-filter match-name="pation_has_doner"/>
+  <table-filter match-name="pation"/>
   <table-filter match-name="doner_hostpital"/>
-  <table-filter match-name="blod_group"/>
   <table-filter match-name="user"/>
   <table-filter match-name="address_pation"/>
-  <table-filter match-name="sub_white_bload_plates"/>
-  <table-filter match-name="white_bload_plates"/>
-  <table-filter match-name="rhesus_factor"/>
-  <table-filter match-name="institution"/>
-  <table-filter match-name="virology"/>
-  <table-filter match-name="cadaver_type"/>
-  <table-filter match-name="pation"/>
-  <table-filter match-name="address_doner"/>
 </hibernate-reverse-engineering>

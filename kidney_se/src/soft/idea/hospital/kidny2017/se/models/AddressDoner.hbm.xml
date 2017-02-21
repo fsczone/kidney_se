@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
-<!-- Generated Feb 21, 2017 7:13:27 PM by Hibernate Tools 4.3.1 -->
+<!-- Generated Feb 21, 2017 8:45:31 PM by Hibernate Tools 4.3.1 -->
 <hibernate-mapping>
     <class name="soft.idea.hospital.kidny2017.se.models.AddressDoner" table="address_doner" catalog="safenets_host_se" optimistic-lock="version">
         <id name="idaddressDoner" type="java.lang.Integer">

@@ -1,15 +1,16 @@
 package soft.idea.hospital.kidny2017.se.models;
-// Generated Feb 21, 2017 7:13:25 PM by Hibernate Tools 4.3.1
+// Generated Feb 21, 2017 8:45:30 PM by Hibernate Tools 4.3.1
 
 
+import java.util.HashSet;
+import java.util.Set;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import static javax.persistence.GenerationType.IDENTITY;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 /**
@@ -23,25 +24,21 @@ public class DonerHostpital  implements java.io.Serializable {
 
 
      private Integer iddonerHostpital;
-     private Doner doner;
      private String donerHostpitalName;
      private String donerHostpitalProvince;
      private String donerHostpitalDistric;
      private String donerHostpitalStatus;
+     private Set<Doner> doners = new HashSet<Doner>(0);
 
     public DonerHostpital() {
     }
 
-	
-    public DonerHostpital(Doner doner) {
-        this.doner = doner;
-    }
-    public DonerHostpital(Doner doner, String donerHostpitalName, String donerHostpitalProvince, String donerHostpitalDistric, String donerHostpitalStatus) {
-       this.doner = doner;
+    public DonerHostpital(String donerHostpitalName, String donerHostpitalProvince, String donerHostpitalDistric, String donerHostpitalStatus, Set<Doner> doners) {
        this.donerHostpitalName = donerHostpitalName;
        this.donerHostpitalProvince = donerHostpitalProvince;
        this.donerHostpitalDistric = donerHostpitalDistric;
        this.donerHostpitalStatus = donerHostpitalStatus;
+       this.doners = doners;
     }
    
      @Id @GeneratedValue(strategy=IDENTITY)
@@ -54,16 +51,6 @@ public class DonerHostpital  implements java.io.Serializable {
     
     public void setIddonerHostpital(Integer iddonerHostpital) {
         this.iddonerHostpital = iddonerHostpital;
-    }
-
-@ManyToOne(fetch=FetchType.LAZY)
-    @JoinColumn(name="doner_iddoner", nullable=false)
-    public Doner getDoner() {
-        return this.doner;
-    }
-    
-    public void setDoner(Doner doner) {
-        this.doner = doner;
     }
 
     
@@ -104,6 +91,15 @@ public class DonerHostpital  implements java.io.Serializable {
     
     public void setDonerHostpitalStatus(String donerHostpitalStatus) {
         this.donerHostpitalStatus = donerHostpitalStatus;
+    }
+
+@OneToMany(fetch=FetchType.LAZY, mappedBy="donerHostpital")
+    public Set<Doner> getDoners() {
+        return this.doners;
+    }
+    
+    public void setDoners(Set<Doner> doners) {
+        this.doners = doners;
     }
 
 

@@ -6,18 +6,12 @@
     <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
     <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/safenets_host_se?zeroDateTimeBehavior=convertToNull</property>
     <property name="hibernate.connection.username">root</property>
-    <mapping resource="soft/idea/hospital/kidny2017/se/models/SubWhiteBloadPlates.hbm.xml"/>
-    <mapping resource="soft/idea/hospital/kidny2017/se/models/Institution.hbm.xml"/>
-    <mapping resource="soft/idea/hospital/kidny2017/se/models/DonerHostpital.hbm.xml"/>
-    <mapping resource="soft/idea/hospital/kidny2017/se/models/BlodGroup.hbm.xml"/>
-    <mapping resource="soft/idea/hospital/kidny2017/se/models/AddressDoner.hbm.xml"/>
-    <mapping resource="soft/idea/hospital/kidny2017/se/models/WhiteBloadPlates.hbm.xml"/>
     <mapping resource="soft/idea/hospital/kidny2017/se/models/AddressPation.hbm.xml"/>
-    <mapping resource="soft/idea/hospital/kidny2017/se/models/RhesusFactor.hbm.xml"/>
-    <mapping resource="soft/idea/hospital/kidny2017/se/models/CadaverType.hbm.xml"/>
     <mapping resource="soft/idea/hospital/kidny2017/se/models/User.hbm.xml"/>
-    <mapping resource="soft/idea/hospital/kidny2017/se/models/Virology.hbm.xml"/>
+    <mapping resource="soft/idea/hospital/kidny2017/se/models/PationHasDoner.hbm.xml"/>
+    <mapping resource="soft/idea/hospital/kidny2017/se/models/DonerHostpital.hbm.xml"/>
     <mapping resource="soft/idea/hospital/kidny2017/se/models/Pation.hbm.xml"/>
     <mapping resource="soft/idea/hospital/kidny2017/se/models/Doner.hbm.xml"/>
+    <mapping resource="soft/idea/hospital/kidny2017/se/models/AddressDoner.hbm.xml"/>
   </session-factory>
 </hibernate-configuration>

@@ -1,5 +1,5 @@
 package soft.idea.hospital.kidny2017.se.models;
-// Generated Feb 21, 2017 7:13:25 PM by Hibernate Tools 4.3.1
+// Generated Feb 21, 2017 8:45:30 PM by Hibernate Tools 4.3.1
 
 
 import java.util.HashSet;
@@ -26,85 +26,89 @@ public class Doner  implements java.io.Serializable {
 
 
      private Integer iddoner;
-     private BlodGroup blodGroup;
-     private CadaverType cadaverType;
-     private Institution institution;
-     private SubWhiteBloadPlates subWhiteBloadPlates;
-     private Virology virology;
+     private DonerHostpital donerHostpital;
      private String donerFname;
      private String donerMname;
      private String donerLname;
-     private String donerGen;
      private String donerNic;
-     private String donerDob;
-     private String donerRegdate;
-     private String donerRhesusFactor;
-     private String donerWeight;
-     private String donerHeight;
-     private String donerIdentity;
-     private String donerPhone;
      private String donerCauseOfDeath;
-     private String donerBrainDeathDate;
-     private String donerCuntry;
-     private String donerPastHistory;
-     private String donerPresenceOfSepsis;
-     private Integer donerAge;
      private String donerIcuDays;
-     private Integer donerBmi;
      private Integer donerSteatoticLiver;
-     private Integer donerSodiam;
-     private Integer donerSgpt;
-     private Integer donerSgot;
      private Integer donerBilirubin;
+     private String donerHla;
+     private String donerPhone;
+     private String donerDob;
+     private String donerGen;
+     private String donerHeight;
+     private String donerBmi;
+     private String donerSodiam;
+     private String donerCadaverType;
+     private String donerWeight;
+     private String donerPastHistoryDrug;
+     private String donerSgpt;
+     private String donerHivStatus;
+     private String donerHbvStatus;
+     private String donerDsa;
+     private String donerCuntry;
+     private String donerBlodGroup;
+     private String donerPastHistoryMalignancies;
+     private String donerSgot;
+     private String donerWhiteBloadPlates;
+     private String donerHcvStatus;
+     private String donerPra;
+     private String donerAge;
+     private String donerBrainDeathDate;
+     private String donerRegdate;
+     private String donerAvailable;
      private String donerStatus;
      private Set<AddressDoner> addressDoners = new HashSet<AddressDoner>(0);
-     private Set<DonerHostpital> donerHostpitals = new HashSet<DonerHostpital>(0);
+     private Set<PationHasDoner> pationHasDoners = new HashSet<PationHasDoner>(0);
 
     public Doner() {
     }
 
 	
-    public Doner(BlodGroup blodGroup, CadaverType cadaverType, Institution institution, SubWhiteBloadPlates subWhiteBloadPlates, Virology virology) {
-        this.blodGroup = blodGroup;
-        this.cadaverType = cadaverType;
-        this.institution = institution;
-        this.subWhiteBloadPlates = subWhiteBloadPlates;
-        this.virology = virology;
+    public Doner(DonerHostpital donerHostpital) {
+        this.donerHostpital = donerHostpital;
     }
-    public Doner(BlodGroup blodGroup, CadaverType cadaverType, Institution institution, SubWhiteBloadPlates subWhiteBloadPlates, Virology virology, String donerFname, String donerMname, String donerLname, String donerGen, String donerNic, String donerDob, String donerRegdate, String donerRhesusFactor, String donerWeight, String donerHeight, String donerIdentity, String donerPhone, String donerCauseOfDeath, String donerBrainDeathDate, String donerCuntry, String donerPastHistory, String donerPresenceOfSepsis, Integer donerAge, String donerIcuDays, Integer donerBmi, Integer donerSteatoticLiver, Integer donerSodiam, Integer donerSgpt, Integer donerSgot, Integer donerBilirubin, String donerStatus, Set<AddressDoner> addressDoners, Set<DonerHostpital> donerHostpitals) {
-       this.blodGroup = blodGroup;
-       this.cadaverType = cadaverType;
-       this.institution = institution;
-       this.subWhiteBloadPlates = subWhiteBloadPlates;
-       this.virology = virology;
+    public Doner(DonerHostpital donerHostpital, String donerFname, String donerMname, String donerLname, String donerNic, String donerCauseOfDeath, String donerIcuDays, Integer donerSteatoticLiver, Integer donerBilirubin, String donerHla, String donerPhone, String donerDob, String donerGen, String donerHeight, String donerBmi, String donerSodiam, String donerCadaverType, String donerWeight, String donerPastHistoryDrug, String donerSgpt, String donerHivStatus, String donerHbvStatus, String donerDsa, String donerCuntry, String donerBlodGroup, String donerPastHistoryMalignancies, String donerSgot, String donerWhiteBloadPlates, String donerHcvStatus, String donerPra, String donerAge, String donerBrainDeathDate, String donerRegdate, String donerAvailable, String donerStatus, Set<AddressDoner> addressDoners, Set<PationHasDoner> pationHasDoners) {
+       this.donerHostpital = donerHostpital;
        this.donerFname = donerFname;
        this.donerMname = donerMname;
        this.donerLname = donerLname;
-       this.donerGen = donerGen;
        this.donerNic = donerNic;
-       this.donerDob = donerDob;
-       this.donerRegdate = donerRegdate;
-       this.donerRhesusFactor = donerRhesusFactor;
-       this.donerWeight = donerWeight;
-       this.donerHeight = donerHeight;
-       this.donerIdentity = donerIdentity;
-       this.donerPhone = donerPhone;
        this.donerCauseOfDeath = donerCauseOfDeath;
-       this.donerBrainDeathDate = donerBrainDeathDate;
-       this.donerCuntry = donerCuntry;
-       this.donerPastHistory = donerPastHistory;
-       this.donerPresenceOfSepsis = donerPresenceOfSepsis;
-       this.donerAge = donerAge;
        this.donerIcuDays = donerIcuDays;
-       this.donerBmi = donerBmi;
        this.donerSteatoticLiver = donerSteatoticLiver;
-       this.donerSodiam = donerSodiam;
-       this.donerSgpt = donerSgpt;
-       this.donerSgot = donerSgot;
        this.donerBilirubin = donerBilirubin;
+       this.donerHla = donerHla;
+       this.donerPhone = donerPhone;
+       this.donerDob = donerDob;
+       this.donerGen = donerGen;
+       this.donerHeight = donerHeight;
+       this.donerBmi = donerBmi;
+       this.donerSodiam = donerSodiam;
+       this.donerCadaverType = donerCadaverType;
+       this.donerWeight = donerWeight;
+       this.donerPastHistoryDrug = donerPastHistoryDrug;
+       this.donerSgpt = donerSgpt;
+       this.donerHivStatus = donerHivStatus;
+       this.donerHbvStatus = donerHbvStatus;
+       this.donerDsa = donerDsa;
+       this.donerCuntry = donerCuntry;
+       this.donerBlodGroup = donerBlodGroup;
+       this.donerPastHistoryMalignancies = donerPastHistoryMalignancies;
+       this.donerSgot = donerSgot;
+       this.donerWhiteBloadPlates = donerWhiteBloadPlates;
+       this.donerHcvStatus = donerHcvStatus;
+       this.donerPra = donerPra;
+       this.donerAge = donerAge;
+       this.donerBrainDeathDate = donerBrainDeathDate;
+       this.donerRegdate = donerRegdate;
+       this.donerAvailable = donerAvailable;
        this.donerStatus = donerStatus;
        this.addressDoners = addressDoners;
-       this.donerHostpitals = donerHostpitals;
+       this.pationHasDoners = pationHasDoners;
     }
    
      @Id @GeneratedValue(strategy=IDENTITY)
@@ -120,53 +124,13 @@ public class Doner  implements java.io.Serializable {
     }
 
 @ManyToOne(fetch=FetchType.LAZY)
-    @JoinColumn(name="blod_group_idblod_group", nullable=false)
-    public BlodGroup getBlodGroup() {
-        return this.blodGroup;
+    @JoinColumn(name="doner_hostpital_iddoner_hostpital", nullable=false)
+    public DonerHostpital getDonerHostpital() {
+        return this.donerHostpital;
     }
     
-    public void setBlodGroup(BlodGroup blodGroup) {
-        this.blodGroup = blodGroup;
-    }
-
-@ManyToOne(fetch=FetchType.LAZY)
-    @JoinColumn(name="cadaver_type_idcadaver_type", nullable=false)
-    public CadaverType getCadaverType() {
-        return this.cadaverType;
-    }
-    
-    public void setCadaverType(CadaverType cadaverType) {
-        this.cadaverType = cadaverType;
-    }
-
-@ManyToOne(fetch=FetchType.LAZY)
-    @JoinColumn(name="institution_idinstitution", nullable=false)
-    public Institution getInstitution() {
-        return this.institution;
-    }
-    
-    public void setInstitution(Institution institution) {
-        this.institution = institution;
-    }
-
-@ManyToOne(fetch=FetchType.LAZY)
-    @JoinColumn(name="sub_white_bload_plates_idsub_white_bload_plates", nullable=false)
-    public SubWhiteBloadPlates getSubWhiteBloadPlates() {
-        return this.subWhiteBloadPlates;
-    }
-    
-    public void setSubWhiteBloadPlates(SubWhiteBloadPlates subWhiteBloadPlates) {
-        this.subWhiteBloadPlates = subWhiteBloadPlates;
-    }
-
-@ManyToOne(fetch=FetchType.LAZY)
-    @JoinColumn(name="virology_idvirology", nullable=false)
-    public Virology getVirology() {
-        return this.virology;
-    }
-    
-    public void setVirology(Virology virology) {
-        this.virology = virology;
+    public void setDonerHostpital(DonerHostpital donerHostpital) {
+        this.donerHostpital = donerHostpital;
     }
 
     
@@ -200,16 +164,6 @@ public class Doner  implements java.io.Serializable {
     }
 
     
-    @Column(name="doner_gen", length=45)
-    public String getDonerGen() {
-        return this.donerGen;
-    }
-    
-    public void setDonerGen(String donerGen) {
-        this.donerGen = donerGen;
-    }
-
-    
     @Column(name="doner_nic", length=45)
     public String getDonerNic() {
         return this.donerNic;
@@ -217,76 +171,6 @@ public class Doner  implements java.io.Serializable {
     
     public void setDonerNic(String donerNic) {
         this.donerNic = donerNic;
-    }
-
-    
-    @Column(name="doner_dob", length=45)
-    public String getDonerDob() {
-        return this.donerDob;
-    }
-    
-    public void setDonerDob(String donerDob) {
-        this.donerDob = donerDob;
-    }
-
-    
-    @Column(name="doner_regdate", length=45)
-    public String getDonerRegdate() {
-        return this.donerRegdate;
-    }
-    
-    public void setDonerRegdate(String donerRegdate) {
-        this.donerRegdate = donerRegdate;
-    }
-
-    
-    @Column(name="doner_rhesus_factor", length=45)
-    public String getDonerRhesusFactor() {
-        return this.donerRhesusFactor;
-    }
-    
-    public void setDonerRhesusFactor(String donerRhesusFactor) {
-        this.donerRhesusFactor = donerRhesusFactor;
-    }
-
-    
-    @Column(name="doner_weight", length=45)
-    public String getDonerWeight() {
-        return this.donerWeight;
-    }
-    
-    public void setDonerWeight(String donerWeight) {
-        this.donerWeight = donerWeight;
-    }
-
-    
-    @Column(name="doner_height", length=45)
-    public String getDonerHeight() {
-        return this.donerHeight;
-    }
-    
-    public void setDonerHeight(String donerHeight) {
-        this.donerHeight = donerHeight;
-    }
-
-    
-    @Column(name="doner_identity", length=45)
-    public String getDonerIdentity() {
-        return this.donerIdentity;
-    }
-    
-    public void setDonerIdentity(String donerIdentity) {
-        this.donerIdentity = donerIdentity;
-    }
-
-    
-    @Column(name="doner_phone", length=45)
-    public String getDonerPhone() {
-        return this.donerPhone;
-    }
-    
-    public void setDonerPhone(String donerPhone) {
-        this.donerPhone = donerPhone;
     }
 
     
@@ -300,56 +184,6 @@ public class Doner  implements java.io.Serializable {
     }
 
     
-    @Column(name="doner_brain_death_date", length=45)
-    public String getDonerBrainDeathDate() {
-        return this.donerBrainDeathDate;
-    }
-    
-    public void setDonerBrainDeathDate(String donerBrainDeathDate) {
-        this.donerBrainDeathDate = donerBrainDeathDate;
-    }
-
-    
-    @Column(name="doner_cuntry", length=45)
-    public String getDonerCuntry() {
-        return this.donerCuntry;
-    }
-    
-    public void setDonerCuntry(String donerCuntry) {
-        this.donerCuntry = donerCuntry;
-    }
-
-    
-    @Column(name="doner_past_history")
-    public String getDonerPastHistory() {
-        return this.donerPastHistory;
-    }
-    
-    public void setDonerPastHistory(String donerPastHistory) {
-        this.donerPastHistory = donerPastHistory;
-    }
-
-    
-    @Column(name="doner_presence_of_sepsis")
-    public String getDonerPresenceOfSepsis() {
-        return this.donerPresenceOfSepsis;
-    }
-    
-    public void setDonerPresenceOfSepsis(String donerPresenceOfSepsis) {
-        this.donerPresenceOfSepsis = donerPresenceOfSepsis;
-    }
-
-    
-    @Column(name="doner_age")
-    public Integer getDonerAge() {
-        return this.donerAge;
-    }
-    
-    public void setDonerAge(Integer donerAge) {
-        this.donerAge = donerAge;
-    }
-
-    
     @Column(name="doner_icu_days", length=45)
     public String getDonerIcuDays() {
         return this.donerIcuDays;
@@ -357,16 +191,6 @@ public class Doner  implements java.io.Serializable {
     
     public void setDonerIcuDays(String donerIcuDays) {
         this.donerIcuDays = donerIcuDays;
-    }
-
-    
-    @Column(name="doner_bmi")
-    public Integer getDonerBmi() {
-        return this.donerBmi;
-    }
-    
-    public void setDonerBmi(Integer donerBmi) {
-        this.donerBmi = donerBmi;
     }
 
     
@@ -380,36 +204,6 @@ public class Doner  implements java.io.Serializable {
     }
 
     
-    @Column(name="doner_sodiam")
-    public Integer getDonerSodiam() {
-        return this.donerSodiam;
-    }
-    
-    public void setDonerSodiam(Integer donerSodiam) {
-        this.donerSodiam = donerSodiam;
-    }
-
-    
-    @Column(name="doner_sgpt")
-    public Integer getDonerSgpt() {
-        return this.donerSgpt;
-    }
-    
-    public void setDonerSgpt(Integer donerSgpt) {
-        this.donerSgpt = donerSgpt;
-    }
-
-    
-    @Column(name="doner_sgot")
-    public Integer getDonerSgot() {
-        return this.donerSgot;
-    }
-    
-    public void setDonerSgot(Integer donerSgot) {
-        this.donerSgot = donerSgot;
-    }
-
-    
     @Column(name="doner_bilirubin")
     public Integer getDonerBilirubin() {
         return this.donerBilirubin;
@@ -417,6 +211,256 @@ public class Doner  implements java.io.Serializable {
     
     public void setDonerBilirubin(Integer donerBilirubin) {
         this.donerBilirubin = donerBilirubin;
+    }
+
+    
+    @Column(name="doner_hla", length=45)
+    public String getDonerHla() {
+        return this.donerHla;
+    }
+    
+    public void setDonerHla(String donerHla) {
+        this.donerHla = donerHla;
+    }
+
+    
+    @Column(name="doner_phone", length=45)
+    public String getDonerPhone() {
+        return this.donerPhone;
+    }
+    
+    public void setDonerPhone(String donerPhone) {
+        this.donerPhone = donerPhone;
+    }
+
+    
+    @Column(name="doner_dob", length=45)
+    public String getDonerDob() {
+        return this.donerDob;
+    }
+    
+    public void setDonerDob(String donerDob) {
+        this.donerDob = donerDob;
+    }
+
+    
+    @Column(name="doner_gen", length=45)
+    public String getDonerGen() {
+        return this.donerGen;
+    }
+    
+    public void setDonerGen(String donerGen) {
+        this.donerGen = donerGen;
+    }
+
+    
+    @Column(name="doner_height", length=45)
+    public String getDonerHeight() {
+        return this.donerHeight;
+    }
+    
+    public void setDonerHeight(String donerHeight) {
+        this.donerHeight = donerHeight;
+    }
+
+    
+    @Column(name="doner_bmi", length=45)
+    public String getDonerBmi() {
+        return this.donerBmi;
+    }
+    
+    public void setDonerBmi(String donerBmi) {
+        this.donerBmi = donerBmi;
+    }
+
+    
+    @Column(name="doner_sodiam", length=45)
+    public String getDonerSodiam() {
+        return this.donerSodiam;
+    }
+    
+    public void setDonerSodiam(String donerSodiam) {
+        this.donerSodiam = donerSodiam;
+    }
+
+    
+    @Column(name="doner_cadaver_type", length=45)
+    public String getDonerCadaverType() {
+        return this.donerCadaverType;
+    }
+    
+    public void setDonerCadaverType(String donerCadaverType) {
+        this.donerCadaverType = donerCadaverType;
+    }
+
+    
+    @Column(name="doner_weight", length=45)
+    public String getDonerWeight() {
+        return this.donerWeight;
+    }
+    
+    public void setDonerWeight(String donerWeight) {
+        this.donerWeight = donerWeight;
+    }
+
+    
+    @Column(name="doner_past_history_drug")
+    public String getDonerPastHistoryDrug() {
+        return this.donerPastHistoryDrug;
+    }
+    
+    public void setDonerPastHistoryDrug(String donerPastHistoryDrug) {
+        this.donerPastHistoryDrug = donerPastHistoryDrug;
+    }
+
+    
+    @Column(name="doner_sgpt", length=45)
+    public String getDonerSgpt() {
+        return this.donerSgpt;
+    }
+    
+    public void setDonerSgpt(String donerSgpt) {
+        this.donerSgpt = donerSgpt;
+    }
+
+    
+    @Column(name="doner_hiv_status", length=45)
+    public String getDonerHivStatus() {
+        return this.donerHivStatus;
+    }
+    
+    public void setDonerHivStatus(String donerHivStatus) {
+        this.donerHivStatus = donerHivStatus;
+    }
+
+    
+    @Column(name="doner_hbv_status", length=45)
+    public String getDonerHbvStatus() {
+        return this.donerHbvStatus;
+    }
+    
+    public void setDonerHbvStatus(String donerHbvStatus) {
+        this.donerHbvStatus = donerHbvStatus;
+    }
+
+    
+    @Column(name="doner_dsa", length=45)
+    public String getDonerDsa() {
+        return this.donerDsa;
+    }
+    
+    public void setDonerDsa(String donerDsa) {
+        this.donerDsa = donerDsa;
+    }
+
+    
+    @Column(name="doner_cuntry", length=45)
+    public String getDonerCuntry() {
+        return this.donerCuntry;
+    }
+    
+    public void setDonerCuntry(String donerCuntry) {
+        this.donerCuntry = donerCuntry;
+    }
+
+    
+    @Column(name="doner_blod_group", length=45)
+    public String getDonerBlodGroup() {
+        return this.donerBlodGroup;
+    }
+    
+    public void setDonerBlodGroup(String donerBlodGroup) {
+        this.donerBlodGroup = donerBlodGroup;
+    }
+
+    
+    @Column(name="doner_past_history_malignancies")
+    public String getDonerPastHistoryMalignancies() {
+        return this.donerPastHistoryMalignancies;
+    }
+    
+    public void setDonerPastHistoryMalignancies(String donerPastHistoryMalignancies) {
+        this.donerPastHistoryMalignancies = donerPastHistoryMalignancies;
+    }
+
+    
+    @Column(name="doner_sgot", length=45)
+    public String getDonerSgot() {
+        return this.donerSgot;
+    }
+    
+    public void setDonerSgot(String donerSgot) {
+        this.donerSgot = donerSgot;
+    }
+
+    
+    @Column(name="doner_white_bload_plates", length=45)
+    public String getDonerWhiteBloadPlates() {
+        return this.donerWhiteBloadPlates;
+    }
+    
+    public void setDonerWhiteBloadPlates(String donerWhiteBloadPlates) {
+        this.donerWhiteBloadPlates = donerWhiteBloadPlates;
+    }
+
+    
+    @Column(name="doner_hcv_status", length=45)
+    public String getDonerHcvStatus() {
+        return this.donerHcvStatus;
+    }
+    
+    public void setDonerHcvStatus(String donerHcvStatus) {
+        this.donerHcvStatus = donerHcvStatus;
+    }
+
+    
+    @Column(name="doner_pra", length=45)
+    public String getDonerPra() {
+        return this.donerPra;
+    }
+    
+    public void setDonerPra(String donerPra) {
+        this.donerPra = donerPra;
+    }
+
+    
+    @Column(name="doner_age", length=45)
+    public String getDonerAge() {
+        return this.donerAge;
+    }
+    
+    public void setDonerAge(String donerAge) {
+        this.donerAge = donerAge;
+    }
+
+    
+    @Column(name="doner_brain_death_date", length=45)
+    public String getDonerBrainDeathDate() {
+        return this.donerBrainDeathDate;
+    }
+    
+    public void setDonerBrainDeathDate(String donerBrainDeathDate) {
+        this.donerBrainDeathDate = donerBrainDeathDate;
+    }
+
+    
+    @Column(name="doner_regdate", length=45)
+    public String getDonerRegdate() {
+        return this.donerRegdate;
+    }
+    
+    public void setDonerRegdate(String donerRegdate) {
+        this.donerRegdate = donerRegdate;
+    }
+
+    
+    @Column(name="doner_available", length=45)
+    public String getDonerAvailable() {
+        return this.donerAvailable;
+    }
+    
+    public void setDonerAvailable(String donerAvailable) {
+        this.donerAvailable = donerAvailable;
     }
 
     
@@ -439,12 +483,12 @@ public class Doner  implements java.io.Serializable {
     }
 
 @OneToMany(fetch=FetchType.LAZY, mappedBy="doner")
-    public Set<DonerHostpital> getDonerHostpitals() {
-        return this.donerHostpitals;
+    public Set<PationHasDoner> getPationHasDoners() {
+        return this.pationHasDoners;
     }
     
-    public void setDonerHostpitals(Set<DonerHostpital> donerHostpitals) {
-        this.donerHostpitals = donerHostpitals;
+    public void setPationHasDoners(Set<PationHasDoner> pationHasDoners) {
+        this.pationHasDoners = pationHasDoners;
     }
 
 

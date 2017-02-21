@@ -1,27 +1,15 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
-<!-- Generated Feb 21, 2017 7:13:27 PM by Hibernate Tools 4.3.1 -->
+<!-- Generated Feb 21, 2017 8:45:31 PM by Hibernate Tools 4.3.1 -->
 <hibernate-mapping>
     <class name="soft.idea.hospital.kidny2017.se.models.Doner" table="doner" catalog="safenets_host_se" optimistic-lock="version">
         <id name="iddoner" type="java.lang.Integer">
             <column name="iddoner" />
             <generator class="identity" />
         </id>
-        <many-to-one name="blodGroup" class="soft.idea.hospital.kidny2017.se.models.BlodGroup" fetch="select">
-            <column name="blod_group_idblod_group" not-null="true" />
-        </many-to-one>
-        <many-to-one name="cadaverType" class="soft.idea.hospital.kidny2017.se.models.CadaverType" fetch="select">
-            <column name="cadaver_type_idcadaver_type" not-null="true" />
-        </many-to-one>
-        <many-to-one name="institution" class="soft.idea.hospital.kidny2017.se.models.Institution" fetch="select">
-            <column name="institution_idinstitution" not-null="true" />
-        </many-to-one>
-        <many-to-one name="subWhiteBloadPlates" class="soft.idea.hospital.kidny2017.se.models.SubWhiteBloadPlates" fetch="select">
-            <column name="sub_white_bload_plates_idsub_white_bload_plates" not-null="true" />
-        </many-to-one>
-        <many-to-one name="virology" class="soft.idea.hospital.kidny2017.se.models.Virology" fetch="select">
-            <column name="virology_idvirology" not-null="true" />
+        <many-to-one name="donerHostpital" class="soft.idea.hospital.kidny2017.se.models.DonerHostpital" fetch="select">
+            <column name="doner_hostpital_iddoner_hostpital" not-null="true" />
         </many-to-one>
         <property name="donerFname" type="string">
             <column name="doner_fname" length="45" />
@@ -32,71 +20,95 @@
         <property name="donerLname" type="string">
             <column name="doner_lname" length="45" />
         </property>
-        <property name="donerGen" type="string">
-            <column name="doner_gen" length="45" />
-        </property>
         <property name="donerNic" type="string">
             <column name="doner_nic" length="45" />
-        </property>
-        <property name="donerDob" type="string">
-            <column name="doner_dob" length="45" />
-        </property>
-        <property name="donerRegdate" type="string">
-            <column name="doner_regdate" length="45" />
-        </property>
-        <property name="donerRhesusFactor" type="string">
-            <column name="doner_rhesus_factor" length="45" />
-        </property>
-        <property name="donerWeight" type="string">
-            <column name="doner_weight" length="45" />
-        </property>
-        <property name="donerHeight" type="string">
-            <column name="doner_height" length="45" />
-        </property>
-        <property name="donerIdentity" type="string">
-            <column name="doner_identity" length="45" />
-        </property>
-        <property name="donerPhone" type="string">
-            <column name="doner_phone" length="45" />
         </property>
         <property name="donerCauseOfDeath" type="string">
             <column name="doner_cause_of_death" length="45" />
         </property>
-        <property name="donerBrainDeathDate" type="string">
-            <column name="doner_brain_death_date" length="45" />
-        </property>
-        <property name="donerCuntry" type="string">
-            <column name="doner_cuntry" length="45" />
-        </property>
-        <property name="donerPastHistory" type="string">
-            <column name="doner_past_history" />
-        </property>
-        <property name="donerPresenceOfSepsis" type="string">
-            <column name="doner_presence_of_sepsis" />
-        </property>
-        <property name="donerAge" type="java.lang.Integer">
-            <column name="doner_age" />
-        </property>
         <property name="donerIcuDays" type="string">
             <column name="doner_icu_days" length="45" />
-        </property>
-        <property name="donerBmi" type="java.lang.Integer">
-            <column name="doner_bmi" />
         </property>
         <property name="donerSteatoticLiver" type="java.lang.Integer">
             <column name="doner_steatotic_liver" />
         </property>
-        <property name="donerSodiam" type="java.lang.Integer">
-            <column name="doner_sodiam" />
-        </property>
-        <property name="donerSgpt" type="java.lang.Integer">
-            <column name="doner_sgpt" />
-        </property>
-        <property name="donerSgot" type="java.lang.Integer">
-            <column name="doner_sgot" />
-        </property>
         <property name="donerBilirubin" type="java.lang.Integer">
             <column name="doner_bilirubin" />
+        </property>
+        <property name="donerHla" type="string">
+            <column name="doner_hla" length="45" />
+        </property>
+        <property name="donerPhone" type="string">
+            <column name="doner_phone" length="45" />
+        </property>
+        <property name="donerDob" type="string">
+            <column name="doner_dob" length="45" />
+        </property>
+        <property name="donerGen" type="string">
+            <column name="doner_gen" length="45" />
+        </property>
+        <property name="donerHeight" type="string">
+            <column name="doner_height" length="45" />
+        </property>
+        <property name="donerBmi" type="string">
+            <column name="doner_bmi" length="45" />
+        </property>
+        <property name="donerSodiam" type="string">
+            <column name="doner_sodiam" length="45" />
+        </property>
+        <property name="donerCadaverType" type="string">
+            <column name="doner_cadaver_type" length="45" />
+        </property>
+        <property name="donerWeight" type="string">
+            <column name="doner_weight" length="45" />
+        </property>
+        <property name="donerPastHistoryDrug" type="string">
+            <column name="doner_past_history_drug" />
+        </property>
+        <property name="donerSgpt" type="string">
+            <column name="doner_sgpt" length="45" />
+        </property>
+        <property name="donerHivStatus" type="string">
+            <column name="doner_hiv_status" length="45" />
+        </property>
+        <property name="donerHbvStatus" type="string">
+            <column name="doner_hbv_status" length="45" />
+        </property>
+        <property name="donerDsa" type="string">
+            <column name="doner_dsa" length="45" />
+        </property>
+        <property name="donerCuntry" type="string">
+            <column name="doner_cuntry" length="45" />
+        </property>
+        <property name="donerBlodGroup" type="string">
+            <column name="doner_blod_group" length="45" />
+        </property>
+        <property name="donerPastHistoryMalignancies" type="string">
+            <column name="doner_past_history_malignancies" />
+        </property>
+        <property name="donerSgot" type="string">
+            <column name="doner_sgot" length="45" />
+        </property>
+        <property name="donerWhiteBloadPlates" type="string">
+            <column name="doner_white_bload_plates" length="45" />
+        </property>
+        <property name="donerHcvStatus" type="string">
+            <column name="doner_hcv_status" length="45" />
+        </property>
+        <property name="donerPra" type="string">
+            <column name="doner_pra" length="45" />
+        </property>
+        <property name="donerAge" type="string">
+            <column name="doner_age" length="45" />
+        </property>
+        <property name="donerBrainDeathDate" type="string">
+            <column name="doner_brain_death_date" length="45" />
+        </property>
+        <property name="donerRegdate" type="string">
+            <column name="doner_regdate" length="45" />
+        </property>
+        <property name="donerAvailable" type="string">
+            <column name="doner_available" length="45" />
         </property>
         <property name="donerStatus" type="string">
             <column name="doner_status" length="45" />
@@ -107,11 +119,11 @@
             </key>
             <one-to-many class="soft.idea.hospital.kidny2017.se.models.AddressDoner" />
         </set>
-        <set name="donerHostpitals" table="doner_hostpital" inverse="true" lazy="true" fetch="select">
+        <set name="pationHasDoners" table="pation_has_doner" inverse="true" lazy="true" fetch="select">
             <key>
                 <column name="doner_iddoner" not-null="true" />
             </key>
-            <one-to-many class="soft.idea.hospital.kidny2017.se.models.DonerHostpital" />
+            <one-to-many class="soft.idea.hospital.kidny2017.se.models.PationHasDoner" />
         </set>
     </class>
 </hibernate-mapping>

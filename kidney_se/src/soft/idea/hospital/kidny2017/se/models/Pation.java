@@ -1,5 +1,5 @@
 package soft.idea.hospital.kidny2017.se.models;
-// Generated Feb 21, 2017 7:13:25 PM by Hibernate Tools 4.3.1
+// Generated Feb 21, 2017 8:45:30 PM by Hibernate Tools 4.3.1
 
 
 import java.util.HashSet;
@@ -10,8 +10,6 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import static javax.persistence.GenerationType.IDENTITY;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
@@ -26,48 +24,72 @@ public class Pation  implements java.io.Serializable {
 
 
      private Integer idpation;
-     private BlodGroup blodGroup;
-     private Institution institution;
-     private RhesusFactor rhesusFactor;
      private String pationFname;
      private String pationMname;
      private String pationLname;
-     private String pationGen;
      private String pationNic;
-     private String pationDob;
-     private String pationRegdate;
-     private String pationWeight;
-     private String pationHeight;
-     private String pationIdentity;
+     private String pationSteatoticLiver;
+     private String pationBilirubin;
+     private String pationHla;
+     private String pationDsa;
      private String pationPhone;
+     private String pationDob;
+     private String pationGen;
+     private String pationHeight;
+     private String pationBmi;
+     private String pationSodiam;
+     private String pationCadvertype;
+     private String pationHiv;
+     private String pationHbv;
+     private String pationHcv;
+     private String pationWeight;
+     private String pationDrugAbuseHistory;
+     private String pationSgpt;
+     private String pationCitizenship;
+     private String pationBloodGroup;
+     private String pationMalignanclesHistory;
+     private String pationSgot;
+     private String pationWhiteBlodPlates;
+     private String pationPra;
+     private String pationRegdate;
      private String pationStatus;
+     private Set<PationHasDoner> pationHasDoners = new HashSet<PationHasDoner>(0);
      private Set<AddressPation> addressPations = new HashSet<AddressPation>(0);
 
     public Pation() {
     }
 
-	
-    public Pation(BlodGroup blodGroup, Institution institution, RhesusFactor rhesusFactor) {
-        this.blodGroup = blodGroup;
-        this.institution = institution;
-        this.rhesusFactor = rhesusFactor;
-    }
-    public Pation(BlodGroup blodGroup, Institution institution, RhesusFactor rhesusFactor, String pationFname, String pationMname, String pationLname, String pationGen, String pationNic, String pationDob, String pationRegdate, String pationWeight, String pationHeight, String pationIdentity, String pationPhone, String pationStatus, Set<AddressPation> addressPations) {
-       this.blodGroup = blodGroup;
-       this.institution = institution;
-       this.rhesusFactor = rhesusFactor;
+    public Pation(String pationFname, String pationMname, String pationLname, String pationNic, String pationSteatoticLiver, String pationBilirubin, String pationHla, String pationDsa, String pationPhone, String pationDob, String pationGen, String pationHeight, String pationBmi, String pationSodiam, String pationCadvertype, String pationHiv, String pationHbv, String pationHcv, String pationWeight, String pationDrugAbuseHistory, String pationSgpt, String pationCitizenship, String pationBloodGroup, String pationMalignanclesHistory, String pationSgot, String pationWhiteBlodPlates, String pationPra, String pationRegdate, String pationStatus, Set<PationHasDoner> pationHasDoners, Set<AddressPation> addressPations) {
        this.pationFname = pationFname;
        this.pationMname = pationMname;
        this.pationLname = pationLname;
-       this.pationGen = pationGen;
        this.pationNic = pationNic;
-       this.pationDob = pationDob;
-       this.pationRegdate = pationRegdate;
-       this.pationWeight = pationWeight;
-       this.pationHeight = pationHeight;
-       this.pationIdentity = pationIdentity;
+       this.pationSteatoticLiver = pationSteatoticLiver;
+       this.pationBilirubin = pationBilirubin;
+       this.pationHla = pationHla;
+       this.pationDsa = pationDsa;
        this.pationPhone = pationPhone;
+       this.pationDob = pationDob;
+       this.pationGen = pationGen;
+       this.pationHeight = pationHeight;
+       this.pationBmi = pationBmi;
+       this.pationSodiam = pationSodiam;
+       this.pationCadvertype = pationCadvertype;
+       this.pationHiv = pationHiv;
+       this.pationHbv = pationHbv;
+       this.pationHcv = pationHcv;
+       this.pationWeight = pationWeight;
+       this.pationDrugAbuseHistory = pationDrugAbuseHistory;
+       this.pationSgpt = pationSgpt;
+       this.pationCitizenship = pationCitizenship;
+       this.pationBloodGroup = pationBloodGroup;
+       this.pationMalignanclesHistory = pationMalignanclesHistory;
+       this.pationSgot = pationSgot;
+       this.pationWhiteBlodPlates = pationWhiteBlodPlates;
+       this.pationPra = pationPra;
+       this.pationRegdate = pationRegdate;
        this.pationStatus = pationStatus;
+       this.pationHasDoners = pationHasDoners;
        this.addressPations = addressPations;
     }
    
@@ -81,36 +103,6 @@ public class Pation  implements java.io.Serializable {
     
     public void setIdpation(Integer idpation) {
         this.idpation = idpation;
-    }
-
-@ManyToOne(fetch=FetchType.LAZY)
-    @JoinColumn(name="blod_group_idblod_group", nullable=false)
-    public BlodGroup getBlodGroup() {
-        return this.blodGroup;
-    }
-    
-    public void setBlodGroup(BlodGroup blodGroup) {
-        this.blodGroup = blodGroup;
-    }
-
-@ManyToOne(fetch=FetchType.LAZY)
-    @JoinColumn(name="institution_idinstitution", nullable=false)
-    public Institution getInstitution() {
-        return this.institution;
-    }
-    
-    public void setInstitution(Institution institution) {
-        this.institution = institution;
-    }
-
-@ManyToOne(fetch=FetchType.LAZY)
-    @JoinColumn(name="rhesus_factor_idrhesus_factor", nullable=false)
-    public RhesusFactor getRhesusFactor() {
-        return this.rhesusFactor;
-    }
-    
-    public void setRhesusFactor(RhesusFactor rhesusFactor) {
-        this.rhesusFactor = rhesusFactor;
     }
 
     
@@ -144,16 +136,6 @@ public class Pation  implements java.io.Serializable {
     }
 
     
-    @Column(name="pation_gen", length=45)
-    public String getPationGen() {
-        return this.pationGen;
-    }
-    
-    public void setPationGen(String pationGen) {
-        this.pationGen = pationGen;
-    }
-
-    
     @Column(name="pation_nic", length=45)
     public String getPationNic() {
         return this.pationNic;
@@ -164,53 +146,43 @@ public class Pation  implements java.io.Serializable {
     }
 
     
-    @Column(name="pation_dob", length=45)
-    public String getPationDob() {
-        return this.pationDob;
+    @Column(name="pation_steatotic_liver", length=45)
+    public String getPationSteatoticLiver() {
+        return this.pationSteatoticLiver;
     }
     
-    public void setPationDob(String pationDob) {
-        this.pationDob = pationDob;
-    }
-
-    
-    @Column(name="pation_regdate", length=45)
-    public String getPationRegdate() {
-        return this.pationRegdate;
-    }
-    
-    public void setPationRegdate(String pationRegdate) {
-        this.pationRegdate = pationRegdate;
+    public void setPationSteatoticLiver(String pationSteatoticLiver) {
+        this.pationSteatoticLiver = pationSteatoticLiver;
     }
 
     
-    @Column(name="pation_weight", length=45)
-    public String getPationWeight() {
-        return this.pationWeight;
+    @Column(name="pation_bilirubin", length=45)
+    public String getPationBilirubin() {
+        return this.pationBilirubin;
     }
     
-    public void setPationWeight(String pationWeight) {
-        this.pationWeight = pationWeight;
-    }
-
-    
-    @Column(name="pation_height", length=45)
-    public String getPationHeight() {
-        return this.pationHeight;
-    }
-    
-    public void setPationHeight(String pationHeight) {
-        this.pationHeight = pationHeight;
+    public void setPationBilirubin(String pationBilirubin) {
+        this.pationBilirubin = pationBilirubin;
     }
 
     
-    @Column(name="pation_identity", length=45)
-    public String getPationIdentity() {
-        return this.pationIdentity;
+    @Column(name="pation_hla", length=45)
+    public String getPationHla() {
+        return this.pationHla;
     }
     
-    public void setPationIdentity(String pationIdentity) {
-        this.pationIdentity = pationIdentity;
+    public void setPationHla(String pationHla) {
+        this.pationHla = pationHla;
+    }
+
+    
+    @Column(name="pation_dsa", length=45)
+    public String getPationDsa() {
+        return this.pationDsa;
+    }
+    
+    public void setPationDsa(String pationDsa) {
+        this.pationDsa = pationDsa;
     }
 
     
@@ -224,6 +196,196 @@ public class Pation  implements java.io.Serializable {
     }
 
     
+    @Column(name="pation_dob", length=45)
+    public String getPationDob() {
+        return this.pationDob;
+    }
+    
+    public void setPationDob(String pationDob) {
+        this.pationDob = pationDob;
+    }
+
+    
+    @Column(name="pation_gen", length=45)
+    public String getPationGen() {
+        return this.pationGen;
+    }
+    
+    public void setPationGen(String pationGen) {
+        this.pationGen = pationGen;
+    }
+
+    
+    @Column(name="pation_height", length=45)
+    public String getPationHeight() {
+        return this.pationHeight;
+    }
+    
+    public void setPationHeight(String pationHeight) {
+        this.pationHeight = pationHeight;
+    }
+
+    
+    @Column(name="pation_bmi", length=45)
+    public String getPationBmi() {
+        return this.pationBmi;
+    }
+    
+    public void setPationBmi(String pationBmi) {
+        this.pationBmi = pationBmi;
+    }
+
+    
+    @Column(name="pation_sodiam", length=45)
+    public String getPationSodiam() {
+        return this.pationSodiam;
+    }
+    
+    public void setPationSodiam(String pationSodiam) {
+        this.pationSodiam = pationSodiam;
+    }
+
+    
+    @Column(name="pation_cadvertype", length=45)
+    public String getPationCadvertype() {
+        return this.pationCadvertype;
+    }
+    
+    public void setPationCadvertype(String pationCadvertype) {
+        this.pationCadvertype = pationCadvertype;
+    }
+
+    
+    @Column(name="pation_hiv", length=45)
+    public String getPationHiv() {
+        return this.pationHiv;
+    }
+    
+    public void setPationHiv(String pationHiv) {
+        this.pationHiv = pationHiv;
+    }
+
+    
+    @Column(name="pation_hbv", length=45)
+    public String getPationHbv() {
+        return this.pationHbv;
+    }
+    
+    public void setPationHbv(String pationHbv) {
+        this.pationHbv = pationHbv;
+    }
+
+    
+    @Column(name="pation_hcv", length=45)
+    public String getPationHcv() {
+        return this.pationHcv;
+    }
+    
+    public void setPationHcv(String pationHcv) {
+        this.pationHcv = pationHcv;
+    }
+
+    
+    @Column(name="pation_weight", length=45)
+    public String getPationWeight() {
+        return this.pationWeight;
+    }
+    
+    public void setPationWeight(String pationWeight) {
+        this.pationWeight = pationWeight;
+    }
+
+    
+    @Column(name="pation_drug_abuse_history")
+    public String getPationDrugAbuseHistory() {
+        return this.pationDrugAbuseHistory;
+    }
+    
+    public void setPationDrugAbuseHistory(String pationDrugAbuseHistory) {
+        this.pationDrugAbuseHistory = pationDrugAbuseHistory;
+    }
+
+    
+    @Column(name="pation_sgpt", length=45)
+    public String getPationSgpt() {
+        return this.pationSgpt;
+    }
+    
+    public void setPationSgpt(String pationSgpt) {
+        this.pationSgpt = pationSgpt;
+    }
+
+    
+    @Column(name="pation_citizenship", length=45)
+    public String getPationCitizenship() {
+        return this.pationCitizenship;
+    }
+    
+    public void setPationCitizenship(String pationCitizenship) {
+        this.pationCitizenship = pationCitizenship;
+    }
+
+    
+    @Column(name="pation_blood_group", length=45)
+    public String getPationBloodGroup() {
+        return this.pationBloodGroup;
+    }
+    
+    public void setPationBloodGroup(String pationBloodGroup) {
+        this.pationBloodGroup = pationBloodGroup;
+    }
+
+    
+    @Column(name="pation_malignancles_history", length=45)
+    public String getPationMalignanclesHistory() {
+        return this.pationMalignanclesHistory;
+    }
+    
+    public void setPationMalignanclesHistory(String pationMalignanclesHistory) {
+        this.pationMalignanclesHistory = pationMalignanclesHistory;
+    }
+
+    
+    @Column(name="pation_sgot", length=45)
+    public String getPationSgot() {
+        return this.pationSgot;
+    }
+    
+    public void setPationSgot(String pationSgot) {
+        this.pationSgot = pationSgot;
+    }
+
+    
+    @Column(name="pation_white_blod_plates", length=45)
+    public String getPationWhiteBlodPlates() {
+        return this.pationWhiteBlodPlates;
+    }
+    
+    public void setPationWhiteBlodPlates(String pationWhiteBlodPlates) {
+        this.pationWhiteBlodPlates = pationWhiteBlodPlates;
+    }
+
+    
+    @Column(name="pation_pra", length=45)
+    public String getPationPra() {
+        return this.pationPra;
+    }
+    
+    public void setPationPra(String pationPra) {
+        this.pationPra = pationPra;
+    }
+
+    
+    @Column(name="pation_regdate", length=45)
+    public String getPationRegdate() {
+        return this.pationRegdate;
+    }
+    
+    public void setPationRegdate(String pationRegdate) {
+        this.pationRegdate = pationRegdate;
+    }
+
+    
     @Column(name="pation_status", length=45)
     public String getPationStatus() {
         return this.pationStatus;
@@ -231,6 +393,15 @@ public class Pation  implements java.io.Serializable {
     
     public void setPationStatus(String pationStatus) {
         this.pationStatus = pationStatus;
+    }
+
+@OneToMany(fetch=FetchType.LAZY, mappedBy="pation")
+    public Set<PationHasDoner> getPationHasDoners() {
+        return this.pationHasDoners;
+    }
+    
+    public void setPationHasDoners(Set<PationHasDoner> pationHasDoners) {
+        this.pationHasDoners = pationHasDoners;
     }
 
 @OneToMany(fetch=FetchType.LAZY, mappedBy="pation")

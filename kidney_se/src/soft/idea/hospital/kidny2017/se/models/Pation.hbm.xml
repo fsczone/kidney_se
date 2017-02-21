@@ -1,22 +1,13 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
-<!-- Generated Feb 21, 2017 7:13:27 PM by Hibernate Tools 4.3.1 -->
+<!-- Generated Feb 21, 2017 8:45:31 PM by Hibernate Tools 4.3.1 -->
 <hibernate-mapping>
     <class name="soft.idea.hospital.kidny2017.se.models.Pation" table="pation" catalog="safenets_host_se" optimistic-lock="version">
         <id name="idpation" type="java.lang.Integer">
             <column name="idpation" />
             <generator class="identity" />
         </id>
-        <many-to-one name="blodGroup" class="soft.idea.hospital.kidny2017.se.models.BlodGroup" fetch="select">
-            <column name="blod_group_idblod_group" not-null="true" />
-        </many-to-one>
-        <many-to-one name="institution" class="soft.idea.hospital.kidny2017.se.models.Institution" fetch="select">
-            <column name="institution_idinstitution" not-null="true" />
-        </many-to-one>
-        <many-to-one name="rhesusFactor" class="soft.idea.hospital.kidny2017.se.models.RhesusFactor" fetch="select">
-            <column name="rhesus_factor_idrhesus_factor" not-null="true" />
-        </many-to-one>
         <property name="pationFname" type="string">
             <column name="pation_fname" length="45" />
         </property>
@@ -26,33 +17,90 @@
         <property name="pationLname" type="string">
             <column name="pation_lname" length="45" />
         </property>
-        <property name="pationGen" type="string">
-            <column name="pation_gen" length="45" />
-        </property>
         <property name="pationNic" type="string">
             <column name="pation_nic" length="45" />
         </property>
-        <property name="pationDob" type="string">
-            <column name="pation_dob" length="45" />
+        <property name="pationSteatoticLiver" type="string">
+            <column name="pation_steatotic_liver" length="45" />
         </property>
-        <property name="pationRegdate" type="string">
-            <column name="pation_regdate" length="45" />
+        <property name="pationBilirubin" type="string">
+            <column name="pation_bilirubin" length="45" />
         </property>
-        <property name="pationWeight" type="string">
-            <column name="pation_weight" length="45" />
+        <property name="pationHla" type="string">
+            <column name="pation_hla" length="45" />
         </property>
-        <property name="pationHeight" type="string">
-            <column name="pation_height" length="45" />
-        </property>
-        <property name="pationIdentity" type="string">
-            <column name="pation_identity" length="45" />
+        <property name="pationDsa" type="string">
+            <column name="pation_dsa" length="45" />
         </property>
         <property name="pationPhone" type="string">
             <column name="pation_phone" length="45" />
         </property>
+        <property name="pationDob" type="string">
+            <column name="pation_dob" length="45" />
+        </property>
+        <property name="pationGen" type="string">
+            <column name="pation_gen" length="45" />
+        </property>
+        <property name="pationHeight" type="string">
+            <column name="pation_height" length="45" />
+        </property>
+        <property name="pationBmi" type="string">
+            <column name="pation_bmi" length="45" />
+        </property>
+        <property name="pationSodiam" type="string">
+            <column name="pation_sodiam" length="45" />
+        </property>
+        <property name="pationCadvertype" type="string">
+            <column name="pation_cadvertype" length="45" />
+        </property>
+        <property name="pationHiv" type="string">
+            <column name="pation_hiv" length="45" />
+        </property>
+        <property name="pationHbv" type="string">
+            <column name="pation_hbv" length="45" />
+        </property>
+        <property name="pationHcv" type="string">
+            <column name="pation_hcv" length="45" />
+        </property>
+        <property name="pationWeight" type="string">
+            <column name="pation_weight" length="45" />
+        </property>
+        <property name="pationDrugAbuseHistory" type="string">
+            <column name="pation_drug_abuse_history" />
+        </property>
+        <property name="pationSgpt" type="string">
+            <column name="pation_sgpt" length="45" />
+        </property>
+        <property name="pationCitizenship" type="string">
+            <column name="pation_citizenship" length="45" />
+        </property>
+        <property name="pationBloodGroup" type="string">
+            <column name="pation_blood_group" length="45" />
+        </property>
+        <property name="pationMalignanclesHistory" type="string">
+            <column name="pation_malignancles_history" length="45" />
+        </property>
+        <property name="pationSgot" type="string">
+            <column name="pation_sgot" length="45" />
+        </property>
+        <property name="pationWhiteBlodPlates" type="string">
+            <column name="pation_white_blod_plates" length="45" />
+        </property>
+        <property name="pationPra" type="string">
+            <column name="pation_pra" length="45" />
+        </property>
+        <property name="pationRegdate" type="string">
+            <column name="pation_regdate" length="45" />
+        </property>
         <property name="pationStatus" type="string">
             <column name="pation_status" length="45" />
         </property>
+        <set name="pationHasDoners" table="pation_has_doner" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="pation_idpation" not-null="true" />
+            </key>
+            <one-to-many class="soft.idea.hospital.kidny2017.se.models.PationHasDoner" />
+        </set>
         <set name="addressPations" table="address_pation" inverse="true" lazy="true" fetch="select">
             <key>
                 <column name="pation_idpation" not-null="true" />
