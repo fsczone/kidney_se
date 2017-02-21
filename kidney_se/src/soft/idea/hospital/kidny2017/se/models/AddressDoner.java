@@ -1,5 +1,5 @@
 package soft.idea.hospital.kidny2017.se.models;
-// Generated Jan 26, 2017 4:59:07 AM by Hibernate Tools 4.3.1
+// Generated Feb 21, 2017 7:13:25 PM by Hibernate Tools 4.3.1
 
 
 import javax.persistence.Column;

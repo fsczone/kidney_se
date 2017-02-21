@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
-<!-- Generated Jan 26, 2017 4:59:08 AM by Hibernate Tools 4.3.1 -->
+<!-- Generated Feb 21, 2017 7:13:27 PM by Hibernate Tools 4.3.1 -->
 <hibernate-mapping>
     <class name="soft.idea.hospital.kidny2017.se.models.SubWhiteBloadPlates" table="sub_white_bload_plates" catalog="safenets_host_se" optimistic-lock="version">
         <id name="idsubWhiteBloadPlates" type="java.lang.Integer">

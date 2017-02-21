@@ -68,9 +68,9 @@ public class index extends javax.swing.JPanel {
         rb_female = new javax.swing.JRadioButton();
         dc_dob = new datechooser.beans.DateChooserCombo();
         cb_citizenship = new javax.swing.JComboBox<>();
-        cb_institution = new javax.swing.JComboBox<>();
+        cb_donnerHospital = new javax.swing.JComboBox<>();
         cb_bloadgroup = new javax.swing.JComboBox<>();
-        jButton1 = new javax.swing.JButton();
+        bt_save = new javax.swing.JButton();
         jLabel14 = new javax.swing.JLabel();
         tf_addressNo = new javax.swing.JTextField();
         jLabel15 = new javax.swing.JLabel();
@@ -78,49 +78,50 @@ public class index extends javax.swing.JPanel {
         jLabel16 = new javax.swing.JLabel();
         tf_addressTown = new javax.swing.JTextField();
         jLabel17 = new javax.swing.JLabel();
-        tf_nic1 = new javax.swing.JTextField();
+        tf_causeOfDeth = new javax.swing.JTextField();
         jLabel18 = new javax.swing.JLabel();
-        tf_nic2 = new javax.swing.JTextField();
+        tf_brain_deth_date = new javax.swing.JTextField();
         jLabel19 = new javax.swing.JLabel();
         jLabel20 = new javax.swing.JLabel();
         jLabel21 = new javax.swing.JLabel();
-        tf_nic5 = new javax.swing.JTextField();
+        tf_icu = new javax.swing.JTextField();
         jLabel22 = new javax.swing.JLabel();
-        tf_nic6 = new javax.swing.JTextField();
+        tf_bmi = new javax.swing.JTextField();
         jLabel25 = new javax.swing.JLabel();
-        tf_nic9 = new javax.swing.JTextField();
+        tf_sgot = new javax.swing.JTextField();
         jLabel26 = new javax.swing.JLabel();
-        tf_nic10 = new javax.swing.JTextField();
+        tf_sgpt = new javax.swing.JTextField();
         jLabel27 = new javax.swing.JLabel();
-        tf_nic11 = new javax.swing.JTextField();
+        tf_liver = new javax.swing.JTextField();
         jLabel28 = new javax.swing.JLabel();
-        tf_nic12 = new javax.swing.JTextField();
+        tf_sodiam = new javax.swing.JTextField();
         jLabel29 = new javax.swing.JLabel();
-        tf_nic13 = new javax.swing.JTextField();
+        tf_bilirubin = new javax.swing.JTextField();
         jLabel30 = new javax.swing.JLabel();
-        tf_nic14 = new javax.swing.JTextField();
+        tf_cadaverType = new javax.swing.JTextField();
         jLabel32 = new javax.swing.JLabel();
-        tf_nic16 = new javax.swing.JTextField();
+        tf_whiteBlodPlates = new javax.swing.JTextField();
         jScrollPane2 = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
+        ta_historyOfDrug = new javax.swing.JTextArea();
         jScrollPane3 = new javax.swing.JScrollPane();
-        jTextArea2 = new javax.swing.JTextArea();
+        ta_historyOfMalignancies = new javax.swing.JTextArea();
         jLabel33 = new javax.swing.JLabel();
         jLabel34 = new javax.swing.JLabel();
-        jRadioButton1 = new javax.swing.JRadioButton();
-        jRadioButton2 = new javax.swing.JRadioButton();
-        jRadioButton3 = new javax.swing.JRadioButton();
-        jRadioButton4 = new javax.swing.JRadioButton();
+        jr_hiv_yes = new javax.swing.JRadioButton();
+        jr_hiv_no = new javax.swing.JRadioButton();
+        jr_hbv_yes = new javax.swing.JRadioButton();
+        jr_hbv_no = new javax.swing.JRadioButton();
         jLabel35 = new javax.swing.JLabel();
-        jRadioButton5 = new javax.swing.JRadioButton();
-        jRadioButton6 = new javax.swing.JRadioButton();
+        jr_hcv_yes = new javax.swing.JRadioButton();
+        jr_hcv_no = new javax.swing.JRadioButton();
         jLabel36 = new javax.swing.JLabel();
         cb_hlz_class_type = new javax.swing.JComboBox<>();
         cb_hla_class = new javax.swing.JComboBox<>();
         jLabel37 = new javax.swing.JLabel();
         cb_dsa_class = new javax.swing.JComboBox<>();
         jLabel38 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
+        tf_pra = new javax.swing.JTextField();
+        cb_donnerHospita_province = new javax.swing.JComboBox<>();
 
         setBackground(new java.awt.Color(250, 250, 250));
         setMaximumSize(new java.awt.Dimension(1366, 663));
@@ -227,17 +228,17 @@ public class index extends javax.swing.JPanel {
         cb_citizenship.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         cb_citizenship.setRequestFocusEnabled(false);
 
-        cb_institution.setFont(new java.awt.Font("Microsoft JhengHei", 0, 18)); // NOI18N
-        cb_institution.setRequestFocusEnabled(false);
+        cb_donnerHospital.setFont(new java.awt.Font("Microsoft JhengHei", 0, 18)); // NOI18N
+        cb_donnerHospital.setRequestFocusEnabled(false);
 
         cb_bloadgroup.setFont(new java.awt.Font("Microsoft JhengHei", 0, 18)); // NOI18N
         cb_bloadgroup.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         cb_bloadgroup.setRequestFocusEnabled(false);
 
-        jButton1.setFont(new java.awt.Font("Microsoft JhengHei", 0, 18)); // NOI18N
-        jButton1.setText("Save");
-        jButton1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jButton1.setFocusable(false);
+        bt_save.setFont(new java.awt.Font("Microsoft JhengHei", 0, 18)); // NOI18N
+        bt_save.setText("Save");
+        bt_save.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        bt_save.setFocusable(false);
 
         jLabel14.setBackground(new java.awt.Color(250, 250, 250));
         jLabel14.setFont(new java.awt.Font("Microsoft JhengHei", 0, 14)); // NOI18N
@@ -270,19 +271,19 @@ public class index extends javax.swing.JPanel {
         jLabel17.setFont(new java.awt.Font("Microsoft JhengHei", 0, 14)); // NOI18N
         jLabel17.setText("Cause Of Death");
 
-        tf_nic1.setBackground(new java.awt.Color(250, 250, 250));
-        tf_nic1.setFont(new java.awt.Font("Microsoft JhengHei", 0, 18)); // NOI18N
-        tf_nic1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        tf_nic1.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
+        tf_causeOfDeth.setBackground(new java.awt.Color(250, 250, 250));
+        tf_causeOfDeth.setFont(new java.awt.Font("Microsoft JhengHei", 0, 18)); // NOI18N
+        tf_causeOfDeth.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        tf_causeOfDeth.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
 
         jLabel18.setBackground(new java.awt.Color(250, 250, 250));
         jLabel18.setFont(new java.awt.Font("Microsoft JhengHei", 0, 14)); // NOI18N
         jLabel18.setText("Brain Death Date");
 
-        tf_nic2.setBackground(new java.awt.Color(250, 250, 250));
-        tf_nic2.setFont(new java.awt.Font("Microsoft JhengHei", 0, 18)); // NOI18N
-        tf_nic2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        tf_nic2.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
+        tf_brain_deth_date.setBackground(new java.awt.Color(250, 250, 250));
+        tf_brain_deth_date.setFont(new java.awt.Font("Microsoft JhengHei", 0, 18)); // NOI18N
+        tf_brain_deth_date.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        tf_brain_deth_date.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
 
         jLabel19.setBackground(new java.awt.Color(250, 250, 250));
         jLabel19.setFont(new java.awt.Font("Microsoft JhengHei", 0, 14)); // NOI18N
@@ -296,90 +297,90 @@ public class index extends javax.swing.JPanel {
         jLabel21.setFont(new java.awt.Font("Microsoft JhengHei", 0, 14)); // NOI18N
         jLabel21.setText("ICU Days");
 
-        tf_nic5.setBackground(new java.awt.Color(250, 250, 250));
-        tf_nic5.setFont(new java.awt.Font("Microsoft JhengHei", 0, 18)); // NOI18N
-        tf_nic5.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        tf_nic5.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
+        tf_icu.setBackground(new java.awt.Color(250, 250, 250));
+        tf_icu.setFont(new java.awt.Font("Microsoft JhengHei", 0, 18)); // NOI18N
+        tf_icu.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        tf_icu.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
 
         jLabel22.setBackground(new java.awt.Color(250, 250, 250));
         jLabel22.setFont(new java.awt.Font("Microsoft JhengHei", 0, 14)); // NOI18N
         jLabel22.setText("BMI");
 
-        tf_nic6.setBackground(new java.awt.Color(250, 250, 250));
-        tf_nic6.setFont(new java.awt.Font("Microsoft JhengHei", 0, 18)); // NOI18N
-        tf_nic6.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        tf_nic6.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
+        tf_bmi.setBackground(new java.awt.Color(250, 250, 250));
+        tf_bmi.setFont(new java.awt.Font("Microsoft JhengHei", 0, 18)); // NOI18N
+        tf_bmi.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        tf_bmi.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
 
         jLabel25.setBackground(new java.awt.Color(250, 250, 250));
         jLabel25.setFont(new java.awt.Font("Microsoft JhengHei", 0, 14)); // NOI18N
         jLabel25.setText("SGOT");
 
-        tf_nic9.setBackground(new java.awt.Color(250, 250, 250));
-        tf_nic9.setFont(new java.awt.Font("Microsoft JhengHei", 0, 18)); // NOI18N
-        tf_nic9.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        tf_nic9.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
+        tf_sgot.setBackground(new java.awt.Color(250, 250, 250));
+        tf_sgot.setFont(new java.awt.Font("Microsoft JhengHei", 0, 18)); // NOI18N
+        tf_sgot.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        tf_sgot.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
 
         jLabel26.setBackground(new java.awt.Color(250, 250, 250));
         jLabel26.setFont(new java.awt.Font("Microsoft JhengHei", 0, 14)); // NOI18N
         jLabel26.setText("SGPT");
 
-        tf_nic10.setBackground(new java.awt.Color(250, 250, 250));
-        tf_nic10.setFont(new java.awt.Font("Microsoft JhengHei", 0, 18)); // NOI18N
-        tf_nic10.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        tf_nic10.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
+        tf_sgpt.setBackground(new java.awt.Color(250, 250, 250));
+        tf_sgpt.setFont(new java.awt.Font("Microsoft JhengHei", 0, 18)); // NOI18N
+        tf_sgpt.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        tf_sgpt.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
 
         jLabel27.setBackground(new java.awt.Color(250, 250, 250));
         jLabel27.setFont(new java.awt.Font("Microsoft JhengHei", 0, 14)); // NOI18N
         jLabel27.setText("Steatotic Liver");
 
-        tf_nic11.setBackground(new java.awt.Color(250, 250, 250));
-        tf_nic11.setFont(new java.awt.Font("Microsoft JhengHei", 0, 18)); // NOI18N
-        tf_nic11.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        tf_nic11.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
+        tf_liver.setBackground(new java.awt.Color(250, 250, 250));
+        tf_liver.setFont(new java.awt.Font("Microsoft JhengHei", 0, 18)); // NOI18N
+        tf_liver.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        tf_liver.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
 
         jLabel28.setBackground(new java.awt.Color(250, 250, 250));
         jLabel28.setFont(new java.awt.Font("Microsoft JhengHei", 0, 14)); // NOI18N
         jLabel28.setText("Sodiam");
 
-        tf_nic12.setBackground(new java.awt.Color(250, 250, 250));
-        tf_nic12.setFont(new java.awt.Font("Microsoft JhengHei", 0, 18)); // NOI18N
-        tf_nic12.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        tf_nic12.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
+        tf_sodiam.setBackground(new java.awt.Color(250, 250, 250));
+        tf_sodiam.setFont(new java.awt.Font("Microsoft JhengHei", 0, 18)); // NOI18N
+        tf_sodiam.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        tf_sodiam.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
 
         jLabel29.setBackground(new java.awt.Color(250, 250, 250));
         jLabel29.setFont(new java.awt.Font("Microsoft JhengHei", 0, 14)); // NOI18N
         jLabel29.setText("Bilirubin ");
 
-        tf_nic13.setBackground(new java.awt.Color(250, 250, 250));
-        tf_nic13.setFont(new java.awt.Font("Microsoft JhengHei", 0, 18)); // NOI18N
-        tf_nic13.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        tf_nic13.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
+        tf_bilirubin.setBackground(new java.awt.Color(250, 250, 250));
+        tf_bilirubin.setFont(new java.awt.Font("Microsoft JhengHei", 0, 18)); // NOI18N
+        tf_bilirubin.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        tf_bilirubin.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
 
         jLabel30.setBackground(new java.awt.Color(250, 250, 250));
         jLabel30.setFont(new java.awt.Font("Microsoft JhengHei", 0, 14)); // NOI18N
         jLabel30.setText("Cadaver Type");
 
-        tf_nic14.setBackground(new java.awt.Color(250, 250, 250));
-        tf_nic14.setFont(new java.awt.Font("Microsoft JhengHei", 0, 18)); // NOI18N
-        tf_nic14.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        tf_nic14.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
+        tf_cadaverType.setBackground(new java.awt.Color(250, 250, 250));
+        tf_cadaverType.setFont(new java.awt.Font("Microsoft JhengHei", 0, 18)); // NOI18N
+        tf_cadaverType.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        tf_cadaverType.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
 
         jLabel32.setBackground(new java.awt.Color(250, 250, 250));
         jLabel32.setFont(new java.awt.Font("Microsoft JhengHei", 0, 14)); // NOI18N
         jLabel32.setText("White Bload Plates");
 
-        tf_nic16.setBackground(new java.awt.Color(250, 250, 250));
-        tf_nic16.setFont(new java.awt.Font("Microsoft JhengHei", 0, 18)); // NOI18N
-        tf_nic16.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        tf_nic16.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
+        tf_whiteBlodPlates.setBackground(new java.awt.Color(250, 250, 250));
+        tf_whiteBlodPlates.setFont(new java.awt.Font("Microsoft JhengHei", 0, 18)); // NOI18N
+        tf_whiteBlodPlates.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        tf_whiteBlodPlates.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
 
-        jTextArea1.setColumns(20);
-        jTextArea1.setRows(5);
-        jScrollPane2.setViewportView(jTextArea1);
+        ta_historyOfDrug.setColumns(20);
+        ta_historyOfDrug.setRows(5);
+        jScrollPane2.setViewportView(ta_historyOfDrug);
 
-        jTextArea2.setColumns(20);
-        jTextArea2.setRows(5);
-        jScrollPane3.setViewportView(jTextArea2);
+        ta_historyOfMalignancies.setColumns(20);
+        ta_historyOfMalignancies.setRows(5);
+        jScrollPane3.setViewportView(ta_historyOfMalignancies);
 
         jLabel33.setBackground(new java.awt.Color(250, 250, 250));
         jLabel33.setFont(new java.awt.Font("Microsoft JhengHei", 0, 14)); // NOI18N
@@ -389,51 +390,51 @@ public class index extends javax.swing.JPanel {
         jLabel34.setFont(new java.awt.Font("Microsoft JhengHei", 0, 14)); // NOI18N
         jLabel34.setText("HBV Status");
 
-        bg_hiv.add(jRadioButton1);
-        jRadioButton1.setFont(new java.awt.Font("Microsoft JhengHei", 0, 18)); // NOI18N
-        jRadioButton1.setText("Yes");
-        jRadioButton1.setFocusPainted(false);
-        jRadioButton1.setFocusable(false);
-        jRadioButton1.setOpaque(false);
+        bg_hiv.add(jr_hiv_yes);
+        jr_hiv_yes.setFont(new java.awt.Font("Microsoft JhengHei", 0, 18)); // NOI18N
+        jr_hiv_yes.setText("Yes");
+        jr_hiv_yes.setFocusPainted(false);
+        jr_hiv_yes.setFocusable(false);
+        jr_hiv_yes.setOpaque(false);
 
-        bg_hiv.add(jRadioButton2);
-        jRadioButton2.setFont(new java.awt.Font("Microsoft JhengHei", 0, 18)); // NOI18N
-        jRadioButton2.setText("No");
-        jRadioButton2.setFocusPainted(false);
-        jRadioButton2.setFocusable(false);
-        jRadioButton2.setOpaque(false);
+        bg_hiv.add(jr_hiv_no);
+        jr_hiv_no.setFont(new java.awt.Font("Microsoft JhengHei", 0, 18)); // NOI18N
+        jr_hiv_no.setText("No");
+        jr_hiv_no.setFocusPainted(false);
+        jr_hiv_no.setFocusable(false);
+        jr_hiv_no.setOpaque(false);
 
-        bg_hbv.add(jRadioButton3);
-        jRadioButton3.setFont(new java.awt.Font("Microsoft JhengHei", 0, 18)); // NOI18N
-        jRadioButton3.setText("Yes");
-        jRadioButton3.setFocusPainted(false);
-        jRadioButton3.setFocusable(false);
-        jRadioButton3.setOpaque(false);
+        bg_hbv.add(jr_hbv_yes);
+        jr_hbv_yes.setFont(new java.awt.Font("Microsoft JhengHei", 0, 18)); // NOI18N
+        jr_hbv_yes.setText("Yes");
+        jr_hbv_yes.setFocusPainted(false);
+        jr_hbv_yes.setFocusable(false);
+        jr_hbv_yes.setOpaque(false);
 
-        bg_hbv.add(jRadioButton4);
-        jRadioButton4.setFont(new java.awt.Font("Microsoft JhengHei", 0, 18)); // NOI18N
-        jRadioButton4.setText("No");
-        jRadioButton4.setFocusPainted(false);
-        jRadioButton4.setFocusable(false);
-        jRadioButton4.setOpaque(false);
+        bg_hbv.add(jr_hbv_no);
+        jr_hbv_no.setFont(new java.awt.Font("Microsoft JhengHei", 0, 18)); // NOI18N
+        jr_hbv_no.setText("No");
+        jr_hbv_no.setFocusPainted(false);
+        jr_hbv_no.setFocusable(false);
+        jr_hbv_no.setOpaque(false);
 
         jLabel35.setBackground(new java.awt.Color(250, 250, 250));
         jLabel35.setFont(new java.awt.Font("Microsoft JhengHei", 0, 14)); // NOI18N
         jLabel35.setText("HCV Status");
 
-        bg_hcv.add(jRadioButton5);
-        jRadioButton5.setFont(new java.awt.Font("Microsoft JhengHei", 0, 18)); // NOI18N
-        jRadioButton5.setText("Yes");
-        jRadioButton5.setFocusPainted(false);
-        jRadioButton5.setFocusable(false);
-        jRadioButton5.setOpaque(false);
+        bg_hcv.add(jr_hcv_yes);
+        jr_hcv_yes.setFont(new java.awt.Font("Microsoft JhengHei", 0, 18)); // NOI18N
+        jr_hcv_yes.setText("Yes");
+        jr_hcv_yes.setFocusPainted(false);
+        jr_hcv_yes.setFocusable(false);
+        jr_hcv_yes.setOpaque(false);
 
-        bg_hcv.add(jRadioButton6);
-        jRadioButton6.setFont(new java.awt.Font("Microsoft JhengHei", 0, 18)); // NOI18N
-        jRadioButton6.setText("No");
-        jRadioButton6.setFocusPainted(false);
-        jRadioButton6.setFocusable(false);
-        jRadioButton6.setOpaque(false);
+        bg_hcv.add(jr_hcv_no);
+        jr_hcv_no.setFont(new java.awt.Font("Microsoft JhengHei", 0, 18)); // NOI18N
+        jr_hcv_no.setText("No");
+        jr_hcv_no.setFocusPainted(false);
+        jr_hcv_no.setFocusable(false);
+        jr_hcv_no.setOpaque(false);
 
         jLabel36.setBackground(new java.awt.Color(250, 250, 250));
         jLabel36.setFont(new java.awt.Font("Microsoft JhengHei", 0, 14)); // NOI18N
@@ -458,7 +459,10 @@ public class index extends javax.swing.JPanel {
         jLabel38.setFont(new java.awt.Font("Microsoft JhengHei", 0, 14)); // NOI18N
         jLabel38.setText("PRA");
 
-        jTextField1.setFont(new java.awt.Font("Microsoft JhengHei", 0, 18)); // NOI18N
+        tf_pra.setFont(new java.awt.Font("Microsoft JhengHei", 0, 18)); // NOI18N
+
+        cb_donnerHospita_province.setFont(new java.awt.Font("Microsoft JhengHei", 0, 18)); // NOI18N
+        cb_donnerHospita_province.setRequestFocusEnabled(false);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -469,7 +473,7 @@ public class index extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(bt_save, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
@@ -522,91 +526,104 @@ public class index extends javax.swing.JPanel {
                                         .addComponent(tf_addressTown, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)))
                                 .addGap(22, 22, 22)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(tf_nic16, javax.swing.GroupLayout.DEFAULT_SIZE, 300, Short.MAX_VALUE)
+                                    .addComponent(tf_whiteBlodPlates, javax.swing.GroupLayout.DEFAULT_SIZE, 300, Short.MAX_VALUE)
                                     .addComponent(cb_citizenship, 0, 300, Short.MAX_VALUE)
-                                    .addComponent(cb_institution, 0, 300, Short.MAX_VALUE)
                                     .addComponent(cb_bloadgroup, 0, 300, Short.MAX_VALUE)
-                                    .addComponent(tf_nic9, javax.swing.GroupLayout.DEFAULT_SIZE, 300, Short.MAX_VALUE)
+                                    .addComponent(tf_sgot, javax.swing.GroupLayout.DEFAULT_SIZE, 300, Short.MAX_VALUE)
                                     .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 300, Short.MAX_VALUE)
-                                    .addComponent(jLabel32)
-                                    .addComponent(jLabel20)
-                                    .addComponent(jLabel9)
-                                    .addComponent(jLabel11)
-                                    .addComponent(jLabel12)
-                                    .addComponent(jLabel25)
                                     .addGroup(layout.createSequentialGroup()
                                         .addGap(10, 10, 10)
                                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                             .addGroup(layout.createSequentialGroup()
-                                                .addComponent(jRadioButton5)
+                                                .addComponent(jr_hcv_yes)
                                                 .addGap(10, 10, 10)
-                                                .addComponent(jRadioButton6))
+                                                .addComponent(jr_hcv_no))
                                             .addComponent(jLabel35))
                                         .addGap(45, 45, 45)
                                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                             .addComponent(jLabel38)
-                                            .addComponent(jTextField1)))))
+                                            .addComponent(tf_pra)))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(jLabel32)
+                                            .addComponent(jLabel20)
+                                            .addComponent(jLabel9)
+                                            .addComponent(jLabel11)
+                                            .addComponent(jLabel12)
+                                            .addComponent(jLabel25))
+                                        .addGap(0, 0, Short.MAX_VALUE))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(cb_donnerHospita_province, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(cb_donnerHospital, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                             .addComponent(jLabel36)
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(layout.createSequentialGroup()
                                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(jLabel17)
-                                            .addComponent(tf_nic1, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                        .addGap(18, 18, 18)
+                                            .addComponent(jLabel29)
+                                            .addComponent(cb_hla_class, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(jLabel18)
-                                            .addComponent(tf_nic2, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(jLabel21)
-                                            .addComponent(tf_nic5, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                        .addGap(18, 18, 18)
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(jLabel22)
-                                            .addComponent(tf_nic6, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                            .addGroup(layout.createSequentialGroup()
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                .addComponent(cb_hlz_class_type, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                            .addGroup(layout.createSequentialGroup()
+                                                .addGap(12, 12, 12)
+                                                .addComponent(jLabel30)
+                                                .addGap(0, 0, Short.MAX_VALUE))))
                                     .addGroup(layout.createSequentialGroup()
                                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                             .addComponent(jLabel27)
-                                            .addComponent(tf_nic11, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                            .addComponent(tf_liver, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(tf_bilirubin, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE))
                                         .addGap(18, 18, 18)
                                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(tf_cadaverType)
                                             .addComponent(jLabel28)
-                                            .addComponent(tf_nic12, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                            .addComponent(tf_sodiam, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)))
                                     .addGroup(layout.createSequentialGroup()
                                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(jLabel29)
-                                            .addComponent(tf_nic13, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(cb_hla_class, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(jLabel30)
-                                            .addComponent(tf_nic14, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(cb_hlz_class_type, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                                            .addGroup(layout.createSequentialGroup()
+                                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                    .addComponent(jLabel17)
+                                                    .addComponent(tf_causeOfDeth, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                                .addGap(18, 18, 18)
+                                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                    .addComponent(jLabel18)
+                                                    .addComponent(tf_brain_deth_date, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                            .addGroup(layout.createSequentialGroup()
+                                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                    .addComponent(jLabel21)
+                                                    .addComponent(tf_icu, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                                .addGap(18, 18, 18)
+                                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                    .addComponent(jLabel22)
+                                                    .addComponent(tf_bmi, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                        .addGap(0, 0, Short.MAX_VALUE)))
                                 .addGap(18, 18, 18)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                         .addComponent(jLabel26)
-                                        .addComponent(tf_nic10, javax.swing.GroupLayout.DEFAULT_SIZE, 300, Short.MAX_VALUE)
+                                        .addComponent(tf_sgpt, javax.swing.GroupLayout.DEFAULT_SIZE, 300, Short.MAX_VALUE)
                                         .addComponent(jLabel19)
                                         .addComponent(jScrollPane2))
                                     .addGroup(layout.createSequentialGroup()
                                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                             .addComponent(jLabel33)
                                             .addGroup(layout.createSequentialGroup()
-                                                .addComponent(jRadioButton1)
+                                                .addComponent(jr_hiv_yes)
                                                 .addGap(10, 10, 10)
-                                                .addComponent(jRadioButton2))
+                                                .addComponent(jr_hiv_no))
                                             .addComponent(jLabel37))
                                         .addGap(60, 60, 60)
                                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                             .addGroup(layout.createSequentialGroup()
-                                                .addComponent(jRadioButton3)
+                                                .addComponent(jr_hbv_yes)
                                                 .addGap(10, 10, 10)
-                                                .addComponent(jRadioButton4))
+                                                .addComponent(jr_hbv_no))
                                             .addComponent(jLabel34)))
                                     .addComponent(cb_dsa_class, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 320, Short.MAX_VALUE)))
+                                .addGap(320, 320, 320)))
                         .addGap(88, 88, 88)))
                 .addContainerGap())
         );
@@ -667,7 +684,8 @@ public class index extends javax.swing.JPanel {
                                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                                             .addComponent(tf_addressNo, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                            .addComponent(cb_institution, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                                            .addComponent(cb_donnerHospital, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                            .addComponent(cb_donnerHospita_province, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
                                                         .addGap(9, 9, 9)
                                                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                                             .addComponent(jLabel14, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -694,7 +712,7 @@ public class index extends javax.swing.JPanel {
                                                             .addGroup(layout.createSequentialGroup()
                                                                 .addComponent(jLabel17)
                                                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                                .addComponent(tf_nic1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                                                .addComponent(tf_causeOfDeth, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
                                                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                                                                 .addComponent(jLabel19)
                                                                 .addGap(46, 46, 46))))
@@ -706,21 +724,21 @@ public class index extends javax.swing.JPanel {
                                             .addGroup(layout.createSequentialGroup()
                                                 .addComponent(jLabel18)
                                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                .addComponent(tf_nic2, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                                .addComponent(tf_brain_deth_date, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)))
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                             .addGroup(layout.createSequentialGroup()
                                                 .addComponent(jLabel21)
                                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                .addComponent(tf_nic5, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                                .addComponent(tf_icu, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
                                             .addGroup(layout.createSequentialGroup()
                                                 .addComponent(jLabel25)
                                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                                .addComponent(tf_nic9, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                                .addComponent(tf_sgot, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))))
                                     .addGroup(layout.createSequentialGroup()
                                         .addComponent(jLabel22)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(tf_nic6, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addComponent(tf_bmi, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
                                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                                         .addGap(321, 321, 321)
                                         .addComponent(jScrollPane2)))
@@ -732,16 +750,16 @@ public class index extends javax.swing.JPanel {
                                             .addComponent(jLabel32))
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                            .addComponent(tf_nic10, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(tf_nic16, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                            .addComponent(tf_sgpt, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(tf_whiteBlodPlates, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)))
                                     .addGroup(layout.createSequentialGroup()
                                         .addComponent(jLabel27)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(tf_nic11, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                        .addComponent(tf_liver, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))))
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jLabel28)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(tf_nic12, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addComponent(tf_sodiam, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -749,37 +767,36 @@ public class index extends javax.swing.JPanel {
                                     .addGroup(layout.createSequentialGroup()
                                         .addComponent(jLabel29)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(tf_nic13, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addComponent(jLabel33)
+                                        .addComponent(tf_bilirubin, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                        .addComponent(jLabel33)
+                                        .addComponent(jLabel30))
                                     .addComponent(jLabel34)))
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(5, 5, 5)
                                 .addComponent(jLabel35)
                                 .addGap(8, 8, 8)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(jRadioButton5)
-                                    .addComponent(jRadioButton6)))))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel30)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                .addComponent(jRadioButton1)
-                                .addComponent(jRadioButton2)
-                                .addComponent(jRadioButton3)
-                                .addComponent(jRadioButton4))
-                            .addComponent(tf_nic14, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                    .addComponent(jr_hcv_yes)
+                                    .addComponent(jr_hcv_no)))))
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jr_hiv_yes)
+                            .addComponent(jr_hiv_no)
+                            .addComponent(jr_hbv_yes)
+                            .addComponent(jr_hbv_no))
+                        .addComponent(tf_cadaverType, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel38)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(tf_pra, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel36)
                     .addComponent(jLabel37))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 10, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jButton1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(bt_save, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(cb_hla_class, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(cb_hlz_class_type, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -793,15 +810,16 @@ public class index extends javax.swing.JPanel {
     private javax.swing.ButtonGroup bg_hbv;
     private javax.swing.ButtonGroup bg_hcv;
     private javax.swing.ButtonGroup bg_hiv;
+    private javax.swing.JButton bt_save;
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JComboBox<String> cb_bloadgroup;
     private javax.swing.JComboBox<String> cb_citizenship;
+    private javax.swing.JComboBox<String> cb_donnerHospita_province;
+    private javax.swing.JComboBox<String> cb_donnerHospital;
     private javax.swing.JComboBox<String> cb_dsa_class;
     private javax.swing.JComboBox<String> cb_hla_class;
     private javax.swing.JComboBox<String> cb_hlz_class_type;
-    private javax.swing.JComboBox<String> cb_institution;
     private datechooser.beans.DateChooserCombo dc_dob;
-    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -836,40 +854,40 @@ public class index extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
-    private javax.swing.JRadioButton jRadioButton1;
-    private javax.swing.JRadioButton jRadioButton2;
-    private javax.swing.JRadioButton jRadioButton3;
-    private javax.swing.JRadioButton jRadioButton4;
-    private javax.swing.JRadioButton jRadioButton5;
-    private javax.swing.JRadioButton jRadioButton6;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
-    private javax.swing.JTextArea jTextArea1;
-    private javax.swing.JTextArea jTextArea2;
-    private javax.swing.JTextField jTextField1;
+    private javax.swing.JRadioButton jr_hbv_no;
+    private javax.swing.JRadioButton jr_hbv_yes;
+    private javax.swing.JRadioButton jr_hcv_no;
+    private javax.swing.JRadioButton jr_hcv_yes;
+    private javax.swing.JRadioButton jr_hiv_no;
+    private javax.swing.JRadioButton jr_hiv_yes;
     private javax.swing.JRadioButton rb_female;
     private javax.swing.JRadioButton rb_male;
+    private javax.swing.JTextArea ta_historyOfDrug;
+    private javax.swing.JTextArea ta_historyOfMalignancies;
     private javax.swing.JTextField tf_addressNo;
     private javax.swing.JTextField tf_addressStreet;
     private javax.swing.JTextField tf_addressTown;
+    private javax.swing.JTextField tf_bilirubin;
+    private javax.swing.JTextField tf_bmi;
+    private javax.swing.JTextField tf_brain_deth_date;
+    private javax.swing.JTextField tf_cadaverType;
+    private javax.swing.JTextField tf_causeOfDeth;
     private javax.swing.JTextField tf_fname;
     private javax.swing.JTextField tf_height;
+    private javax.swing.JTextField tf_icu;
+    private javax.swing.JTextField tf_liver;
     private javax.swing.JTextField tf_lname;
     private javax.swing.JTextField tf_mname;
     private javax.swing.JTextField tf_nic;
-    private javax.swing.JTextField tf_nic1;
-    private javax.swing.JTextField tf_nic10;
-    private javax.swing.JTextField tf_nic11;
-    private javax.swing.JTextField tf_nic12;
-    private javax.swing.JTextField tf_nic13;
-    private javax.swing.JTextField tf_nic14;
-    private javax.swing.JTextField tf_nic16;
-    private javax.swing.JTextField tf_nic2;
-    private javax.swing.JTextField tf_nic5;
-    private javax.swing.JTextField tf_nic6;
-    private javax.swing.JTextField tf_nic9;
     private javax.swing.JTextField tf_pno;
+    private javax.swing.JTextField tf_pra;
+    private javax.swing.JTextField tf_sgot;
+    private javax.swing.JTextField tf_sgpt;
+    private javax.swing.JTextField tf_sodiam;
     private javax.swing.JTextField tf_weight;
+    private javax.swing.JTextField tf_whiteBlodPlates;
     // End of variables declaration//GEN-END:variables
 
 
@@ -884,7 +902,7 @@ public class index extends javax.swing.JPanel {
                 v.add(institution.getInstitutionName().toString());
             }
             DefaultComboBoxModel defaultComboBoxModel = new DefaultComboBoxModel(v);
-            cb_institution.setModel(defaultComboBoxModel);
+            cb_donnerHospital.setModel(defaultComboBoxModel);
 
         } catch (Exception e) {
 

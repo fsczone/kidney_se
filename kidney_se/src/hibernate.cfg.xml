@@ -4,9 +4,8 @@
   <session-factory>
     <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
     <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
-    <property name="hibernate.connection.url">jdbc:mysql://77.104.128.75:3306/safenets_host_se?zeroDateTimeBehavior=convertToNull</property>
-    <property name="hibernate.connection.username">safenets_host_se</property>
-    <property name="hibernate.connection.password">WelComeDB1129</property>
+    <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/safenets_host_se?zeroDateTimeBehavior=convertToNull</property>
+    <property name="hibernate.connection.username">root</property>
     <mapping resource="soft/idea/hospital/kidny2017/se/models/SubWhiteBloadPlates.hbm.xml"/>
     <mapping resource="soft/idea/hospital/kidny2017/se/models/Institution.hbm.xml"/>
     <mapping resource="soft/idea/hospital/kidny2017/se/models/DonerHostpital.hbm.xml"/>

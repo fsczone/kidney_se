@@ -42,7 +42,7 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="1" attributes="0">
                       <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                      <Component id="jButton1" min="-2" pref="300" max="-2" attributes="0"/>
+                      <Component id="bt_save" min="-2" pref="300" max="-2" attributes="0"/>
                   </Group>
                   <Group type="102" attributes="0">
                       <Group type="103" groupAlignment="0" attributes="0">
@@ -111,33 +111,42 @@
                               </Group>
                               <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="tf_nic16" alignment="0" pref="300" max="32767" attributes="0"/>
+                                  <Component id="tf_whiteBlodPlates" alignment="0" pref="300" max="32767" attributes="0"/>
                                   <Component id="cb_citizenship" alignment="0" pref="300" max="32767" attributes="0"/>
-                                  <Component id="cb_institution" pref="300" max="32767" attributes="0"/>
                                   <Component id="cb_bloadgroup" alignment="0" pref="300" max="32767" attributes="0"/>
-                                  <Component id="tf_nic9" alignment="0" pref="300" max="32767" attributes="0"/>
+                                  <Component id="tf_sgot" alignment="0" pref="300" max="32767" attributes="0"/>
                                   <Component id="jScrollPane3" alignment="0" pref="300" max="32767" attributes="0"/>
-                                  <Component id="jLabel32" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jLabel20" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jLabel9" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jLabel11" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jLabel12" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jLabel25" alignment="0" min="-2" max="-2" attributes="0"/>
                                   <Group type="102" attributes="0">
                                       <EmptySpace min="10" pref="10" max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="0" attributes="0">
                                           <Group type="102" alignment="0" attributes="0">
-                                              <Component id="jRadioButton5" min="-2" max="-2" attributes="0"/>
+                                              <Component id="jr_hcv_yes" min="-2" max="-2" attributes="0"/>
                                               <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
-                                              <Component id="jRadioButton6" min="-2" max="-2" attributes="0"/>
+                                              <Component id="jr_hcv_no" min="-2" max="-2" attributes="0"/>
                                           </Group>
                                           <Component id="jLabel35" alignment="0" min="-2" max="-2" attributes="0"/>
                                       </Group>
                                       <EmptySpace min="-2" pref="45" max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="0" attributes="0">
                                           <Component id="jLabel38" min="-2" max="-2" attributes="0"/>
-                                          <Component id="jTextField1" max="32767" attributes="0"/>
+                                          <Component id="tf_pra" max="32767" attributes="0"/>
                                       </Group>
+                                  </Group>
+                                  <Group type="102" attributes="0">
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Component id="jLabel32" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          <Component id="jLabel20" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          <Component id="jLabel9" min="-2" max="-2" attributes="0"/>
+                                          <Component id="jLabel11" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          <Component id="jLabel12" min="-2" max="-2" attributes="0"/>
+                                          <Component id="jLabel25" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                                  </Group>
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <Component id="cb_donnerHospita_province" min="-2" pref="51" max="-2" attributes="0"/>
+                                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                      <Component id="cb_donnerHospital" max="32767" attributes="0"/>
                                   </Group>
                               </Group>
                           </Group>
@@ -146,56 +155,67 @@
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Group type="102" alignment="0" attributes="0">
                                       <Group type="103" groupAlignment="0" attributes="0">
-                                          <Component id="jLabel17" alignment="0" min="-2" max="-2" attributes="0"/>
-                                          <Component id="tf_nic1" alignment="0" min="-2" pref="300" max="-2" attributes="0"/>
+                                          <Component id="jLabel29" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          <Component id="cb_hla_class" alignment="0" max="32767" attributes="0"/>
                                       </Group>
-                                      <EmptySpace type="separate" max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="0" attributes="0">
-                                          <Component id="jLabel18" alignment="0" min="-2" max="-2" attributes="0"/>
-                                          <Component id="tf_nic2" alignment="0" min="-2" pref="300" max="-2" attributes="0"/>
-                                      </Group>
-                                  </Group>
-                                  <Group type="102" attributes="0">
-                                      <Group type="103" groupAlignment="0" attributes="0">
-                                          <Component id="jLabel21" alignment="0" min="-2" max="-2" attributes="0"/>
-                                          <Component id="tf_nic5" alignment="0" min="-2" pref="300" max="-2" attributes="0"/>
-                                      </Group>
-                                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                                      <Group type="103" groupAlignment="0" attributes="0">
-                                          <Component id="jLabel22" alignment="0" min="-2" max="-2" attributes="0"/>
-                                          <Component id="tf_nic6" alignment="0" min="-2" pref="300" max="-2" attributes="0"/>
-                                      </Group>
-                                  </Group>
-                                  <Group type="102" attributes="0">
-                                      <Group type="103" groupAlignment="0" attributes="0">
-                                          <Component id="jLabel27" alignment="0" min="-2" max="-2" attributes="0"/>
-                                          <Component id="tf_nic11" alignment="0" min="-2" pref="300" max="-2" attributes="0"/>
-                                      </Group>
-                                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                                      <Group type="103" groupAlignment="0" attributes="0">
-                                          <Component id="jLabel28" alignment="0" min="-2" max="-2" attributes="0"/>
-                                          <Component id="tf_nic12" alignment="0" min="-2" pref="300" max="-2" attributes="0"/>
+                                          <Group type="102" attributes="0">
+                                              <EmptySpace max="-2" attributes="0"/>
+                                              <Component id="cb_hlz_class_type" max="32767" attributes="0"/>
+                                          </Group>
+                                          <Group type="102" alignment="0" attributes="0">
+                                              <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
+                                              <Component id="jLabel30" min="-2" max="-2" attributes="0"/>
+                                              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                                          </Group>
                                       </Group>
                                   </Group>
                                   <Group type="102" alignment="0" attributes="0">
                                       <Group type="103" groupAlignment="0" attributes="0">
-                                          <Component id="jLabel29" alignment="0" min="-2" max="-2" attributes="0"/>
-                                          <Component id="tf_nic13" alignment="0" min="-2" pref="300" max="-2" attributes="0"/>
-                                          <Component id="cb_hla_class" alignment="0" max="32767" attributes="0"/>
+                                          <Component id="jLabel27" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          <Component id="tf_liver" alignment="0" min="-2" pref="300" max="-2" attributes="0"/>
+                                          <Component id="tf_bilirubin" alignment="0" min="-2" pref="300" max="-2" attributes="0"/>
                                       </Group>
-                                      <EmptySpace max="-2" attributes="0"/>
+                                      <EmptySpace type="separate" max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="0" attributes="0">
-                                          <Component id="jLabel30" alignment="0" min="-2" max="-2" attributes="0"/>
-                                          <Component id="tf_nic14" alignment="0" min="-2" pref="300" max="-2" attributes="0"/>
-                                          <Component id="cb_hlz_class_type" alignment="0" max="32767" attributes="0"/>
+                                          <Component id="tf_cadaverType" max="32767" attributes="0"/>
+                                          <Component id="jLabel28" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          <Component id="tf_sodiam" alignment="0" min="-2" pref="300" max="-2" attributes="0"/>
                                       </Group>
+                                  </Group>
+                                  <Group type="102" attributes="0">
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Group type="102" alignment="0" attributes="0">
+                                              <Group type="103" groupAlignment="0" attributes="0">
+                                                  <Component id="jLabel17" alignment="0" min="-2" max="-2" attributes="0"/>
+                                                  <Component id="tf_causeOfDeth" alignment="0" min="-2" pref="300" max="-2" attributes="0"/>
+                                              </Group>
+                                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                                              <Group type="103" groupAlignment="0" attributes="0">
+                                                  <Component id="jLabel18" alignment="0" min="-2" max="-2" attributes="0"/>
+                                                  <Component id="tf_brain_deth_date" alignment="0" min="-2" pref="300" max="-2" attributes="0"/>
+                                              </Group>
+                                          </Group>
+                                          <Group type="102" attributes="0">
+                                              <Group type="103" groupAlignment="0" attributes="0">
+                                                  <Component id="jLabel21" alignment="0" min="-2" max="-2" attributes="0"/>
+                                                  <Component id="tf_icu" alignment="0" min="-2" pref="300" max="-2" attributes="0"/>
+                                              </Group>
+                                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                                              <Group type="103" groupAlignment="0" attributes="0">
+                                                  <Component id="jLabel22" alignment="0" min="-2" max="-2" attributes="0"/>
+                                                  <Component id="tf_bmi" alignment="0" min="-2" pref="300" max="-2" attributes="0"/>
+                                              </Group>
+                                          </Group>
+                                      </Group>
+                                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                                   </Group>
                               </Group>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Group type="103" groupAlignment="0" max="-2" attributes="0">
                                       <Component id="jLabel26" alignment="0" min="-2" max="-2" attributes="0"/>
-                                      <Component id="tf_nic10" alignment="0" pref="300" max="32767" attributes="0"/>
+                                      <Component id="tf_sgpt" alignment="0" pref="300" max="32767" attributes="0"/>
                                       <Component id="jLabel19" min="-2" max="-2" attributes="0"/>
                                       <Component id="jScrollPane2" alignment="0" max="32767" attributes="0"/>
                                   </Group>
@@ -203,25 +223,25 @@
                                       <Group type="103" groupAlignment="0" attributes="0">
                                           <Component id="jLabel33" alignment="0" min="-2" max="-2" attributes="0"/>
                                           <Group type="102" alignment="0" attributes="0">
-                                              <Component id="jRadioButton1" min="-2" max="-2" attributes="0"/>
+                                              <Component id="jr_hiv_yes" min="-2" max="-2" attributes="0"/>
                                               <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
-                                              <Component id="jRadioButton2" min="-2" max="-2" attributes="0"/>
+                                              <Component id="jr_hiv_no" min="-2" max="-2" attributes="0"/>
                                           </Group>
                                           <Component id="jLabel37" alignment="0" min="-2" max="-2" attributes="0"/>
                                       </Group>
                                       <EmptySpace min="-2" pref="60" max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="0" attributes="0">
                                           <Group type="102" attributes="0">
-                                              <Component id="jRadioButton3" min="-2" max="-2" attributes="0"/>
+                                              <Component id="jr_hbv_yes" min="-2" max="-2" attributes="0"/>
                                               <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
-                                              <Component id="jRadioButton4" min="-2" max="-2" attributes="0"/>
+                                              <Component id="jr_hbv_no" min="-2" max="-2" attributes="0"/>
                                           </Group>
                                           <Component id="jLabel34" min="-2" max="-2" attributes="0"/>
                                       </Group>
                                   </Group>
                                   <Component id="cb_dsa_class" max="32767" attributes="0"/>
                               </Group>
-                              <EmptySpace pref="320" max="32767" attributes="0"/>
+                              <EmptySpace min="-2" pref="320" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                       <EmptySpace min="-2" pref="88" max="-2" attributes="0"/>
@@ -300,7 +320,8 @@
                                                       <EmptySpace max="-2" attributes="0"/>
                                                       <Group type="103" groupAlignment="3" attributes="0">
                                                           <Component id="tf_addressNo" alignment="3" min="-2" pref="40" max="-2" attributes="0"/>
-                                                          <Component id="cb_institution" alignment="3" min="-2" pref="40" max="-2" attributes="0"/>
+                                                          <Component id="cb_donnerHospital" alignment="3" min="-2" pref="40" max="-2" attributes="0"/>
+                                                          <Component id="cb_donnerHospita_province" alignment="3" min="-2" pref="40" max="-2" attributes="0"/>
                                                       </Group>
                                                       <EmptySpace min="-2" pref="9" max="-2" attributes="0"/>
                                                       <Group type="103" groupAlignment="3" attributes="0">
@@ -336,7 +357,7 @@
                                                           <Group type="102" attributes="0">
                                                               <Component id="jLabel17" min="-2" max="-2" attributes="0"/>
                                                               <EmptySpace max="-2" attributes="0"/>
-                                                              <Component id="tf_nic1" min="-2" pref="40" max="-2" attributes="0"/>
+                                                              <Component id="tf_causeOfDeth" min="-2" pref="40" max="-2" attributes="0"/>
                                                           </Group>
                                                           <Group type="102" alignment="1" attributes="0">
                                                               <Component id="jLabel19" min="-2" max="-2" attributes="0"/>
@@ -355,7 +376,7 @@
                                           <Group type="102" attributes="0">
                                               <Component id="jLabel18" min="-2" max="-2" attributes="0"/>
                                               <EmptySpace max="-2" attributes="0"/>
-                                              <Component id="tf_nic2" min="-2" pref="40" max="-2" attributes="0"/>
+                                              <Component id="tf_brain_deth_date" min="-2" pref="40" max="-2" attributes="0"/>
                                           </Group>
                                       </Group>
                                       <EmptySpace max="-2" attributes="0"/>
@@ -363,19 +384,19 @@
                                           <Group type="102" attributes="0">
                                               <Component id="jLabel21" min="-2" max="-2" attributes="0"/>
                                               <EmptySpace max="-2" attributes="0"/>
-                                              <Component id="tf_nic5" min="-2" pref="40" max="-2" attributes="0"/>
+                                              <Component id="tf_icu" min="-2" pref="40" max="-2" attributes="0"/>
                                           </Group>
                                           <Group type="102" alignment="0" attributes="0">
                                               <Component id="jLabel25" min="-2" max="-2" attributes="0"/>
                                               <EmptySpace max="32767" attributes="0"/>
-                                              <Component id="tf_nic9" min="-2" pref="40" max="-2" attributes="0"/>
+                                              <Component id="tf_sgot" min="-2" pref="40" max="-2" attributes="0"/>
                                           </Group>
                                       </Group>
                                   </Group>
                                   <Group type="102" attributes="0">
                                       <Component id="jLabel22" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="tf_nic6" min="-2" pref="40" max="-2" attributes="0"/>
+                                      <Component id="tf_bmi" min="-2" pref="40" max="-2" attributes="0"/>
                                   </Group>
                                   <Group type="102" alignment="0" attributes="0">
                                       <EmptySpace min="-2" pref="321" max="-2" attributes="0"/>
@@ -391,21 +412,21 @@
                                       </Group>
                                       <EmptySpace max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="3" attributes="0">
-                                          <Component id="tf_nic10" alignment="3" min="-2" pref="40" max="-2" attributes="0"/>
-                                          <Component id="tf_nic16" alignment="3" min="-2" pref="40" max="-2" attributes="0"/>
+                                          <Component id="tf_sgpt" alignment="3" min="-2" pref="40" max="-2" attributes="0"/>
+                                          <Component id="tf_whiteBlodPlates" alignment="3" min="-2" pref="40" max="-2" attributes="0"/>
                                       </Group>
                                   </Group>
                                   <Group type="102" attributes="0">
                                       <Component id="jLabel27" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="tf_nic11" min="-2" pref="40" max="-2" attributes="0"/>
+                                      <Component id="tf_liver" min="-2" pref="40" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
                           </Group>
                           <Group type="102" attributes="0">
                               <Component id="jLabel28" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
-                              <Component id="tf_nic12" min="-2" pref="40" max="-2" attributes="0"/>
+                              <Component id="tf_sodiam" min="-2" pref="40" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                       <Group type="103" groupAlignment="0" attributes="0">
@@ -415,9 +436,12 @@
                                   <Group type="102" attributes="0">
                                       <Component id="jLabel29" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="tf_nic13" min="-2" pref="40" max="-2" attributes="0"/>
+                                      <Component id="tf_bilirubin" min="-2" pref="40" max="-2" attributes="0"/>
                                   </Group>
-                                  <Component id="jLabel33" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Group type="103" alignment="0" groupAlignment="3" attributes="0">
+                                      <Component id="jLabel33" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="jLabel30" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  </Group>
                                   <Component id="jLabel34" min="-2" max="-2" attributes="0"/>
                               </Group>
                           </Group>
@@ -426,29 +450,25 @@
                               <Component id="jLabel35" min="-2" max="-2" attributes="0"/>
                               <EmptySpace min="-2" pref="8" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="jRadioButton5" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jRadioButton6" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jr_hcv_yes" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jr_hcv_no" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                       </Group>
                   </Group>
-                  <Group type="102" alignment="1" attributes="0">
-                      <Component id="jLabel30" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="jRadioButton1" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="jRadioButton2" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="jRadioButton3" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="jRadioButton4" alignment="3" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                          <Component id="tf_nic14" min="-2" pref="40" max="-2" attributes="0"/>
+                  <Group type="103" alignment="1" groupAlignment="0" attributes="0">
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="jr_hiv_yes" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jr_hiv_no" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jr_hbv_yes" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jr_hbv_no" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
+                      <Component id="tf_cadaverType" min="-2" pref="40" max="-2" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="1" attributes="0">
                       <Component id="jLabel38" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="jTextField1" min="-2" pref="40" max="-2" attributes="0"/>
+                      <Component id="tf_pra" min="-2" pref="40" max="-2" attributes="0"/>
                   </Group>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
@@ -458,7 +478,7 @@
               </Group>
               <EmptySpace pref="10" max="32767" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="jButton1" alignment="1" min="-2" pref="40" max="-2" attributes="0"/>
+                  <Component id="bt_save" alignment="1" min="-2" pref="40" max="-2" attributes="0"/>
                   <Group type="103" alignment="1" groupAlignment="3" attributes="0">
                       <Component id="cb_hla_class" alignment="3" min="-2" pref="40" max="-2" attributes="0"/>
                       <Component id="cb_hlz_class_type" alignment="3" min="-2" pref="40" max="-2" attributes="0"/>
@@ -785,7 +805,7 @@
         <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
       </AuxValues>
     </Component>
-    <Component class="javax.swing.JComboBox" name="cb_institution">
+    <Component class="javax.swing.JComboBox" name="cb_donnerHospital">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Microsoft JhengHei" size="18" style="0"/>
@@ -818,7 +838,7 @@
         <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
       </AuxValues>
     </Component>
-    <Component class="javax.swing.JButton" name="jButton1">
+    <Component class="javax.swing.JButton" name="bt_save">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Microsoft JhengHei" size="18" style="0"/>
@@ -928,7 +948,7 @@
         <Property name="text" type="java.lang.String" value="Cause Of Death"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="tf_nic1">
+    <Component class="javax.swing.JTextField" name="tf_causeOfDeth">
       <Properties>
         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="fa" green="fa" red="fa" type="rgb"/>
@@ -957,7 +977,7 @@
         <Property name="text" type="java.lang.String" value="Brain Death Date"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="tf_nic2">
+    <Component class="javax.swing.JTextField" name="tf_brain_deth_date">
       <Properties>
         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="fa" green="fa" red="fa" type="rgb"/>
@@ -1008,7 +1028,7 @@
         <Property name="text" type="java.lang.String" value="ICU Days"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="tf_nic5">
+    <Component class="javax.swing.JTextField" name="tf_icu">
       <Properties>
         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="fa" green="fa" red="fa" type="rgb"/>
@@ -1037,7 +1057,7 @@
         <Property name="text" type="java.lang.String" value="BMI"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="tf_nic6">
+    <Component class="javax.swing.JTextField" name="tf_bmi">
       <Properties>
         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="fa" green="fa" red="fa" type="rgb"/>
@@ -1066,7 +1086,7 @@
         <Property name="text" type="java.lang.String" value="SGOT"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="tf_nic9">
+    <Component class="javax.swing.JTextField" name="tf_sgot">
       <Properties>
         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="fa" green="fa" red="fa" type="rgb"/>
@@ -1095,7 +1115,7 @@
         <Property name="text" type="java.lang.String" value="SGPT"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="tf_nic10">
+    <Component class="javax.swing.JTextField" name="tf_sgpt">
       <Properties>
         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="fa" green="fa" red="fa" type="rgb"/>
@@ -1124,7 +1144,7 @@
         <Property name="text" type="java.lang.String" value="Steatotic Liver"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="tf_nic11">
+    <Component class="javax.swing.JTextField" name="tf_liver">
       <Properties>
         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="fa" green="fa" red="fa" type="rgb"/>
@@ -1153,7 +1173,7 @@
         <Property name="text" type="java.lang.String" value="Sodiam"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="tf_nic12">
+    <Component class="javax.swing.JTextField" name="tf_sodiam">
       <Properties>
         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="fa" green="fa" red="fa" type="rgb"/>
@@ -1182,7 +1202,7 @@
         <Property name="text" type="java.lang.String" value="Bilirubin "/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="tf_nic13">
+    <Component class="javax.swing.JTextField" name="tf_bilirubin">
       <Properties>
         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="fa" green="fa" red="fa" type="rgb"/>
@@ -1211,7 +1231,7 @@
         <Property name="text" type="java.lang.String" value="Cadaver Type"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="tf_nic14">
+    <Component class="javax.swing.JTextField" name="tf_cadaverType">
       <Properties>
         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="fa" green="fa" red="fa" type="rgb"/>
@@ -1240,7 +1260,7 @@
         <Property name="text" type="java.lang.String" value="White Bload Plates"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="tf_nic16">
+    <Component class="javax.swing.JTextField" name="tf_whiteBlodPlates">
       <Properties>
         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="fa" green="fa" red="fa" type="rgb"/>
@@ -1265,7 +1285,7 @@
 
       <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
       <SubComponents>
-        <Component class="javax.swing.JTextArea" name="jTextArea1">
+        <Component class="javax.swing.JTextArea" name="ta_historyOfDrug">
           <Properties>
             <Property name="columns" type="int" value="20"/>
             <Property name="rows" type="int" value="5"/>
@@ -1280,7 +1300,7 @@
 
       <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
       <SubComponents>
-        <Component class="javax.swing.JTextArea" name="jTextArea2">
+        <Component class="javax.swing.JTextArea" name="ta_historyOfMalignancies">
           <Properties>
             <Property name="columns" type="int" value="20"/>
             <Property name="rows" type="int" value="5"/>
@@ -1310,7 +1330,7 @@
         <Property name="text" type="java.lang.String" value="HBV Status"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JRadioButton" name="jRadioButton1">
+    <Component class="javax.swing.JRadioButton" name="jr_hiv_yes">
       <Properties>
         <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
           <ComponentRef name="bg_hiv"/>
@@ -1324,7 +1344,7 @@
         <Property name="opaque" type="boolean" value="false"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JRadioButton" name="jRadioButton2">
+    <Component class="javax.swing.JRadioButton" name="jr_hiv_no">
       <Properties>
         <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
           <ComponentRef name="bg_hiv"/>
@@ -1338,7 +1358,7 @@
         <Property name="opaque" type="boolean" value="false"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JRadioButton" name="jRadioButton3">
+    <Component class="javax.swing.JRadioButton" name="jr_hbv_yes">
       <Properties>
         <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
           <ComponentRef name="bg_hbv"/>
@@ -1352,7 +1372,7 @@
         <Property name="opaque" type="boolean" value="false"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JRadioButton" name="jRadioButton4">
+    <Component class="javax.swing.JRadioButton" name="jr_hbv_no">
       <Properties>
         <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
           <ComponentRef name="bg_hbv"/>
@@ -1377,7 +1397,7 @@
         <Property name="text" type="java.lang.String" value="HCV Status"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JRadioButton" name="jRadioButton5">
+    <Component class="javax.swing.JRadioButton" name="jr_hcv_yes">
       <Properties>
         <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
           <ComponentRef name="bg_hcv"/>
@@ -1391,7 +1411,7 @@
         <Property name="opaque" type="boolean" value="false"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JRadioButton" name="jRadioButton6">
+    <Component class="javax.swing.JRadioButton" name="jr_hcv_no">
       <Properties>
         <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
           <ComponentRef name="bg_hcv"/>
@@ -1486,12 +1506,26 @@
         <Property name="text" type="java.lang.String" value="PRA"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="jTextField1">
+    <Component class="javax.swing.JTextField" name="tf_pra">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Microsoft JhengHei" size="18" style="0"/>
         </Property>
       </Properties>
+    </Component>
+    <Component class="javax.swing.JComboBox" name="cb_donnerHospita_province">
+      <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Microsoft JhengHei" size="18" style="0"/>
+        </Property>
+        <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+          <StringArray count="0"/>
+        </Property>
+        <Property name="requestFocusEnabled" type="boolean" value="false"/>
+      </Properties>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+      </AuxValues>
     </Component>
   </SubComponents>
 </Form>
