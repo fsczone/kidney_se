@@ -1,5 +1,5 @@
 package soft.idea.hospital.kidny2017.se.models;
-// Generated Feb 21, 2017 8:45:30 PM by Hibernate Tools 4.3.1
+// Generated Feb 26, 2017 1:25:37 PM by Hibernate Tools 4.3.1
 
 
 import java.util.HashSet;
@@ -10,6 +10,8 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import static javax.persistence.GenerationType.IDENTITY;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
@@ -24,6 +26,7 @@ public class Pation  implements java.io.Serializable {
 
 
      private Integer idpation;
+     private AddressPation addressPation;
      private String pationFname;
      private String pationMname;
      private String pationLname;
@@ -54,12 +57,16 @@ public class Pation  implements java.io.Serializable {
      private String pationRegdate;
      private String pationStatus;
      private Set<PationHasDoner> pationHasDoners = new HashSet<PationHasDoner>(0);
-     private Set<AddressPation> addressPations = new HashSet<AddressPation>(0);
 
     public Pation() {
     }
 
-    public Pation(String pationFname, String pationMname, String pationLname, String pationNic, String pationSteatoticLiver, String pationBilirubin, String pationHla, String pationDsa, String pationPhone, String pationDob, String pationGen, String pationHeight, String pationBmi, String pationSodiam, String pationCadvertype, String pationHiv, String pationHbv, String pationHcv, String pationWeight, String pationDrugAbuseHistory, String pationSgpt, String pationCitizenship, String pationBloodGroup, String pationMalignanclesHistory, String pationSgot, String pationWhiteBlodPlates, String pationPra, String pationRegdate, String pationStatus, Set<PationHasDoner> pationHasDoners, Set<AddressPation> addressPations) {
+	
+    public Pation(AddressPation addressPation) {
+        this.addressPation = addressPation;
+    }
+    public Pation(AddressPation addressPation, String pationFname, String pationMname, String pationLname, String pationNic, String pationSteatoticLiver, String pationBilirubin, String pationHla, String pationDsa, String pationPhone, String pationDob, String pationGen, String pationHeight, String pationBmi, String pationSodiam, String pationCadvertype, String pationHiv, String pationHbv, String pationHcv, String pationWeight, String pationDrugAbuseHistory, String pationSgpt, String pationCitizenship, String pationBloodGroup, String pationMalignanclesHistory, String pationSgot, String pationWhiteBlodPlates, String pationPra, String pationRegdate, String pationStatus, Set<PationHasDoner> pationHasDoners) {
+       this.addressPation = addressPation;
        this.pationFname = pationFname;
        this.pationMname = pationMname;
        this.pationLname = pationLname;
@@ -90,7 +97,6 @@ public class Pation  implements java.io.Serializable {
        this.pationRegdate = pationRegdate;
        this.pationStatus = pationStatus;
        this.pationHasDoners = pationHasDoners;
-       this.addressPations = addressPations;
     }
    
      @Id @GeneratedValue(strategy=IDENTITY)
@@ -103,6 +109,16 @@ public class Pation  implements java.io.Serializable {
     
     public void setIdpation(Integer idpation) {
         this.idpation = idpation;
+    }
+
+@ManyToOne(fetch=FetchType.LAZY)
+    @JoinColumn(name="address_pation_idaddress", nullable=false)
+    public AddressPation getAddressPation() {
+        return this.addressPation;
+    }
+    
+    public void setAddressPation(AddressPation addressPation) {
+        this.addressPation = addressPation;
     }
 
     
@@ -402,15 +418,6 @@ public class Pation  implements java.io.Serializable {
     
     public void setPationHasDoners(Set<PationHasDoner> pationHasDoners) {
         this.pationHasDoners = pationHasDoners;
-    }
-
-@OneToMany(fetch=FetchType.LAZY, mappedBy="pation")
-    public Set<AddressPation> getAddressPations() {
-        return this.addressPations;
-    }
-    
-    public void setAddressPations(Set<AddressPation> addressPations) {
-        this.addressPations = addressPations;
     }
 
 

@@ -1,5 +1,5 @@
 package soft.idea.hospital.kidny2017.se.models;
-// Generated Feb 21, 2017 8:45:30 PM by Hibernate Tools 4.3.1
+// Generated Feb 26, 2017 1:25:37 PM by Hibernate Tools 4.3.1
 
 
 import java.util.HashSet;

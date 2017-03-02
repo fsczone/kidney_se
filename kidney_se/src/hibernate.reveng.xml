@@ -2,11 +2,11 @@
 <!DOCTYPE hibernate-reverse-engineering PUBLIC "-//Hibernate/Hibernate Reverse Engineering DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-reverse-engineering-3.0.dtd">
 <hibernate-reverse-engineering>
   <schema-selection match-catalog="safenets_host_se"/>
-  <table-filter match-name="doner"/>
-  <table-filter match-name="address_doner"/>
-  <table-filter match-name="pation_has_doner"/>
-  <table-filter match-name="pation"/>
-  <table-filter match-name="doner_hostpital"/>
-  <table-filter match-name="user"/>
   <table-filter match-name="address_pation"/>
+  <table-filter match-name="doner"/>
+  <table-filter match-name="doner_hostpital"/>
+  <table-filter match-name="pation_has_doner"/>
+  <table-filter match-name="user"/>
+  <table-filter match-name="pation"/>
+  <table-filter match-name="address_doner"/>
 </hibernate-reverse-engineering>

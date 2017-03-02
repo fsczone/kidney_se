@@ -1,15 +1,16 @@
 package soft.idea.hospital.kidny2017.se.models;
-// Generated Feb 21, 2017 8:45:30 PM by Hibernate Tools 4.3.1
+// Generated Feb 26, 2017 1:25:37 PM by Hibernate Tools 4.3.1
 
 
+import java.util.HashSet;
+import java.util.Set;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import static javax.persistence.GenerationType.IDENTITY;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 /**
@@ -23,23 +24,19 @@ public class AddressDoner  implements java.io.Serializable {
 
 
      private Integer idaddressDoner;
-     private Doner doner;
      private String addressDonerNo;
      private String addressDonerStreet;
      private String addressDonerTown;
+     private Set<Doner> doners = new HashSet<Doner>(0);
 
     public AddressDoner() {
     }
 
-	
-    public AddressDoner(Doner doner) {
-        this.doner = doner;
-    }
-    public AddressDoner(Doner doner, String addressDonerNo, String addressDonerStreet, String addressDonerTown) {
-       this.doner = doner;
+    public AddressDoner(String addressDonerNo, String addressDonerStreet, String addressDonerTown, Set<Doner> doners) {
        this.addressDonerNo = addressDonerNo;
        this.addressDonerStreet = addressDonerStreet;
        this.addressDonerTown = addressDonerTown;
+       this.doners = doners;
     }
    
      @Id @GeneratedValue(strategy=IDENTITY)
@@ -52,16 +49,6 @@ public class AddressDoner  implements java.io.Serializable {
     
     public void setIdaddressDoner(Integer idaddressDoner) {
         this.idaddressDoner = idaddressDoner;
-    }
-
-@ManyToOne(fetch=FetchType.LAZY)
-    @JoinColumn(name="doner_iddoner", nullable=false)
-    public Doner getDoner() {
-        return this.doner;
-    }
-    
-    public void setDoner(Doner doner) {
-        this.doner = doner;
     }
 
     
@@ -92,6 +79,15 @@ public class AddressDoner  implements java.io.Serializable {
     
     public void setAddressDonerTown(String addressDonerTown) {
         this.addressDonerTown = addressDonerTown;
+    }
+
+@OneToMany(fetch=FetchType.LAZY, mappedBy="addressDoner")
+    public Set<Doner> getDoners() {
+        return this.doners;
+    }
+    
+    public void setDoners(Set<Doner> doners) {
+        this.doners = doners;
     }
 
 

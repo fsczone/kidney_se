@@ -1,13 +1,16 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
-<!-- Generated Feb 21, 2017 8:45:31 PM by Hibernate Tools 4.3.1 -->
+<!-- Generated Feb 26, 2017 1:25:39 PM by Hibernate Tools 4.3.1 -->
 <hibernate-mapping>
     <class name="soft.idea.hospital.kidny2017.se.models.Doner" table="doner" catalog="safenets_host_se" optimistic-lock="version">
         <id name="iddoner" type="java.lang.Integer">
             <column name="iddoner" />
             <generator class="identity" />
         </id>
+        <many-to-one name="addressDoner" class="soft.idea.hospital.kidny2017.se.models.AddressDoner" fetch="select">
+            <column name="address_doner_idaddress_doner" not-null="true" />
+        </many-to-one>
         <many-to-one name="donerHostpital" class="soft.idea.hospital.kidny2017.se.models.DonerHostpital" fetch="select">
             <column name="doner_hostpital_iddoner_hostpital" not-null="true" />
         </many-to-one>
@@ -113,12 +116,6 @@
         <property name="donerStatus" type="string">
             <column name="doner_status" length="45" />
         </property>
-        <set name="addressDoners" table="address_doner" inverse="true" lazy="true" fetch="select">
-            <key>
-                <column name="doner_iddoner" not-null="true" />
-            </key>
-            <one-to-many class="soft.idea.hospital.kidny2017.se.models.AddressDoner" />
-        </set>
         <set name="pationHasDoners" table="pation_has_doner" inverse="true" lazy="true" fetch="select">
             <key>
                 <column name="doner_iddoner" not-null="true" />

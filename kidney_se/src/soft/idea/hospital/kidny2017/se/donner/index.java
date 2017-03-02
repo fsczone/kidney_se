@@ -5,15 +5,24 @@
  */
 package soft.idea.hospital.kidny2017.se.donner;
 
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
 import soft.idea.hospital.kidny2017.se.patient.*;
 import java.util.List;
 import java.util.Locale;
+import java.util.Set;
 import java.util.Vector;
 import javax.swing.DefaultComboBoxModel;
 import org.hibernate.Criteria;
+import org.hibernate.Hibernate;
+import org.hibernate.Session;
 import org.hibernate.criterion.Restrictions;
 import sft.idea.hospital.kidny2017.se.supportive_sources.data;
-
+import soft.idea.hospital.kidny2017.se.controler.HibernateUtil;
+import soft.idea.hospital.kidny2017.se.models.AddressDoner;
+import soft.idea.hospital.kidny2017.se.models.Doner;
+import soft.idea.hospital.kidny2017.se.models.DonerHostpital;
 
 /**
  *
@@ -27,6 +36,9 @@ public class index extends javax.swing.JPanel {
     public index() {
         initComponents();
         loadCuntrys();
+        loadHospitals("WP");
+        loadHLA("Class 1");
+
     }
 
     /**
@@ -63,7 +75,6 @@ public class index extends javax.swing.JPanel {
         tf_pno = new javax.swing.JTextField();
         rb_male = new javax.swing.JRadioButton();
         rb_female = new javax.swing.JRadioButton();
-        dc_dob = new datechooser.beans.DateChooserCombo();
         cb_citizenship = new javax.swing.JComboBox<>();
         cb_donnerHospital = new javax.swing.JComboBox<>();
         cb_bloadgroup = new javax.swing.JComboBox<>();
@@ -104,21 +115,22 @@ public class index extends javax.swing.JPanel {
         ta_historyOfMalignancies = new javax.swing.JTextArea();
         jLabel33 = new javax.swing.JLabel();
         jLabel34 = new javax.swing.JLabel();
-        jr_hiv_yes = new javax.swing.JRadioButton();
-        jr_hiv_no = new javax.swing.JRadioButton();
-        jr_hbv_yes = new javax.swing.JRadioButton();
-        jr_hbv_no = new javax.swing.JRadioButton();
+        rb_hiv_yes = new javax.swing.JRadioButton();
+        rb_hiv_no = new javax.swing.JRadioButton();
+        rb_hbv_yes = new javax.swing.JRadioButton();
+        rb_hbv_no = new javax.swing.JRadioButton();
         jLabel35 = new javax.swing.JLabel();
-        jr_hcv_yes = new javax.swing.JRadioButton();
-        jr_hcv_no = new javax.swing.JRadioButton();
+        rb_hcv_yes = new javax.swing.JRadioButton();
+        rb_hcv_no = new javax.swing.JRadioButton();
         jLabel36 = new javax.swing.JLabel();
-        cb_hlz_class_type = new javax.swing.JComboBox<>();
+        cb_hla_class_type = new javax.swing.JComboBox<>();
         cb_hla_class = new javax.swing.JComboBox<>();
         jLabel37 = new javax.swing.JLabel();
         cb_dsa_class = new javax.swing.JComboBox<>();
         jLabel38 = new javax.swing.JLabel();
         tf_pra = new javax.swing.JTextField();
         cb_donnerHospita_province = new javax.swing.JComboBox<>();
+        dc_dob = new com.toedter.calendar.JDateChooser();
 
         setBackground(new java.awt.Color(250, 250, 250));
         setMaximumSize(new java.awt.Dimension(1366, 663));
@@ -210,6 +222,7 @@ public class index extends javax.swing.JPanel {
         rb_male.setBackground(new java.awt.Color(250, 250, 250));
         buttonGroup1.add(rb_male);
         rb_male.setFont(new java.awt.Font("Microsoft JhengHei", 0, 18)); // NOI18N
+        rb_male.setSelected(true);
         rb_male.setText("Male");
         rb_male.setFocusable(false);
 
@@ -219,8 +232,6 @@ public class index extends javax.swing.JPanel {
         rb_female.setText("Female");
         rb_female.setFocusable(false);
 
-        dc_dob.setCalendarBackground(new java.awt.Color(255, 255, 255));
-
         cb_citizenship.setFont(new java.awt.Font("Microsoft JhengHei", 0, 18)); // NOI18N
         cb_citizenship.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         cb_citizenship.setRequestFocusEnabled(false);
@@ -229,13 +240,18 @@ public class index extends javax.swing.JPanel {
         cb_donnerHospital.setRequestFocusEnabled(false);
 
         cb_bloadgroup.setFont(new java.awt.Font("Microsoft JhengHei", 0, 18)); // NOI18N
-        cb_bloadgroup.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        cb_bloadgroup.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "O+", "O-", "A+", "A-", "B+", "B-", "AB+", "AB-" }));
         cb_bloadgroup.setRequestFocusEnabled(false);
 
         bt_save.setFont(new java.awt.Font("Microsoft JhengHei", 0, 18)); // NOI18N
         bt_save.setText("Save");
         bt_save.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         bt_save.setFocusable(false);
+        bt_save.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bt_saveActionPerformed(evt);
+            }
+        });
 
         jLabel14.setBackground(new java.awt.Color(250, 250, 250));
         jLabel14.setFont(new java.awt.Font("Microsoft JhengHei", 0, 14)); // NOI18N
@@ -387,62 +403,70 @@ public class index extends javax.swing.JPanel {
         jLabel34.setFont(new java.awt.Font("Microsoft JhengHei", 0, 14)); // NOI18N
         jLabel34.setText("HBV Status");
 
-        bg_hiv.add(jr_hiv_yes);
-        jr_hiv_yes.setFont(new java.awt.Font("Microsoft JhengHei", 0, 18)); // NOI18N
-        jr_hiv_yes.setText("Yes");
-        jr_hiv_yes.setFocusPainted(false);
-        jr_hiv_yes.setFocusable(false);
-        jr_hiv_yes.setOpaque(false);
+        bg_hiv.add(rb_hiv_yes);
+        rb_hiv_yes.setFont(new java.awt.Font("Microsoft JhengHei", 0, 18)); // NOI18N
+        rb_hiv_yes.setText("Yes");
+        rb_hiv_yes.setFocusPainted(false);
+        rb_hiv_yes.setFocusable(false);
+        rb_hiv_yes.setOpaque(false);
 
-        bg_hiv.add(jr_hiv_no);
-        jr_hiv_no.setFont(new java.awt.Font("Microsoft JhengHei", 0, 18)); // NOI18N
-        jr_hiv_no.setText("No");
-        jr_hiv_no.setFocusPainted(false);
-        jr_hiv_no.setFocusable(false);
-        jr_hiv_no.setOpaque(false);
+        bg_hiv.add(rb_hiv_no);
+        rb_hiv_no.setFont(new java.awt.Font("Microsoft JhengHei", 0, 18)); // NOI18N
+        rb_hiv_no.setSelected(true);
+        rb_hiv_no.setText("No");
+        rb_hiv_no.setFocusPainted(false);
+        rb_hiv_no.setFocusable(false);
+        rb_hiv_no.setOpaque(false);
 
-        bg_hbv.add(jr_hbv_yes);
-        jr_hbv_yes.setFont(new java.awt.Font("Microsoft JhengHei", 0, 18)); // NOI18N
-        jr_hbv_yes.setText("Yes");
-        jr_hbv_yes.setFocusPainted(false);
-        jr_hbv_yes.setFocusable(false);
-        jr_hbv_yes.setOpaque(false);
+        bg_hbv.add(rb_hbv_yes);
+        rb_hbv_yes.setFont(new java.awt.Font("Microsoft JhengHei", 0, 18)); // NOI18N
+        rb_hbv_yes.setText("Yes");
+        rb_hbv_yes.setFocusPainted(false);
+        rb_hbv_yes.setFocusable(false);
+        rb_hbv_yes.setOpaque(false);
 
-        bg_hbv.add(jr_hbv_no);
-        jr_hbv_no.setFont(new java.awt.Font("Microsoft JhengHei", 0, 18)); // NOI18N
-        jr_hbv_no.setText("No");
-        jr_hbv_no.setFocusPainted(false);
-        jr_hbv_no.setFocusable(false);
-        jr_hbv_no.setOpaque(false);
+        bg_hbv.add(rb_hbv_no);
+        rb_hbv_no.setFont(new java.awt.Font("Microsoft JhengHei", 0, 18)); // NOI18N
+        rb_hbv_no.setSelected(true);
+        rb_hbv_no.setText("No");
+        rb_hbv_no.setFocusPainted(false);
+        rb_hbv_no.setFocusable(false);
+        rb_hbv_no.setOpaque(false);
 
         jLabel35.setBackground(new java.awt.Color(250, 250, 250));
         jLabel35.setFont(new java.awt.Font("Microsoft JhengHei", 0, 14)); // NOI18N
         jLabel35.setText("HCV Status");
 
-        bg_hcv.add(jr_hcv_yes);
-        jr_hcv_yes.setFont(new java.awt.Font("Microsoft JhengHei", 0, 18)); // NOI18N
-        jr_hcv_yes.setText("Yes");
-        jr_hcv_yes.setFocusPainted(false);
-        jr_hcv_yes.setFocusable(false);
-        jr_hcv_yes.setOpaque(false);
+        bg_hcv.add(rb_hcv_yes);
+        rb_hcv_yes.setFont(new java.awt.Font("Microsoft JhengHei", 0, 18)); // NOI18N
+        rb_hcv_yes.setText("Yes");
+        rb_hcv_yes.setFocusPainted(false);
+        rb_hcv_yes.setFocusable(false);
+        rb_hcv_yes.setOpaque(false);
 
-        bg_hcv.add(jr_hcv_no);
-        jr_hcv_no.setFont(new java.awt.Font("Microsoft JhengHei", 0, 18)); // NOI18N
-        jr_hcv_no.setText("No");
-        jr_hcv_no.setFocusPainted(false);
-        jr_hcv_no.setFocusable(false);
-        jr_hcv_no.setOpaque(false);
+        bg_hcv.add(rb_hcv_no);
+        rb_hcv_no.setFont(new java.awt.Font("Microsoft JhengHei", 0, 18)); // NOI18N
+        rb_hcv_no.setSelected(true);
+        rb_hcv_no.setText("No");
+        rb_hcv_no.setFocusPainted(false);
+        rb_hcv_no.setFocusable(false);
+        rb_hcv_no.setOpaque(false);
 
         jLabel36.setBackground(new java.awt.Color(250, 250, 250));
         jLabel36.setFont(new java.awt.Font("Microsoft JhengHei", 0, 14)); // NOI18N
         jLabel36.setText("HLA");
 
-        cb_hlz_class_type.setFont(new java.awt.Font("Microsoft JhengHei", 0, 18)); // NOI18N
-        cb_hlz_class_type.setRequestFocusEnabled(false);
+        cb_hla_class_type.setFont(new java.awt.Font("Microsoft JhengHei", 0, 18)); // NOI18N
+        cb_hla_class_type.setRequestFocusEnabled(false);
 
         cb_hla_class.setFont(new java.awt.Font("Microsoft JhengHei", 0, 18)); // NOI18N
         cb_hla_class.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Class 1", "Class 2" }));
         cb_hla_class.setRequestFocusEnabled(false);
+        cb_hla_class.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
+            public void propertyChange(java.beans.PropertyChangeEvent evt) {
+                cb_hla_classPropertyChange(evt);
+            }
+        });
 
         jLabel37.setBackground(new java.awt.Color(250, 250, 250));
         jLabel37.setFont(new java.awt.Font("Microsoft JhengHei", 0, 14)); // NOI18N
@@ -459,7 +483,13 @@ public class index extends javax.swing.JPanel {
         tf_pra.setFont(new java.awt.Font("Microsoft JhengHei", 0, 18)); // NOI18N
 
         cb_donnerHospita_province.setFont(new java.awt.Font("Microsoft JhengHei", 0, 18)); // NOI18N
+        cb_donnerHospita_province.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "WP", "CP", "NP", "EP", "SP", "NWP", "NCP", "UP", "SBP" }));
         cb_donnerHospita_province.setRequestFocusEnabled(false);
+        cb_donnerHospita_province.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
+            public void propertyChange(java.beans.PropertyChangeEvent evt) {
+                cb_donnerHospita_provincePropertyChange(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -501,15 +531,19 @@ public class index extends javax.swing.JPanel {
                                                         .addGap(18, 18, 18)
                                                         .addComponent(jLabel15))))
                                             .addGroup(layout.createSequentialGroup()
-                                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                    .addComponent(dc_dob, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                    .addComponent(jLabel6)
+                                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                                     .addGroup(layout.createSequentialGroup()
-                                                        .addComponent(rb_male)
-                                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                        .addComponent(rb_female, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                                    .addComponent(jLabel8))
-                                                .addGap(18, 18, 18)
+                                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                            .addComponent(jLabel6)
+                                                            .addGroup(layout.createSequentialGroup()
+                                                                .addComponent(rb_male)
+                                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                                .addComponent(rb_female, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                                            .addComponent(jLabel8))
+                                                        .addGap(164, 164, 164))
+                                                    .addGroup(layout.createSequentialGroup()
+                                                        .addComponent(dc_dob, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                        .addGap(18, 18, 18)))
                                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                                     .addComponent(jLabel16)
                                                     .addComponent(jLabel14)
@@ -523,18 +557,17 @@ public class index extends javax.swing.JPanel {
                                         .addComponent(tf_addressTown, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)))
                                 .addGap(22, 22, 22)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(tf_whiteBlodPlates, javax.swing.GroupLayout.DEFAULT_SIZE, 300, Short.MAX_VALUE)
-                                    .addComponent(cb_citizenship, 0, 300, Short.MAX_VALUE)
-                                    .addComponent(cb_bloadgroup, 0, 300, Short.MAX_VALUE)
-                                    .addComponent(tf_sgot, javax.swing.GroupLayout.DEFAULT_SIZE, 300, Short.MAX_VALUE)
-                                    .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 300, Short.MAX_VALUE)
+                                    .addComponent(tf_whiteBlodPlates)
+                                    .addComponent(cb_bloadgroup, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(tf_sgot)
+                                    .addComponent(jScrollPane3)
                                     .addGroup(layout.createSequentialGroup()
                                         .addGap(10, 10, 10)
                                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                             .addGroup(layout.createSequentialGroup()
-                                                .addComponent(jr_hcv_yes)
+                                                .addComponent(rb_hcv_yes)
                                                 .addGap(10, 10, 10)
-                                                .addComponent(jr_hcv_no))
+                                                .addComponent(rb_hcv_no))
                                             .addComponent(jLabel35))
                                         .addGap(45, 45, 45)
                                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -546,13 +579,15 @@ public class index extends javax.swing.JPanel {
                                             .addComponent(jLabel20)
                                             .addComponent(jLabel9)
                                             .addComponent(jLabel11)
-                                            .addComponent(jLabel12)
-                                            .addComponent(jLabel25))
-                                        .addGap(0, 0, Short.MAX_VALUE))
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(cb_donnerHospita_province, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(cb_donnerHospital, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                                            .addComponent(jLabel25)
+                                            .addComponent(cb_citizenship, javax.swing.GroupLayout.PREFERRED_SIZE, 345, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addGroup(layout.createSequentialGroup()
+                                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                                    .addComponent(cb_donnerHospita_province, 0, 1, Short.MAX_VALUE)
+                                                    .addComponent(jLabel12, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                                .addGap(8, 8, 8)
+                                                .addComponent(cb_donnerHospital, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                        .addGap(0, 0, Short.MAX_VALUE))))
                             .addComponent(jLabel36)
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -563,7 +598,7 @@ public class index extends javax.swing.JPanel {
                                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                             .addGroup(layout.createSequentialGroup()
                                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                .addComponent(cb_hlz_class_type, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                                .addComponent(cb_hla_class_type, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                                             .addGroup(layout.createSequentialGroup()
                                                 .addGap(12, 12, 12)
                                                 .addComponent(jLabel30)
@@ -608,20 +643,20 @@ public class index extends javax.swing.JPanel {
                                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                             .addComponent(jLabel33)
                                             .addGroup(layout.createSequentialGroup()
-                                                .addComponent(jr_hiv_yes)
+                                                .addComponent(rb_hiv_yes)
                                                 .addGap(10, 10, 10)
-                                                .addComponent(jr_hiv_no))
+                                                .addComponent(rb_hiv_no))
                                             .addComponent(jLabel37))
                                         .addGap(60, 60, 60)
                                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                             .addGroup(layout.createSequentialGroup()
-                                                .addComponent(jr_hbv_yes)
+                                                .addComponent(rb_hbv_yes)
                                                 .addGap(10, 10, 10)
-                                                .addComponent(jr_hbv_no))
+                                                .addComponent(rb_hbv_no))
                                             .addComponent(jLabel34)))
                                     .addComponent(cb_dsa_class, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                .addGap(320, 320, 320)))
-                        .addGap(88, 88, 88)))
+                                .addGap(365, 365, 365)))
+                        .addGap(43, 43, 43)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -656,25 +691,6 @@ public class index extends javax.swing.JPanel {
                                                 .addGap(10, 10, 10)
                                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                                     .addGroup(layout.createSequentialGroup()
-                                                        .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                                            .addComponent(rb_male, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                            .addComponent(rb_female, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                                    .addGroup(layout.createSequentialGroup()
-                                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                                            .addComponent(jLabel2)
-                                                            .addComponent(jLabel5))
-                                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                            .addComponent(dc_dob, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                            .addGroup(layout.createSequentialGroup()
-                                                                .addComponent(tf_mname, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                                .addComponent(jLabel3)
-                                                                .addGap(9, 9, 9)
-                                                                .addComponent(tf_lname, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                                                    .addGroup(layout.createSequentialGroup()
                                                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                                             .addComponent(jLabel15, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                             .addComponent(jLabel11))
@@ -690,7 +706,27 @@ public class index extends javax.swing.JPanel {
                                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                                             .addComponent(tf_addressStreet, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                            .addComponent(cb_bloadgroup, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                                            .addComponent(cb_bloadgroup, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                                    .addGroup(layout.createSequentialGroup()
+                                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                                            .addComponent(jLabel2)
+                                                            .addComponent(jLabel5))
+                                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                            .addComponent(tf_mname, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                            .addComponent(dc_dob, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                                                .addComponent(jLabel3)
+                                                                .addGap(9, 9, 9)
+                                                                .addComponent(tf_lname, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                                                .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                                                    .addComponent(rb_male, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                                    .addComponent(rb_female, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))))))
                                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                                     .addGroup(layout.createSequentialGroup()
                                                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -774,14 +810,14 @@ public class index extends javax.swing.JPanel {
                                 .addComponent(jLabel35)
                                 .addGap(8, 8, 8)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(jr_hcv_yes)
-                                    .addComponent(jr_hcv_no)))))
+                                    .addComponent(rb_hcv_yes)
+                                    .addComponent(rb_hcv_no)))))
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jr_hiv_yes)
-                            .addComponent(jr_hiv_no)
-                            .addComponent(jr_hbv_yes)
-                            .addComponent(jr_hbv_no))
+                            .addComponent(rb_hiv_yes)
+                            .addComponent(rb_hiv_no)
+                            .addComponent(rb_hbv_yes)
+                            .addComponent(rb_hbv_no))
                         .addComponent(tf_cadaverType, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel38)
@@ -796,11 +832,114 @@ public class index extends javax.swing.JPanel {
                     .addComponent(bt_save, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(cb_hla_class, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(cb_hlz_class_type, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(cb_hla_class_type, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(cb_dsa_class, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
         );
     }// </editor-fold>//GEN-END:initComponents
+
+    private void cb_donnerHospita_provincePropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_cb_donnerHospita_provincePropertyChange
+
+        System.out.println("Province Code - " + cb_donnerHospita_province.getSelectedItem().toString());
+        loadHospitals(cb_donnerHospita_province.getSelectedItem().toString());
+
+    }//GEN-LAST:event_cb_donnerHospita_provincePropertyChange
+
+    private void cb_hla_classPropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_cb_hla_classPropertyChange
+
+        System.out.println("HLA Class - " + cb_hla_class.getSelectedItem().toString());
+        loadHLA(cb_hla_class.getSelectedItem().toString());
+
+    }//GEN-LAST:event_cb_hla_classPropertyChange
+
+    private void bt_saveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bt_saveActionPerformed
+
+        try {
+
+            Session s = HibernateUtil.getSessionFactory().openSession();
+
+            Doner doner = new Doner();
+            doner.setDonerFname(tf_fname.getText());
+            doner.setDonerMname(tf_mname.getText());
+            doner.setDonerLname(tf_lname.getText());
+            doner.setDonerNic(tf_nic.getText());
+            doner.setDonerCauseOfDeath(tf_causeOfDeth.getText());
+            doner.setDonerIcuDays(tf_icu.getText());
+            doner.setDonerSteatoticLiver(Integer.parseInt(tf_liver.getText()));
+            doner.setDonerBilirubin(Integer.parseInt(tf_bilirubin.getText()));
+            doner.setDonerHla(cb_hla_class.getSelectedItem().toString() + "," + cb_hla_class_type.getSelectedItem().toString());
+            doner.setDonerPhone(tf_pno.getText());
+            doner.setDonerDob(new SimpleDateFormat("dd-mm-yyyy").format(dc_dob.getDate()));
+            if (rb_male.isSelected()) {
+                doner.setDonerGen("Male");
+            } else {
+                doner.setDonerGen("Female");
+            }
+            doner.setDonerHeight(tf_height.getText());
+            doner.setDonerBrainDeathDate(tf_brain_deth_date.getText());
+            doner.setDonerBmi(tf_bmi.getText());
+            doner.setDonerSodiam(tf_sodiam.getText());
+            doner.setDonerCadaverType(tf_cadaverType.getText());
+            doner.setDonerWeight(tf_weight.getText());
+
+            AddressDoner addressDoner = new AddressDoner();
+            addressDoner.setAddressDonerNo(tf_addressNo.getText());
+            addressDoner.setAddressDonerStreet(tf_addressStreet.getText());
+            addressDoner.setAddressDonerTown(tf_addressTown.getText());
+            
+            doner.setAddressDoner(addressDoner);
+            
+            doner.setDonerPastHistoryDrug(ta_historyOfDrug.getText());
+            doner.setDonerSgpt(tf_sgpt.getText());
+            if (rb_hiv_yes.isSelected()) {
+                doner.setDonerHivStatus("Yes");
+            } else {
+                doner.setDonerHivStatus("No");
+            }
+
+            if (rb_hbv_yes.isSelected()) {
+                doner.setDonerHbvStatus("Yes");
+            } else {
+                doner.setDonerHbvStatus("No");
+            }
+
+            doner.setDonerDsa(cb_dsa_class.getSelectedItem().toString());
+
+            doner.setDonerCuntry(cb_citizenship.getSelectedItem().toString());
+
+            Criteria c = s.createCriteria(DonerHostpital.class);
+            c.add(Restrictions.eq("donerHostpitalName", cb_donnerHospital.getSelectedItem().toString()));
+            c.add(Restrictions.eq("donerHostpitalProvince", cb_donnerHospita_province.getSelectedItem().toString()));
+
+            DonerHostpital donerHostpital = (DonerHostpital) c.uniqueResult();
+            doner.setDonerHostpital(donerHostpital);
+
+            doner.setDonerBlodGroup(cb_bloadgroup.getSelectedItem().toString());
+            doner.setDonerPastHistoryMalignancies(ta_historyOfMalignancies.getText());
+            doner.setDonerSgot(tf_sgot.getText());
+            doner.setDonerWhiteBloadPlates(tf_whiteBlodPlates.getText());
+
+            if (rb_hcv_yes.isSelected()) {
+                doner.setDonerHcvStatus("Yes");
+            } else {
+                doner.setDonerHcvStatus("No");
+            }
+
+            doner.setDonerPra(tf_pra.getText());
+
+           
+            s.save(addressDoner);
+             s.save(doner);
+
+            s.beginTransaction().commit();
+
+        } catch (Exception e) {
+
+            e.printStackTrace();
+
+        }
+
+    }//GEN-LAST:event_bt_saveActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -815,8 +954,8 @@ public class index extends javax.swing.JPanel {
     private javax.swing.JComboBox<String> cb_donnerHospital;
     private javax.swing.JComboBox<String> cb_dsa_class;
     private javax.swing.JComboBox<String> cb_hla_class;
-    private javax.swing.JComboBox<String> cb_hlz_class_type;
-    private datechooser.beans.DateChooserCombo dc_dob;
+    private javax.swing.JComboBox<String> cb_hla_class_type;
+    private com.toedter.calendar.JDateChooser dc_dob;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -853,13 +992,13 @@ public class index extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel9;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
-    private javax.swing.JRadioButton jr_hbv_no;
-    private javax.swing.JRadioButton jr_hbv_yes;
-    private javax.swing.JRadioButton jr_hcv_no;
-    private javax.swing.JRadioButton jr_hcv_yes;
-    private javax.swing.JRadioButton jr_hiv_no;
-    private javax.swing.JRadioButton jr_hiv_yes;
     private javax.swing.JRadioButton rb_female;
+    private javax.swing.JRadioButton rb_hbv_no;
+    private javax.swing.JRadioButton rb_hbv_yes;
+    private javax.swing.JRadioButton rb_hcv_no;
+    private javax.swing.JRadioButton rb_hcv_yes;
+    private javax.swing.JRadioButton rb_hiv_no;
+    private javax.swing.JRadioButton rb_hiv_yes;
     private javax.swing.JRadioButton rb_male;
     private javax.swing.JTextArea ta_historyOfDrug;
     private javax.swing.JTextArea ta_historyOfMalignancies;
@@ -887,10 +1026,6 @@ public class index extends javax.swing.JPanel {
     private javax.swing.JTextField tf_whiteBlodPlates;
     // End of variables declaration//GEN-END:variables
 
-
-
-
-
     private void loadCuntrys() {
 
         try {
@@ -912,8 +1047,50 @@ public class index extends javax.swing.JPanel {
         } catch (Exception e) {
 
             e.printStackTrace();
-            
+
         }
+
+    }
+
+    private void loadHospitals(String code) {
+
+        try {
+            Session s = HibernateUtil.getSessionFactory().openSession();
+            Criteria cForLoadHospitals = s.createCriteria(DonerHostpital.class);
+            cForLoadHospitals.add(Restrictions.eq("donerHostpitalProvince", code));
+            cForLoadHospitals.add(Restrictions.eq("donerHostpitalStatus", "Active"));
+            List<DonerHostpital> li = cForLoadHospitals.list();
+            Vector v = new Vector();
+            for (DonerHostpital donerHostpital : li) {
+                v.add(donerHostpital.getDonerHostpitalName().toString());
+            }
+            DefaultComboBoxModel defaultComboBoxModel = new DefaultComboBoxModel(v);
+            cb_donnerHospital.setModel(defaultComboBoxModel);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+    }
+
+    private void loadHLA(String Hlaclass) {
+
+        Vector v = new Vector();
+
+        if (Hlaclass.equals("Class 1")) {
+
+            v.add("A");
+            v.add("B");
+            v.add("C");
+
+        } else {
+
+            v.add("DR");
+            v.add("DQ");
+            v.add("DP");
+
+        }
+        DefaultComboBoxModel defaultComboBoxModel = new DefaultComboBoxModel(v);
+        cb_hla_class_type.setModel(defaultComboBoxModel);
 
     }
 }

@@ -1,15 +1,16 @@
 package soft.idea.hospital.kidny2017.se.models;
-// Generated Feb 21, 2017 8:45:30 PM by Hibernate Tools 4.3.1
+// Generated Feb 26, 2017 1:25:37 PM by Hibernate Tools 4.3.1
 
 
+import java.util.HashSet;
+import java.util.Set;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import static javax.persistence.GenerationType.IDENTITY;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 /**
@@ -23,23 +24,19 @@ public class AddressPation  implements java.io.Serializable {
 
 
      private Integer idaddress;
-     private Pation pation;
      private String addressNo;
      private String addressStreetName;
      private String addressTown;
+     private Set<Pation> pations = new HashSet<Pation>(0);
 
     public AddressPation() {
     }
 
-	
-    public AddressPation(Pation pation) {
-        this.pation = pation;
-    }
-    public AddressPation(Pation pation, String addressNo, String addressStreetName, String addressTown) {
-       this.pation = pation;
+    public AddressPation(String addressNo, String addressStreetName, String addressTown, Set<Pation> pations) {
        this.addressNo = addressNo;
        this.addressStreetName = addressStreetName;
        this.addressTown = addressTown;
+       this.pations = pations;
     }
    
      @Id @GeneratedValue(strategy=IDENTITY)
@@ -52,16 +49,6 @@ public class AddressPation  implements java.io.Serializable {
     
     public void setIdaddress(Integer idaddress) {
         this.idaddress = idaddress;
-    }
-
-@ManyToOne(fetch=FetchType.LAZY)
-    @JoinColumn(name="pation_idpation", nullable=false)
-    public Pation getPation() {
-        return this.pation;
-    }
-    
-    public void setPation(Pation pation) {
-        this.pation = pation;
     }
 
     
@@ -92,6 +79,15 @@ public class AddressPation  implements java.io.Serializable {
     
     public void setAddressTown(String addressTown) {
         this.addressTown = addressTown;
+    }
+
+@OneToMany(fetch=FetchType.LAZY, mappedBy="addressPation")
+    public Set<Pation> getPations() {
+        return this.pations;
+    }
+    
+    public void setPations(Set<Pation> pations) {
+        this.pations = pations;
     }
 
 

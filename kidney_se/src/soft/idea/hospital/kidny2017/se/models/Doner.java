@@ -1,5 +1,5 @@
 package soft.idea.hospital.kidny2017.se.models;
-// Generated Feb 21, 2017 8:45:30 PM by Hibernate Tools 4.3.1
+// Generated Feb 26, 2017 1:25:37 PM by Hibernate Tools 4.3.1
 
 
 import java.util.HashSet;
@@ -26,6 +26,7 @@ public class Doner  implements java.io.Serializable {
 
 
      private Integer iddoner;
+     private AddressDoner addressDoner;
      private DonerHostpital donerHostpital;
      private String donerFname;
      private String donerMname;
@@ -61,17 +62,18 @@ public class Doner  implements java.io.Serializable {
      private String donerRegdate;
      private String donerAvailable;
      private String donerStatus;
-     private Set<AddressDoner> addressDoners = new HashSet<AddressDoner>(0);
      private Set<PationHasDoner> pationHasDoners = new HashSet<PationHasDoner>(0);
 
     public Doner() {
     }
 
 	
-    public Doner(DonerHostpital donerHostpital) {
+    public Doner(AddressDoner addressDoner, DonerHostpital donerHostpital) {
+        this.addressDoner = addressDoner;
         this.donerHostpital = donerHostpital;
     }
-    public Doner(DonerHostpital donerHostpital, String donerFname, String donerMname, String donerLname, String donerNic, String donerCauseOfDeath, String donerIcuDays, Integer donerSteatoticLiver, Integer donerBilirubin, String donerHla, String donerPhone, String donerDob, String donerGen, String donerHeight, String donerBmi, String donerSodiam, String donerCadaverType, String donerWeight, String donerPastHistoryDrug, String donerSgpt, String donerHivStatus, String donerHbvStatus, String donerDsa, String donerCuntry, String donerBlodGroup, String donerPastHistoryMalignancies, String donerSgot, String donerWhiteBloadPlates, String donerHcvStatus, String donerPra, String donerAge, String donerBrainDeathDate, String donerRegdate, String donerAvailable, String donerStatus, Set<AddressDoner> addressDoners, Set<PationHasDoner> pationHasDoners) {
+    public Doner(AddressDoner addressDoner, DonerHostpital donerHostpital, String donerFname, String donerMname, String donerLname, String donerNic, String donerCauseOfDeath, String donerIcuDays, Integer donerSteatoticLiver, Integer donerBilirubin, String donerHla, String donerPhone, String donerDob, String donerGen, String donerHeight, String donerBmi, String donerSodiam, String donerCadaverType, String donerWeight, String donerPastHistoryDrug, String donerSgpt, String donerHivStatus, String donerHbvStatus, String donerDsa, String donerCuntry, String donerBlodGroup, String donerPastHistoryMalignancies, String donerSgot, String donerWhiteBloadPlates, String donerHcvStatus, String donerPra, String donerAge, String donerBrainDeathDate, String donerRegdate, String donerAvailable, String donerStatus, Set<PationHasDoner> pationHasDoners) {
+       this.addressDoner = addressDoner;
        this.donerHostpital = donerHostpital;
        this.donerFname = donerFname;
        this.donerMname = donerMname;
@@ -107,7 +109,6 @@ public class Doner  implements java.io.Serializable {
        this.donerRegdate = donerRegdate;
        this.donerAvailable = donerAvailable;
        this.donerStatus = donerStatus;
-       this.addressDoners = addressDoners;
        this.pationHasDoners = pationHasDoners;
     }
    
@@ -121,6 +122,16 @@ public class Doner  implements java.io.Serializable {
     
     public void setIddoner(Integer iddoner) {
         this.iddoner = iddoner;
+    }
+
+@ManyToOne(fetch=FetchType.LAZY)
+    @JoinColumn(name="address_doner_idaddress_doner", nullable=false)
+    public AddressDoner getAddressDoner() {
+        return this.addressDoner;
+    }
+    
+    public void setAddressDoner(AddressDoner addressDoner) {
+        this.addressDoner = addressDoner;
     }
 
 @ManyToOne(fetch=FetchType.LAZY)
@@ -471,15 +482,6 @@ public class Doner  implements java.io.Serializable {
     
     public void setDonerStatus(String donerStatus) {
         this.donerStatus = donerStatus;
-    }
-
-@OneToMany(fetch=FetchType.LAZY, mappedBy="doner")
-    public Set<AddressDoner> getAddressDoners() {
-        return this.addressDoners;
-    }
-    
-    public void setAddressDoners(Set<AddressDoner> addressDoners) {
-        this.addressDoners = addressDoners;
     }
 
 @OneToMany(fetch=FetchType.LAZY, mappedBy="doner")
