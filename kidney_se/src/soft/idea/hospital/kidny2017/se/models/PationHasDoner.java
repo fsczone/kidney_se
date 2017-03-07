@@ -1,5 +1,5 @@
 package soft.idea.hospital.kidny2017.se.models;
-// Generated Feb 26, 2017 1:25:37 PM by Hibernate Tools 4.3.1
+// Generated Mar 4, 2017 7:52:38 PM by Hibernate Tools 4.3.1
 
 
 import javax.persistence.Column;
@@ -23,14 +23,24 @@ public class PationHasDoner  implements java.io.Serializable {
      private int pationHasDonerId;
      private Doner doner;
      private Pation pation;
+     private String pationHasDonerStatus;
+     private String pationHasDonerCompleteStatus;
 
     public PationHasDoner() {
     }
 
+	
     public PationHasDoner(int pationHasDonerId, Doner doner, Pation pation) {
+        this.pationHasDonerId = pationHasDonerId;
+        this.doner = doner;
+        this.pation = pation;
+    }
+    public PationHasDoner(int pationHasDonerId, Doner doner, Pation pation, String pationHasDonerStatus, String pationHasDonerCompleteStatus) {
        this.pationHasDonerId = pationHasDonerId;
        this.doner = doner;
        this.pation = pation;
+       this.pationHasDonerStatus = pationHasDonerStatus;
+       this.pationHasDonerCompleteStatus = pationHasDonerCompleteStatus;
     }
    
      @Id 
@@ -63,6 +73,26 @@ public class PationHasDoner  implements java.io.Serializable {
     
     public void setPation(Pation pation) {
         this.pation = pation;
+    }
+
+    
+    @Column(name="pation_has_doner_status", length=45)
+    public String getPationHasDonerStatus() {
+        return this.pationHasDonerStatus;
+    }
+    
+    public void setPationHasDonerStatus(String pationHasDonerStatus) {
+        this.pationHasDonerStatus = pationHasDonerStatus;
+    }
+
+    
+    @Column(name="pation_has_doner_complete_status", length=45)
+    public String getPationHasDonerCompleteStatus() {
+        return this.pationHasDonerCompleteStatus;
+    }
+    
+    public void setPationHasDonerCompleteStatus(String pationHasDonerCompleteStatus) {
+        this.pationHasDonerCompleteStatus = pationHasDonerCompleteStatus;
     }
 
 

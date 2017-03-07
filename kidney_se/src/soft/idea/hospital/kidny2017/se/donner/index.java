@@ -926,7 +926,17 @@ public class index extends javax.swing.JPanel {
             }
 
             doner.setDonerPra(tf_pra.getText());
-
+            
+            doner.setDonerRegdate(new SimpleDateFormat("dd-MM-yyyy").format(new Date()));
+            doner.setDonerStatus("Active");
+            doner.setDonerAvailable("1");
+            
+            int doner_birth_year=Integer.parseInt(new SimpleDateFormat("YYYY").format(dc_dob.getDate()));
+            int thisYear=Integer.parseInt(new SimpleDateFormat("yyyy").format(new Date()));
+            
+            int age=thisYear-doner_birth_year;
+            
+            doner.setDonerAge(age+"");
            
             s.save(addressDoner);
              s.save(doner);

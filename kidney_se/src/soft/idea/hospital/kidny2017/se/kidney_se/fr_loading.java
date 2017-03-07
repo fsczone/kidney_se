@@ -75,7 +75,7 @@ public class fr_loading extends javax.swing.JFrame {
 
         jLabel2.setFont(new java.awt.Font("Microsoft JhengHei UI", 0, 24)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel2.setText("Patient - Donner");
+        jLabel2.setText("Patient - Donor");
         getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 170, 200, 40));
 
         jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);

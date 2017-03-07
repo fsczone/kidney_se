@@ -5,6 +5,18 @@
  */
 package soft.idea.hospital.kidny2017.se.kidney_se;
 
+import java.util.List;
+import java.util.Vector;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
+import org.hibernate.Criteria;
+import org.hibernate.Session;
+import org.hibernate.criterion.Restrictions;
+import soft.idea.hospital.kidny2017.se.controler.HibernateUtil;
+import soft.idea.hospital.kidny2017.se.models.Doner;
+import soft.idea.hospital.kidny2017.se.models.Pation;
+import soft.idea.hospital.kidny2017.se.models.PationHasDoner;
+
 /**
  *
  * @author deepalsuranga
@@ -14,8 +26,13 @@ public class pl_match_donner_patient extends javax.swing.JPanel {
     /**
      * Creates new form pl_match_donner_patient
      */
+    
+    int patientId=0;
+    int DonerId=0;
+    
     public pl_match_donner_patient() {
         initComponents();
+        LoadAllPatient();
     }
 
     /**
@@ -32,25 +49,25 @@ public class pl_match_donner_patient extends javax.swing.JPanel {
         jPanel1 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
-        lb_patient_dor = new javax.swing.JLabel();
+        lb_patient_name = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
-        lb_patient_bloadGroup = new javax.swing.JLabel();
+        lb_patient_dor = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
-        lb_patient_hlaClass1 = new javax.swing.JLabel();
-        lb_patient_hlaClass2 = new javax.swing.JLabel();
+        lb_patient_bloadGroup = new javax.swing.JLabel();
+        lb_patient_hla = new javax.swing.JLabel();
         jLabel13 = new javax.swing.JLabel();
         lb_patient_dob = new javax.swing.JLabel();
         jLabel15 = new javax.swing.JLabel();
         jLabel32 = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
         jLabel6 = new javax.swing.JLabel();
-        lb_donner_dor = new javax.swing.JLabel();
+        lb_donner_name = new javax.swing.JLabel();
         jLabel20 = new javax.swing.JLabel();
+        lb_donner_dor = new javax.swing.JLabel();
         lb_donner_bloodGroup = new javax.swing.JLabel();
-        lb_donner_hlaClass1 = new javax.swing.JLabel();
         jLabel23 = new javax.swing.JLabel();
         jLabel24 = new javax.swing.JLabel();
-        lb_donner_hlaClass2 = new javax.swing.JLabel();
+        lb_donner_hla = new javax.swing.JLabel();
         jLabel26 = new javax.swing.JLabel();
         lb_donner_dob = new javax.swing.JLabel();
         jLabel33 = new javax.swing.JLabel();
@@ -63,46 +80,51 @@ public class pl_match_donner_patient extends javax.swing.JPanel {
 
         tb_patient.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null},
-                {null, null},
-                {null, null},
-                {null, null}
+
             },
             new String [] {
-                "Patient", "Title 2"
+                "ID", "Patient"
             }
-        ));
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        tb_patient.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tb_patientMouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(tb_patient);
 
-        jLabel4.setText("Date of registration");
+        jLabel4.setText("Name");
+
+        lb_patient_name.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
+
+        jLabel8.setText("Date of registration");
 
         lb_patient_dor.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
-        lb_patient_dor.setText("jLabel5");
 
-        jLabel8.setText("Blood group");
+        jLabel10.setText("Blood Group");
 
         lb_patient_bloadGroup.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
-        lb_patient_bloadGroup.setText("jLabel5");
 
-        jLabel10.setText("HLA (class 1)");
+        lb_patient_hla.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
 
-        lb_patient_hlaClass1.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
-        lb_patient_hlaClass1.setText("jLabel5");
-
-        lb_patient_hlaClass2.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
-        lb_patient_hlaClass2.setText("jLabel5");
-
-        jLabel13.setText("HLA (class 2)");
+        jLabel13.setText("HLA ");
 
         lb_patient_dob.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
-        lb_patient_dob.setText("jLabel5");
 
         jLabel15.setText("Date of birth");
 
         jLabel32.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         jLabel32.setForeground(new java.awt.Color(51, 255, 0));
         jLabel32.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        jLabel32.setText("7/10");
+        jLabel32.setText("10/10");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -112,13 +134,13 @@ public class pl_match_donner_patient extends javax.swing.JPanel {
                 .addContainerGap()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jLabel32, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(lb_patient_dor, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(lb_patient_name, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(lb_patient_bloadGroup, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(lb_patient_dor, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jLabel8, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 298, Short.MAX_VALUE)
-                    .addComponent(lb_patient_hlaClass1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(lb_patient_bloadGroup, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jLabel10, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 298, Short.MAX_VALUE)
-                    .addComponent(lb_patient_hlaClass2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(lb_patient_hla, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jLabel13, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 298, Short.MAX_VALUE)
                     .addComponent(lb_patient_dob, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jLabel15, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 298, Short.MAX_VALUE))
@@ -130,19 +152,19 @@ public class pl_match_donner_patient extends javax.swing.JPanel {
                 .addContainerGap()
                 .addComponent(jLabel4)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(lb_patient_dor, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(lb_patient_name, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel8)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(lb_patient_bloadGroup, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(lb_patient_dor, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel10)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(lb_patient_hlaClass1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(lb_patient_bloadGroup, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel13)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(lb_patient_hlaClass2, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(lb_patient_hla, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel15)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -152,35 +174,30 @@ public class pl_match_donner_patient extends javax.swing.JPanel {
                 .addContainerGap())
         );
 
-        jLabel6.setText("Date of registration");
+        jLabel6.setText("Name");
+
+        lb_donner_name.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
+
+        jLabel20.setText("Date of registration");
 
         lb_donner_dor.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
-        lb_donner_dor.setText("jLabel5");
-
-        jLabel20.setText("Blood group");
 
         lb_donner_bloodGroup.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
-        lb_donner_bloodGroup.setText("jLabel5");
 
-        lb_donner_hlaClass1.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
-        lb_donner_hlaClass1.setText("jLabel5");
+        jLabel23.setText("Blood Group");
 
-        jLabel23.setText("HLA (class 1)");
+        jLabel24.setText("HLA");
 
-        jLabel24.setText("HLA (class 2)");
-
-        lb_donner_hlaClass2.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
-        lb_donner_hlaClass2.setText("jLabel5");
+        lb_donner_hla.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
 
         jLabel26.setText("Date of birth");
 
         lb_donner_dob.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
-        lb_donner_dob.setText("jLabel5");
 
         jLabel33.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         jLabel33.setForeground(new java.awt.Color(51, 255, 0));
         jLabel33.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        jLabel33.setText("6/10");
+        jLabel33.setText("10/10");
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -190,13 +207,13 @@ public class pl_match_donner_patient extends javax.swing.JPanel {
                 .addContainerGap()
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jLabel33, javax.swing.GroupLayout.PREFERRED_SIZE, 302, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lb_donner_dor, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(lb_donner_name, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jLabel6, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(lb_donner_bloodGroup, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(lb_donner_dor, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jLabel20, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(lb_donner_hlaClass1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(lb_donner_bloodGroup, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jLabel23, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(lb_donner_hlaClass2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(lb_donner_hla, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jLabel24, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(lb_donner_dob, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jLabel26, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -208,19 +225,19 @@ public class pl_match_donner_patient extends javax.swing.JPanel {
                 .addContainerGap()
                 .addComponent(jLabel6)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(lb_donner_dor, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(lb_donner_name, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel20)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(lb_donner_bloodGroup, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(lb_donner_dor, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel23)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(lb_donner_hlaClass1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(lb_donner_bloodGroup, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel24)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(lb_donner_hlaClass2, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(lb_donner_hla, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel26)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -275,20 +292,39 @@ public class pl_match_donner_patient extends javax.swing.JPanel {
 
         tb_donner.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null},
-                {null, null},
-                {null, null},
-                {null, null}
+
             },
             new String [] {
-                "Donner", "Title 2"
+                "ID", "Donner"
             }
-        ));
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        tb_donner.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tb_donnerMouseClicked(evt);
+            }
+        });
         jScrollPane2.setViewportView(tb_donner);
+        if (tb_donner.getColumnModel().getColumnCount() > 0) {
+            tb_donner.getColumnModel().getColumn(0).setResizable(false);
+            tb_donner.getColumnModel().getColumn(1).setResizable(false);
+        }
 
         jButton1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jButton1.setText("Bound");
         jButton1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -321,6 +357,74 @@ public class pl_match_donner_patient extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    private void tb_patientMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tb_patientMouseClicked
+
+        try {
+          
+            int row = tb_patient.getSelectedRow();
+            int col = 0;
+
+            int id = Integer.parseInt(tb_patient.getValueAt(row, col).toString());
+            patientId=id;
+            System.out.println("val = " + id);
+            
+            searchPatient(id);
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+    }//GEN-LAST:event_tb_patientMouseClicked
+
+    private void tb_donnerMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tb_donnerMouseClicked
+
+         try {
+          
+            int row = tb_donner.getSelectedRow();
+            int col = 0;
+
+            int id = Integer.parseInt(tb_donner.getValueAt(row, col).toString());
+            DonerId=id;
+            System.out.println("val = " + id);
+            
+            searchDoner(id);
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        
+    }//GEN-LAST:event_tb_donnerMouseClicked
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+      
+        System.out.println("Pation id and doner id = "+patientId+" "+DonerId);
+        
+        if (!(patientId==0 | DonerId==0)) {
+            
+            Session s=HibernateUtil.getSessionFactory().openSession();
+            
+            PationHasDoner phd=new PationHasDoner();
+            phd.setDoner((Doner) s.load(Doner.class, DonerId));
+            phd.setPation((Pation) s.load(Pation.class, patientId));
+            phd.setPationHasDonerStatus("Active");
+            phd.setPationHasDonerCompleteStatus("1");
+            
+            s.save(phd);
+            s.beginTransaction().commit();
+            
+            
+        }else{
+        
+            if (patientId==0) {
+                JOptionPane.showMessageDialog(this, "Select Pation For Bound","Warning", JOptionPane.ERROR_MESSAGE);
+            }else{
+             JOptionPane.showMessageDialog(this, "Select Doner For Bound","Warning", JOptionPane.ERROR_MESSAGE);
+            }
+            
+        }
+        
+    }//GEN-LAST:event_jButton1ActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
@@ -347,14 +451,121 @@ public class pl_match_donner_patient extends javax.swing.JPanel {
     private javax.swing.JLabel lb_donner_bloodGroup;
     private javax.swing.JLabel lb_donner_dob;
     private javax.swing.JLabel lb_donner_dor;
-    private javax.swing.JLabel lb_donner_hlaClass1;
-    private javax.swing.JLabel lb_donner_hlaClass2;
+    private javax.swing.JLabel lb_donner_hla;
+    private javax.swing.JLabel lb_donner_name;
     private javax.swing.JLabel lb_patient_bloadGroup;
     private javax.swing.JLabel lb_patient_dob;
     private javax.swing.JLabel lb_patient_dor;
-    private javax.swing.JLabel lb_patient_hlaClass1;
-    private javax.swing.JLabel lb_patient_hlaClass2;
+    private javax.swing.JLabel lb_patient_hla;
+    private javax.swing.JLabel lb_patient_name;
     private javax.swing.JTable tb_donner;
     private javax.swing.JTable tb_patient;
     // End of variables declaration//GEN-END:variables
+
+    private void searchPatient(int id) {
+       
+          try {
+            
+              Session s=HibernateUtil.getSessionFactory().openSession();
+              
+              Pation p=(Pation) s.load(Pation.class, id);
+              
+             lb_patient_name.setText(p.getPationFname()+" "+p.getPationMname()+" "+p.getPationLname());
+             lb_patient_dor.setText(p.getPationRegdate());
+             lb_patient_bloadGroup.setText(p.getPationBloodGroup());
+             lb_patient_hla.setText(p.getPationHla());
+             lb_patient_dob.setText(p.getPationDob());
+             
+             
+              lb_donner_name.setText(null);
+        lb_donner_dor.setText(null);
+        lb_donner_bloodGroup.setText(null);
+        lb_donner_hla.setText(null);
+        lb_donner_dob.setText(null);
+            
+              Criteria cForDonnerMatch=s.createCriteria(Doner.class);
+              
+              cForDonnerMatch.add(Restrictions.eq("donerHivStatus", p.getPationHiv()));
+              cForDonnerMatch.add(Restrictions.eq("donerHbvStatus", p.getPationHbv()));
+              cForDonnerMatch.add(Restrictions.eq("donerHcvStatus", p.getPationHcv()));
+              cForDonnerMatch.add(Restrictions.eq("donerBlodGroup", p.getPationBloodGroup()));
+              cForDonnerMatch.add(Restrictions.eq("donerHla", p.getPationHla()));
+              cForDonnerMatch.add(Restrictions.eq("donerDsa", p.getPationDsa()));
+              cForDonnerMatch.add(Restrictions.eq("donerStatus", "Active"));
+              cForDonnerMatch.add(Restrictions.eq("donerAvailable", "1"));
+             
+              List<Doner> liForMatchDoners=cForDonnerMatch.list();
+              
+              DefaultTableModel dtm=(DefaultTableModel) tb_donner.getModel();
+              dtm.setRowCount(0);
+              
+              if (!(liForMatchDoners.isEmpty())) {
+                   for (Doner liForMatchDoner : liForMatchDoners) {
+                  
+                  Vector v=new Vector();
+                  v.add(liForMatchDoner.getIddoner().toString());
+                  v.add(liForMatchDoner.getDonerFname()+" "+liForMatchDoner.getDonerMname()+" "+liForMatchDoner.getDonerLname());
+                  dtm.addRow(v);
+                  
+              }
+              }else{
+              
+                    JOptionPane.showMessageDialog(this, "Matching Donors Not Available","Information", JOptionPane.INFORMATION_MESSAGE);
+              
+              }
+             
+            
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        
+    }
+
+    private void LoadAllPatient() {
+        
+        try {
+            
+            Session s=HibernateUtil.getSessionFactory().openSession();
+            
+           Criteria cForLoadPatient= s.createCriteria(Pation.class);
+           
+           List<Pation> liForAllPatients=cForLoadPatient.list();
+           
+           DefaultTableModel dtm=(DefaultTableModel) tb_patient.getModel();
+              dtm.setRowCount(0);
+              if (!(liForAllPatients.isEmpty())) {
+                   for (Pation liForMatchPatient : liForAllPatients) {
+                  
+                  Vector v=new Vector();
+                  v.add(liForMatchPatient.getIdpation().toString());
+                  v.add(liForMatchPatient.getPationFname()+" "+liForMatchPatient.getPationMname()+" "+liForMatchPatient.getPationLname());
+                  dtm.addRow(v);
+                  
+              }
+              }else{
+              
+                    JOptionPane.showMessageDialog(this, "Patients Not Available","Information", JOptionPane.INFORMATION_MESSAGE);
+              
+              }
+            
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        
+    }
+
+    private void searchDoner(int id) {
+        
+        Session s=HibernateUtil.getSessionFactory().openSession();
+        
+        Doner d=(Doner) s.load(Doner.class, id);
+        
+        lb_donner_name.setText(d.getDonerFname()+" "+d.getDonerMname()+" "+d.getDonerLname());
+        lb_donner_dor.setText(d.getDonerRegdate());
+        lb_donner_bloodGroup.setText(d.getDonerBlodGroup());
+        lb_donner_hla.setText(d.getDonerHla());
+        lb_donner_dob.setText(d.getDonerDob());
+        
+        
+    }
 }
